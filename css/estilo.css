@@ -263,10 +263,11 @@ body::before {
 
 /* ---------- Hero: a foto cobre tudo, o nome em cromo vai por cima ---------- */
 .hero { position: relative; display: grid; align-items: center; min-height: calc(100svh - var(--barra)); padding-block: clamp(3.5rem, 9vh, 5.5rem) clamp(4rem, 11vh, 7rem); overflow: hidden; overflow: clip; text-align: center; }
-.hero .fundo { --fundo-op: 1; filter: saturate(1.05) contrast(1.06) brightness(0.82); }
-.hero .fundo img { object-position: 50% 24%; }
+.hero .fundo { --fundo-op: 1; filter: saturate(1.08) contrast(1.08) brightness(0.92); }
+.hero .fundo img { object-position: 50% 18%; }
 /* Véu que garante a leitura sobre a foto; mais fechado embaixo, onde ficam os botões. */
-.hero-veu { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to bottom, rgba(20, 23, 29, 0.5) 0%, rgba(20, 23, 29, 0.6) 35%, rgba(20, 23, 29, 0.84) 72%, var(--veludo) 100%), linear-gradient(to top, rgba(227, 154, 58, 0.12), transparent 45%); }
+/* No celular o rosto fica livre no alto e o texto desce pra base, sobre a parte escura do véu. */
+.hero-veu { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to bottom, rgba(20, 23, 29, 0.1) 0%, rgba(20, 23, 29, 0.2) 30%, rgba(20, 23, 29, 0.78) 55%, var(--veludo) 100%), linear-gradient(to top, rgba(227, 154, 58, 0.12), transparent 45%); }
 /* Luzes de palco: dois canhões presos no alto, um de mel e um de cromo, balançando devagar.
    Cada feixe é um gradiente cônico com a ponta no topo da seção, girando em volta dela. */
 .hero-luzes { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
@@ -304,10 +305,10 @@ body::before {
 .cartao--destaque { border-color: rgba(227, 154, 58, 0.45); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 50px rgba(227, 154, 58, 0.1); }
 /* Fita de cromo e mel correndo no topo do cartão: o gradiente tem o padrão duas vezes e
    desliza 50 %, então o laço fecha sem emenda. */
-.cartao__fita { position: absolute; inset: 0 0 auto; height: 3px; overflow: hidden; }
+.cartao__fita { position: absolute; inset: 0 0 auto; z-index: 2; height: 3px; overflow: hidden; }
 .cartao__fita::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 200%; background: linear-gradient(90deg, var(--mel-queimado), var(--mel), var(--cromo-claro), var(--mel), var(--mel-queimado), var(--mel), var(--cromo-claro), var(--mel), var(--mel-queimado)); animation: fita 7s linear infinite; }
 @keyframes fita { to { transform: translateX(-50%); } }
-.cartao__selo { position: absolute; top: 1rem; right: 1rem; padding: 0.32rem 0.7rem; font: 700 0.68rem/1.2 var(--corpo); letter-spacing: 0.07em; text-transform: uppercase; color: var(--veludo); background: linear-gradient(150deg, var(--mel-claro), var(--mel)); border-radius: 40px; box-shadow: 0 4px 14px rgba(227, 154, 58, 0.35); }
+.cartao__selo { position: absolute; z-index: 3; top: 1rem; right: 1rem; padding: 0.32rem 0.7rem; font: 700 0.68rem/1.2 var(--corpo); letter-spacing: 0.07em; text-transform: uppercase; color: var(--veludo); background: linear-gradient(150deg, var(--mel-claro), var(--mel)); border-radius: 40px; box-shadow: 0 4px 14px rgba(227, 154, 58, 0.35); }
 /* Etiqueta de formato: "Online" em mel, "Ao vivo" em cromo. */
 .cartao__tag { align-self: flex-start; padding: 0.2rem 0.5rem 0.15rem; border: 1px solid var(--mel); border-radius: var(--raio); font-family: var(--display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.2; color: var(--mel); }
 .cartao__tag--vivo { color: var(--cromo); border-color: rgba(215, 218, 222, 0.55); }
@@ -318,6 +319,11 @@ body::before {
 .checks li { position: relative; padding-left: 1.75rem; font-size: 0.92rem; line-height: 1.5; color: var(--cinza-claro); }
 .checks li::before { content: ""; position: absolute; left: 0; top: 0.15em; width: 1.15rem; height: 1.15rem; border: 1px solid var(--linha-mel); border-radius: 3px; background: rgba(227, 154, 58, 0.1) url("data:image/svg+xml,%3Csvg width='11' height='9' viewBox='0 0 11 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4.4L4 7.4L10 1' stroke='%23E39A3A' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 62% no-repeat; }
 .cartao .botao { margin-top: auto; }
+/* Foto do serviço: sangra até as bordas do cartão, no topo, e derrete no fundo dele embaixo. */
+.cartao__foto { position: relative; align-self: stretch; margin: -2rem -1.5rem 0.3rem; overflow: hidden; }
+.cartao__foto img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: var(--pos, 50% 25%); }
+.cartao__foto::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 55%, rgba(37, 42, 51, 0.85) 92%, #252A33 100%); }
+.cartao:hover .cartao__foto img { transform: scale(1.04); }
 
 /* ---------- Sobre ---------- */
 .sobre { display: grid; gap: 2rem; align-items: center; padding: 2rem 1.5rem; background: linear-gradient(160deg, rgba(31, 35, 43, 0.78), rgba(20, 23, 29, 0.6)); border: 1px solid var(--linha); border-radius: 10px; }
@@ -433,11 +439,17 @@ body::before {
 .barra { transition: transform 0.25s ease; }
 .js .flutuante { transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
 .moldura { transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.4s; }
-.moldura img { transition: transform 0.7s var(--ease); }
+.moldura img, .cartao__foto img { transition: transform 0.7s var(--ease); }
 .moldura__canto { transition: opacity 0.4s, width 0.4s var(--ease), height 0.4s var(--ease); }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 /* ---------- Celular: tudo centralizado e ritmo mais curto ---------- */
+@media (max-width: 899.98px) {
+  .hero { align-items: end; padding-bottom: 2.5rem; }
+  /* A foto ocupa só o alto da tela e some em degradê: rosto e gaita ficam acima do texto. */
+  .hero .fundo { bottom: auto; height: 68%; -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); }
+}
+
 @media (max-width: 619.98px) {
   :root { --ritmo: clamp(2.75rem, 7vw, 4.5rem); }
   .cabecalho-secao { align-items: center; text-align: center; }
@@ -445,7 +457,6 @@ body::before {
   .cartao { text-align: center; align-items: center; }
   .cartao__tag { align-self: center; }
   .checks { width: 100%; text-align: left; }
-  .cartao--destaque .cartao__tag { margin-top: 1.6rem; }
   .sobre-texto { align-items: center; text-align: center; }
   .sobre-texto .sobretitulo { justify-content: center; }
   .fichas { justify-content: center; }
@@ -460,8 +471,10 @@ body::before {
 /* ---------- Desktop: 900 px ---------- */
 @media (min-width: 900px) {
   .hero { text-align: left; }
-  .hero .fundo img { object-position: 50% 30%; }
-  .hero-veu { background: linear-gradient(100deg, rgba(20, 23, 29, 0.9) 0%, rgba(20, 23, 29, 0.72) 38%, rgba(20, 23, 29, 0.42) 68%, rgba(20, 23, 29, 0.6) 100%), linear-gradient(to bottom, rgba(20, 23, 29, 0.35) 0%, transparent 30%, rgba(20, 23, 29, 0.5) 80%, var(--veludo) 100%); }
+  /* A foto ocupa a direita: o rosto fica fora da coluna do nome e a borda esquerda some no escuro. */
+  .hero .fundo { left: 34%; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 32%); mask-image: linear-gradient(to right, transparent 0, #000 32%); }
+  .hero .fundo img { object-position: 50% 15%; }
+  .hero-veu { background: linear-gradient(100deg, rgba(20, 23, 29, 0.85) 0%, rgba(20, 23, 29, 0.5) 40%, rgba(20, 23, 29, 0.1) 68%, rgba(20, 23, 29, 0.25) 100%), linear-gradient(to bottom, transparent 70%, var(--veludo) 100%); }
   .hero-conteudo { align-items: flex-start; }
   .hero-conteudo .sobretitulo { justify-content: flex-start; }
   .hero-botoes { justify-content: flex-start; }

@@ -30,7 +30,7 @@
 <link rel="preload" href="fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
 <!-- A foto do hero é o maior elemento da primeira tela (o LCP): o pedido sai junto com o do CSS.
      O type filtra: navegador sem AVIF ignora esta linha e pega o WebP do <picture>. -->
-<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="img/edu-24-480.avif 480w, img/edu-24-800.avif 800w, img/edu-24-1200.avif 1200w, img/edu-24-1600.avif 1600w" imagesizes="100vw">
+<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="img/edu-14-480.avif 480w, img/edu-14-800.avif 800w, img/edu-14-1200.avif 1200w, img/edu-14-1600.avif 1600w" imagesizes="100vw">
 <link rel="stylesheet" href="css/estilo.css">
 <!-- Marca que o JS está vivo: só com ela a revelação ao rolar começa escondida. Sem script, tudo aparece. -->
 <script>document.documentElement.classList.add("js");</script>
@@ -63,9 +63,9 @@
   <section class="hero" id="topo" aria-labelledby="nome">
     <div class="fundo" aria-hidden="true">
       <picture>
-        <source type="image/avif" srcset="img/edu-24-480.avif 480w, img/edu-24-800.avif 800w, img/edu-24-1200.avif 1200w, img/edu-24-1600.avif 1600w" sizes="100vw">
-        <source type="image/webp" srcset="img/edu-24-480.webp 480w, img/edu-24-800.webp 800w, img/edu-24-1200.webp 1200w, img/edu-24-1600.webp 1600w" sizes="100vw">
-        <img src="img/edu-24-1200.webp" width="1200" height="1800" alt="" fetchpriority="high" decoding="async">
+        <source type="image/avif" srcset="img/edu-14-480.avif 480w, img/edu-14-800.avif 800w, img/edu-14-1200.avif 1200w, img/edu-14-1600.avif 1600w" sizes="100vw">
+        <source type="image/webp" srcset="img/edu-14-480.webp 480w, img/edu-14-800.webp 800w, img/edu-14-1200.webp 1200w, img/edu-14-1600.webp 1600w" sizes="100vw">
+        <img src="img/edu-14-1200.webp" width="1200" height="1800" alt="" fetchpriority="high" decoding="async">
       </picture>
     </div>
     <div class="hero-veu" aria-hidden="true"></div>
@@ -137,6 +137,13 @@
         <article class="cartao cartao--destaque revela">
           <span class="cartao__fita" aria-hidden="true"></span>
           <span class="cartao__selo revela revela--carimbo" style="--d:420ms">Comece por aqui</span>
+          <figure class="cartao__foto" style="--pos:50% 30%">
+            <picture>
+              <source type="image/avif" srcset="img/edu-9-480.avif 480w, img/edu-9-800.avif 800w, img/edu-9-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <source type="image/webp" srcset="img/edu-9-480.webp 480w, img/edu-9-800.webp 800w, img/edu-9-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <img src="img/edu-9-800.webp" width="800" height="1200" alt="Eduardo sentado, olhando para a gaita na mão" loading="lazy" decoding="async">
+            </picture>
+          </figure>
           <p class="cartao__tag revela revela--cortina" style="--d:120ms">Online</p>
           <h3 class="cartao__titulo">Aulas particulares</h3>
           <p class="cartao__texto">Para começar do zero ou destravar o que você já toca. Aula online, ao vivo, de onde você estiver.</p>
@@ -150,6 +157,13 @@
 
         <article class="cartao revela">
           <span class="cartao__fita" aria-hidden="true"></span>
+          <figure class="cartao__foto" style="--pos:50% 20%">
+            <picture>
+              <source type="image/avif" srcset="img/edu-17-480.avif 480w, img/edu-17-800.avif 800w, img/edu-17-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <source type="image/webp" srcset="img/edu-17-480.webp 480w, img/edu-17-800.webp 800w, img/edu-17-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <img src="img/edu-17-800.webp" width="800" height="1200" alt="Eduardo de olhos fechados, tocando uma gaita cromática" loading="lazy" decoding="async">
+            </picture>
+          </figure>
           <p class="cartao__tag revela revela--cortina" style="--d:120ms">Online</p>
           <h3 class="cartao__titulo">Gravações</h3>
           <p class="cartao__texto">Gaita na sua música: solos, bases e arranjos gravados a distância. Você manda a guia, recebe os takes.</p>
@@ -163,6 +177,13 @@
 
         <article class="cartao revela">
           <span class="cartao__fita" aria-hidden="true"></span>
+          <figure class="cartao__foto" style="--pos:50% 22%">
+            <picture>
+              <source type="image/avif" srcset="img/edu-35-480.avif 480w, img/edu-35-800.avif 800w, img/edu-35-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <source type="image/webp" srcset="img/edu-35-480.webp 480w, img/edu-35-800.webp 800w, img/edu-35-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <img src="img/edu-35-800.webp" width="800" height="1200" alt="Eduardo tocando violão com a gaita no suporte de pescoço, olhando para a câmera" loading="lazy" decoding="async">
+            </picture>
+          </figure>
           <p class="cartao__tag cartao__tag--vivo revela revela--cortina" style="--d:120ms">Ao vivo</p>
           <h3 class="cartao__titulo">Shows</h3>
           <p class="cartao__texto">Repertório de rock e blues para bares, festivais e bandas que querem gaita no palco.</p>
@@ -176,6 +197,13 @@
 
         <article class="cartao revela">
           <span class="cartao__fita" aria-hidden="true"></span>
+          <figure class="cartao__foto" style="--pos:50% 22%">
+            <picture>
+              <source type="image/avif" srcset="img/edu-34-480.avif 480w, img/edu-34-800.avif 800w, img/edu-34-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <source type="image/webp" srcset="img/edu-34-480.webp 480w, img/edu-34-800.webp 800w, img/edu-34-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <img src="img/edu-34-800.webp" width="800" height="1200" alt="Eduardo sorrindo enquanto toca violão, com a gaita no suporte de pescoço" loading="lazy" decoding="async">
+            </picture>
+          </figure>
           <p class="cartao__tag cartao__tag--vivo revela revela--cortina" style="--d:120ms">Ao vivo</p>
           <h3 class="cartao__titulo">Eventos particulares</h3>
           <p class="cartao__texto">Música ao vivo com gaita para casamentos, aniversários e eventos corporativos.</p>

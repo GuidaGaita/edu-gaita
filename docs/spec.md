@@ -77,9 +77,9 @@ Uma página, rolagem vertical, nesta ordem:
 | # | Seção | O que tem | Entrega |
 |---|---|---|---|
 | 0 | Barra superior | Nome em texto, à esquerda; botão compacto "WhatsApp", à direita. Fica fixa no topo e some ao rolar pra baixo, volta ao rolar pra cima. | 1 |
-| 1 | Hero | Foto edu-24 (tocando, luz de fim de tarde) cobrindo a seção inteira atrás de um véu, com luzes de palco e faíscas; por cima, sobretítulo "Gaitista de rock · Brasília, DF" com um equalizador pulsando, nome em cromo (assinatura visual) entrando como carimbo, frase de posicionamento palavra por palavra, botão primário de WhatsApp e botão secundário "Ver serviços". | 1 |
+| 1 | Hero | Foto edu-14 (encarando a câmera com a gaita cromática na frente da boca) atrás de um véu leve: no desktop ocupa a direita da seção, com o rosto fora da coluna do nome; no celular ocupa o alto da tela e o texto fica embaixo. Luzes de palco e faíscas; com luzes de palco e faíscas; por cima, sobretítulo "Gaitista de rock · Brasília, DF" com um equalizador pulsando, nome em cromo (assinatura visual) entrando como carimbo, frase de posicionamento palavra por palavra, botão primário de WhatsApp e botão secundário "Ver serviços". | 1 |
 | 1b | Faixa rolante | Setlist decorativo passando em loop: "Aulas online ★ Gravações a distância ★ Shows ★ Eventos particulares ★ Brasília, DF ★ Rock e blues ★ Diatônica e cromática". Escondida de leitores de tela. | 1 |
-| 2 | Serviços | Sobretítulo "Serviços", título "O que a gaita pode fazer pelo seu projeto", linha de apoio "Escolhe o que você precisa e chama no WhatsApp. A conversa já começa com o assunto certo." Os quatro serviços da seção 4 em cartões (dois por linha a partir de 620 px), cada um com seu botão de WhatsApp. Fundo: foto edu-33 (sentado com violão e gaita no suporte). | 1 |
+| 2 | Serviços | Sobretítulo "Serviços", título "O que a gaita pode fazer pelo seu projeto", linha de apoio "Escolhe o que você precisa e chama no WhatsApp. A conversa já começa com o assunto certo." Os quatro serviços da seção 4 em cartões (dois por linha a partir de 620 px), cada um com uma foto do ensaio no topo e seu botão de WhatsApp. Fundo: foto edu-33 (sentado com violão e gaita no suporte). | 1 |
 | 3 | Sobre | Sobretítulo "Sobre", título "Gaita, rock e Brasília", foto edu-32 numa moldura inclinada com cantoneiras de cromo, texto curto de apresentação, fichas ("Brasília, DF", "Rock e blues", "Diatônica e cromática", "Aulas e gravações online") e botão "Ver serviços". Fundo: foto edu-27 (a mão com a gaita cromática). Genérico na entrega 1, com fatos do currículo na entrega 2. | 1 (texto genérico), 2 (texto final) |
 | 4 | Galeria | Sobretítulo "Galeria", título "Gaita no sangue", quatro fotos do ensaio (edu-22, edu-11, edu-36, edu-2) em molduras inclinadas: grade de quatro no desktop, faixa com rolagem horizontal no celular. Sem lightbox. Entrou na entrega 1 em 27/10/2026. | 1 |
 | 5 | Vídeo | Um vídeo do YouTube incorporado com fachada leve (carrega o player só ao clicar). Só entra se o cliente tiver vídeo. | 2 |
@@ -275,7 +275,8 @@ Os originais nunca entram no repositório nem no site.
 
 | Onde | Foto | Corte | Entrega |
 |---|---|---|---|
-| Hero (fundo) | edu-24 | cobrindo a seção; no desktop o recorte mostra o rosto e a gaita no alto, à direita do nome | 1 |
+| Hero (fundo) | edu-14 | encarando a câmera, cromática na frente da boca; à direita do nome no desktop, no alto da tela no celular | 1 |
+| Cartões de serviço | edu-9 (aulas), edu-17 (gravações), edu-35 (shows), edu-34 (eventos) | recorte 3:2 no topo de cada cartão | 1 |
 | Serviços (fundo) | edu-33 | sentado no muro com violão e gaita no suporte | 1 |
 | Sobre (moldura) | edu-32 | retrato 3:4 na moldura, gaita no bolso da camisa | 1 |
 | Sobre (fundo) | edu-27 | a mão com a gaita cromática, atrás do bloco do "Sobre" | 1 |
@@ -389,5 +390,6 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | 27/10/2026 | Hero com a foto edu-24 cobrindo a seção e o nome em cromo por cima; a foto edu-27 virou fundo do "Sobre". |
 | 27/10/2026 | Galeria com quatro fotos entrou na entrega 1 (era da entrega 2). |
 | 27/10/2026 | Etiqueta "Ao vivo" nos cartões de shows e eventos, além de "Online" nos de aulas e gravações; selo "Comece por aqui" no cartão de aulas; três marcas por serviço. |
+| 27/10/2026 | Hero trocado pra foto edu-14, a pedido ("uma foto dele forte"), com véu mais leve; a edu-24 saiu do repositório. Foto do ensaio no topo de cada cartão de serviço: edu-9, edu-17, edu-35, edu-34. |
 | 27/10/2026 | Entrega 1 publicada no GitHub Pages: repositório público `GuidaGaita/edu-gaita`, URL `https://guidagaita.github.io/edu-gaita/`. Push na `main` republica o site. |
 | 27/10/2026 | Fotos de fundo comprimidas mais forte (`--qualidade webp=58,avif=40`) pra manter o LCP abaixo de 2,5 s. |
