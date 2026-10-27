@@ -18,3 +18,7 @@ desktop.ini
 # Saídas temporárias
 /tmp/
 /screenshots/
+
+# Ferramentas de verificação (Node)
+scripts/qa/node_modules/
+scripts/qa/saida/

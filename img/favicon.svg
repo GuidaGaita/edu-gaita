@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="cromo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F7F8F9"/>
+      <stop offset=".34" stop-color="#DDE0E3"/>
+      <stop offset=".58" stop-color="#A3A9AF"/>
+      <stop offset=".78" stop-color="#C9CDD1"/>
+      <stop offset="1" stop-color="#E39A3A"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#14171D"/>
+  <path fill="url(#cromo)" d="M21 13h22v7H30v9h11v6H30v9h13v7H21z"/>
+</svg>

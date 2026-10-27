@@ -1,0 +1,220 @@
+/* ============================================================
+   Landing page de Eduardo Leopoldino, gaitista.
+   Direção visual "Cromo e mel sobre veludo": docs/spec.md, seção 7.
+   Ordem do arquivo: fontes, tokens, base, tipografia, botões, barra
+   superior, hero, serviços, sobre, chamada final, rodapé, botão
+   flutuante, movimento. Tudo que se move fica no último bloco, dentro
+   de prefers-reduced-motion: no-preference.
+   ============================================================ */
+
+/* ---------- Fontes auto-hospedadas (spec, seção 9) ---------- */
+@font-face {
+  font-family: "Big Shoulders Display";
+  font-style: normal;
+  font-weight: 600 900;
+  font-display: swap;
+  src: url("../fonts/big-shoulders-display.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("../fonts/instrument-sans.woff2") format("woff2");
+}
+/* Reservas locais com métrica ajustada: enquanto a Big Shoulders não chega, o nome é
+   desenhado numa fonte do sistema com a largura corrigida (size-adjust), pra não saltar
+   nem quebrar em três linhas. Razões medidas em 26/10/2026 com "EDUARDO LEOPOLDINO" a 100 px:
+   Arial Narrow Bold 81,5 %, Impact 93,6 %, Arial Bold 66,7 % (Roboto Bold, no Android, fica perto). */
+@font-face {
+  font-family: "Reserva Condensada";
+  font-weight: 600 900;
+  src: local("Arial Narrow Bold"), local("ArialNarrow-Bold");
+  size-adjust: 81.5%;
+}
+@font-face {
+  font-family: "Reserva Impact";
+  font-weight: 600 900;
+  src: local("Impact");
+  size-adjust: 93.6%;
+}
+@font-face {
+  font-family: "Reserva Larga";
+  font-weight: 600 900;
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Roboto Bold"), local("Roboto-Bold"), local("Helvetica Bold");
+  size-adjust: 67%;
+}
+
+/* ---------- Tokens (spec, seções 7.1 e 7.2) ---------- */
+:root {
+  --veludo: #14171D;
+  --palco: #1F232B;
+  --mel: #E39A3A;
+  --mel-queimado: #B8701A;
+  --cromo: #D7DADE;
+  --creme: #ECE6DA;
+  --cinza-cromo: #8E949A;
+  --whatsapp: #25D366;
+  --whatsapp-texto: #0B1A10;
+  --fio: rgba(142, 148, 154, 0.3);
+
+  --display: "Big Shoulders Display", "Reserva Condensada", "Reserva Impact", "Reserva Larga", sans-serif;
+  --corpo: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --largura: 1200px;
+  --margem: clamp(24px, 5vw, 48px);
+  --barra: 64px;
+  --raio: 4px;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html { background: var(--veludo); color: var(--creme); font-family: var(--corpo); -webkit-text-size-adjust: 100%; }
+body { font-size: 1.0625rem; line-height: 1.6; min-height: 100vh; }
+img, svg { display: block; }
+[hidden] { display: none !important; }
+img { max-width: 100%; height: auto; }
+a { color: inherit; }
+p { max-width: 60ch; }
+::selection { background: var(--mel); color: var(--veludo); }
+:focus-visible { outline: 2px solid var(--mel); outline-offset: 3px; }
+
+.faixa { width: min(var(--largura), 100% - 2 * var(--margem)); margin-inline: auto; }
+.bloco { padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--fio); }
+.secundario { color: var(--cinza-cromo); font-size: 0.9375rem; }
+
+/* Link "pular para o conteúdo": só aparece com foco de teclado. */
+.pular { position: absolute; top: -100px; left: var(--margem); z-index: 30; padding: 0.75rem 1rem; background: var(--mel); color: var(--veludo); font-weight: 600; text-decoration: none; border-radius: var(--raio); }
+.pular:focus { top: 12px; }
+
+/* ---------- Tipografia ---------- */
+.sobretitulo { font-family: var(--display); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mel); }
+.titulo { font-family: var(--display); font-weight: 800; font-size: clamp(2.25rem, 5vw, 4rem); line-height: 0.95; text-transform: uppercase; color: var(--cromo); }
+.titulo-servico { font-family: var(--display); font-weight: 800; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1; text-transform: uppercase; color: var(--cromo); }
+.cabecalho-secao { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2.5rem; }
+.cabecalho-secao .secundario { margin-top: 0.5rem; }
+
+/* Assinatura: o nome estampado no cromo (spec, seção 7.3). Nada mais na página brilha. */
+.nome { font-family: var(--display); font-weight: 900; font-size: clamp(3.5rem, 9.5vw, 8.5rem); line-height: 0.88; text-transform: uppercase; letter-spacing: -0.005em; color: var(--cromo); margin-top: 0.75rem; }
+.nome span { display: block; width: max-content; max-width: 100%; padding-bottom: 0.04em; }
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .nome span {
+    background-image: linear-gradient(180deg, #F7F8F9 0%, #DDE0E3 34%, #A3A9AF 58%, #C9CDD1 78%, #E39A3A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.16)) drop-shadow(0 3px 3px rgba(0, 0, 0, 0.6));
+  }
+}
+
+/* ---------- Botões ---------- */
+.botao { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; font: 600 1rem/1 var(--corpo); padding: 0.95rem 1.4rem; min-height: 48px; border-radius: var(--raio); text-decoration: none; border: 1.5px solid transparent; }
+.botao svg { width: 20px; height: 20px; flex: none; }
+.botao-whatsapp { background: var(--whatsapp); color: var(--whatsapp-texto); border-color: var(--whatsapp); }
+.botao-whatsapp:hover { background: #33DD75; border-color: #33DD75; }
+.botao-secundario { color: var(--mel); border-color: var(--mel); background: transparent; }
+.botao-secundario:hover { background: rgba(227, 154, 58, 0.12); }
+.botao-compacto { padding: 0.6rem 1rem; min-height: 44px; font-size: 0.9375rem; }
+
+/* ---------- Barra superior (spec, seção 5) ---------- */
+.barra { position: sticky; top: 0; z-index: 10; background: rgba(20, 23, 29, 0.86); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid rgba(142, 148, 154, 0.18); }
+.barra.oculta { transform: translateY(-100%); }
+.barra .faixa { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: var(--barra); }
+.marca { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--display); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--cromo); text-decoration: none; white-space: nowrap; }
+.marca:hover { color: var(--mel); }
+
+/* ---------- Hero (spec, seção 7.4) ---------- */
+.hero { position: relative; overflow: hidden; }
+.hero .faixa { display: grid; gap: 2.5rem; align-items: center; padding-block: clamp(3rem, 8vh, 5rem) 0; }
+.hero-texto { position: relative; z-index: 2; }
+.hero-frase { font-size: clamp(1.125rem, 1.6vw, 1.375rem); max-width: 34ch; margin-top: 1.75rem; }
+.hero-botoes { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.hero-foto { position: relative; height: 60vh; min-height: 420px; }
+/* O brilho é maior que a foto e deslocado pra esquerda e pra baixo: é nas
+   bordas mascaradas da foto que ele aparece. */
+.hero-foto::before { content: ""; position: absolute; inset: -20% -15% -25% -40%; background: radial-gradient(ellipse at 58% 52%, rgba(227, 154, 58, 0.5) 0%, rgba(227, 154, 58, 0.22) 38%, rgba(227, 154, 58, 0) 70%); filter: blur(28px); z-index: 0; pointer-events: none; }
+.hero-foto img {
+  position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: 40% 28%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%), linear-gradient(to top, transparent 0, #000 18%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0, #000 22%), linear-gradient(to top, transparent 0, #000 18%);
+  mask-composite: intersect;
+}
+@media (min-width: 900px) {
+  .hero .faixa { grid-template-columns: 1.1fr 0.9fr; min-height: calc(100vh - var(--barra)); padding-block: 2rem 0; }
+  .hero-foto { height: min(88vh, 900px); margin-right: calc(-1 * var(--margem)); }
+}
+
+/* ---------- Serviços: linhas como um setlist (spec, seções 4 e 7.4) ---------- */
+.servicos { border-top: 1px solid var(--fio); }
+.servico { display: grid; gap: 0.75rem 2rem; padding: 1.75rem 1rem; margin-inline: -1rem; border-bottom: 1px solid var(--fio); border-radius: var(--raio); }
+.servico:hover, .servico:focus-within { background: var(--palco); }
+.servico:hover h3, .servico:focus-within h3 { color: var(--mel); }
+.servico p { max-width: 46ch; }
+.servico .botao { justify-self: start; }
+/* Etiqueta de formato: só nos serviços que acontecem online. Onde não há etiqueta, o serviço é ao vivo. */
+.formato { display: inline-block; margin-top: 0.6rem; padding: 0.2rem 0.5rem 0.15rem; border: 1px solid var(--mel); border-radius: var(--raio); font-family: var(--display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.2; color: var(--mel); }
+@media (min-width: 900px) {
+  .servico { grid-template-columns: 4fr 5fr 3fr; align-items: center; }
+  .servico .botao { justify-self: end; }
+}
+
+/* ---------- Sobre ---------- */
+.sobre { display: grid; gap: 2rem; align-items: center; }
+.sobre img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: var(--raio); }
+.sobre .titulo { margin: 0.5rem 0 1.25rem; }
+.sobre p + p { margin-top: 1rem; }
+@media (min-width: 900px) {
+  .sobre { grid-template-columns: 5fr 1fr 6fr; }
+  .sobre picture { grid-column: 1; }
+  .sobre-texto { grid-column: 3; }
+}
+
+/* ---------- Chamada final (spec, seção 7.4) ---------- */
+.chamada { position: relative; min-height: 60vh; display: grid; place-items: center; text-align: center; isolation: isolate; overflow: hidden; padding-block: 5rem; border-top: 1px solid var(--fio); }
+.chamada picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; z-index: -2; }
+.chamada::before { content: ""; position: absolute; inset: 0; background: rgba(20, 23, 29, 0.72); z-index: -1; }
+.chamada .faixa { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.chamada p { max-width: 44ch; }
+.chamada .botao { margin-top: 0.75rem; }
+
+/* ---------- Rodapé ---------- */
+.rodape { padding-block: 2.5rem; border-top: 1px solid var(--fio); color: var(--cinza-cromo); font-size: 0.9375rem; }
+.rodape .faixa { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
+/* Alvo de toque de 44 px sem mudar o visual: padding compensado por margem negativa. */
+.rodape a { display: inline-block; padding-block: 0.75rem; margin-block: -0.75rem; color: var(--creme); text-decoration: none; }
+.rodape a:hover { color: var(--mel); }
+
+/* ---------- Botão flutuante (spec, seção 6) ---------- */
+/* Único botão com cantos totalmente arredondados: o balão de WhatsApp que as pessoas já conhecem. */
+.flutuante { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 20; min-height: 56px; padding: 0 1rem; border-radius: 999px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); }
+.flutuante svg { width: 26px; height: 26px; }
+.flutuante span { display: none; }
+@media (min-width: 900px) {
+  .flutuante { padding: 0 1.4rem 0 1.1rem; }
+  .flutuante span { display: inline; }
+}
+/* Com JS, o botão só aparece quando nenhum outro botão de WhatsApp está na tela (js/pagina.js). Sem JS, fica sempre visível. */
+.js .flutuante { opacity: 0; visibility: hidden; transform: translateY(8px); pointer-events: none; }
+.js .flutuante.visivel { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
+
+/* ---------- Movimento (spec, seção 7.5): um momento orquestrado e mais nada ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .botao { transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.15s; }
+  .botao:hover, .js .flutuante.visivel:hover { transform: translateY(-1px); }
+  .servico { transition: background-color 0.2s; }
+  .servico h3 { transition: color 0.2s; }
+  .marca { transition: color 0.15s; }
+  .barra { transition: transform 0.25s ease; }
+  .js .flutuante { transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
+
+  /* A foto só sobe, sem fade: elemento que começa com opacidade 0 fica fora da medição de LCP,
+     e a foto é o LCP legítimo da página. Os textos sobem e aparecem. */
+  .hero .entra { transform: translateY(12px); animation: entra 0.5s ease-out forwards; }
+  .hero-texto > .entra { opacity: 0; }
+  .hero-texto > .entra:nth-child(2) { animation-delay: 80ms; }
+  .hero-texto > .entra:nth-child(3), .hero .hero-foto.entra { animation-delay: 160ms; }
+  .hero-texto > .entra:nth-child(4) { animation-delay: 240ms; }
+  @keyframes entra { to { opacity: 1; transform: none; } }
+}
