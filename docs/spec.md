@@ -39,7 +39,7 @@ Os textos abaixo são a versão genérica. Tudo marcado com **[A CONFIRMAR]** de
 - Título: **Aulas particulares**
 - Formato: só online (confirmado em 26/10/2026). A linha leva a etiqueta "Online" ao lado do título.
 - Texto: "Para começar do zero ou destravar o que você já toca. Aula online, ao vivo, de onde você estiver."
-- Marcas: "Do zero ou pra quem já toca", "Gaita diatônica e cromática", "No seu ritmo, com o repertório que você curte".
+- Marcas: "Do zero ou pra quem já toca", "Gaita diatônica e cromática", "No seu ritmo e repertório".
 - **[A CONFIRMAR]**: se ensina cromática, público (adultos, crianças), duração e frequência, plataforma da videochamada.
 - Botão: "Quero fazer aula", abre o WhatsApp com a mensagem de aulas (seção 6).
 
@@ -48,7 +48,7 @@ Os textos abaixo são a versão genérica. Tudo marcado com **[A CONFIRMAR]** de
 - Título: **Gravações**
 - Formato: só a distância (confirmado em 26/10/2026): quem contrata manda a guia, ele grava e devolve os takes. A linha leva a etiqueta "Online".
 - Texto: "Gaita na sua música: solos, bases e arranjos gravados a distância. Você manda a guia, recebe os takes."
-- Marcas: "Você manda a guia, recebe os takes", "Solos, bases e arranjos", "Rock, blues e o que a música pedir".
+- Marcas: "Você manda a guia, recebe os takes", "Solos, bases e arranjos", "Rock, blues e o que pedir".
 - **[A CONFIRMAR]**: prazo típico; formatos de entrega (WAV, stems); se cobra por música ou por take.
 - Botão: "Quero gaita na minha música", abre o WhatsApp com a mensagem de gravações.
 
@@ -391,6 +391,6 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | 27/10/2026 | Galeria com quatro fotos entrou na entrega 1 (era da entrega 2). |
 | 27/10/2026 | Etiqueta "Ao vivo" nos cartões de shows e eventos, além de "Online" nos de aulas e gravações; selo "Comece por aqui" no cartão de aulas; três marcas por serviço. |
 | 27/10/2026 | Hero trocado pra foto edu-14, a pedido ("uma foto dele forte"), com véu mais leve; a edu-24 saiu do repositório. Foto do ensaio no topo de cada cartão de serviço: edu-9, edu-17, edu-35, edu-34. |
-| 27/10/2026 | A pedido: foto do hero e do cartão de aulas trocadas (hero edu-9, aulas edu-14); cartão de eventos com edu-36, de óculos escuros (a edu-34 foi pra galeria); fotos presas pelo topo pra não cortar a cabeça; nos cartões a foto cobre o alto do cartão e some de vez até a metade dele, com o texto abaixo, sobre o fundo liso (ajustado no mesmo dia porque o texto sobre a foto ficava ruim de ler). |
+| 27/10/2026 | A pedido: foto do hero e do cartão de aulas trocadas (hero edu-9, aulas edu-14); cartão de eventos com edu-36, de óculos escuros (a edu-34 foi pra galeria); fotos presas pelo topo pra não cortar a cabeça; nos cartões a foto cobre o alto do cartão e some de vez até a metade dele, com o texto abaixo, sobre o fundo liso (ajustado no mesmo dia porque o texto sobre a foto ficava ruim de ler). No celular a foto é um bloco de altura fixa no topo e o texto fica junto embaixo, com linhas mais apertadas; etiqueta de formato com fundo escuro; cada marca e cada botão numa linha só. |
 | 27/10/2026 | Entrega 1 publicada no GitHub Pages: repositório público `GuidaGaita/edu-gaita`, URL `https://guidagaita.github.io/edu-gaita/`. Push na `main` republica o site. |
 | 27/10/2026 | Fotos de fundo comprimidas mais forte (`--qualidade webp=58,avif=40`) pra manter o LCP abaixo de 2,5 s. |
