@@ -88,7 +88,11 @@ def main() -> None:
     ap.add_argument("--so", default="", help="lista separada por vírgula de nomes sem extensão, ex.: edu-27,edu-32")
     ap.add_argument("--larguras", default=",".join(map(str, LARGURAS_PADRAO)))
     ap.add_argument("--formatos", default="webp,avif")
+    ap.add_argument("--qualidade", default="", help="qualidade por formato, ex.: webp=60,avif=42 (padrão: webp=78, avif=60); fotos de fundo atrás do véu aguentam valores baixos")
     args = ap.parse_args()
+    for par in filter(None, args.qualidade.split(",")):
+        fmt, valor = par.split("=")
+        QUALIDADE[fmt.strip()] = int(valor)
 
     origem = Path(args.origem)
     if not origem.is_dir():

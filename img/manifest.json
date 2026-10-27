@@ -1,4 +1,196 @@
 {
+  "edu-2": {
+    "original": {
+      "largura": 4000,
+      "altura": 6000
+    },
+    "arquivos": {
+      "edu-2-480.webp": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 36840
+      },
+      "edu-2-480.avif": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 35587
+      },
+      "edu-2-800.webp": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 86036
+      },
+      "edu-2-800.avif": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 78977
+      },
+      "edu-2-1200.webp": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 173472
+      },
+      "edu-2-1200.avif": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 155650
+      },
+      "edu-2-1600.webp": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 288414
+      },
+      "edu-2-1600.avif": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 257489
+      }
+    }
+  },
+  "edu-11": {
+    "original": {
+      "largura": 4000,
+      "altura": 6000
+    },
+    "arquivos": {
+      "edu-11-480.webp": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 36482
+      },
+      "edu-11-480.avif": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 35280
+      },
+      "edu-11-800.webp": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 97670
+      },
+      "edu-11-800.avif": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 85745
+      },
+      "edu-11-1200.webp": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 208494
+      },
+      "edu-11-1200.avif": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 174294
+      },
+      "edu-11-1600.webp": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 348564
+      },
+      "edu-11-1600.avif": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 288185
+      }
+    }
+  },
+  "edu-22": {
+    "original": {
+      "largura": 4000,
+      "altura": 6000
+    },
+    "arquivos": {
+      "edu-22-480.webp": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 32104
+      },
+      "edu-22-480.avif": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 33331
+      },
+      "edu-22-800.webp": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 73432
+      },
+      "edu-22-800.avif": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 72831
+      },
+      "edu-22-1200.webp": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 143130
+      },
+      "edu-22-1200.avif": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 140657
+      },
+      "edu-22-1600.webp": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 294564
+      },
+      "edu-22-1600.avif": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 289957
+      }
+    }
+  },
+  "edu-24": {
+    "original": {
+      "largura": 4000,
+      "altura": 6000
+    },
+    "arquivos": {
+      "edu-24-480.webp": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 26932
+      },
+      "edu-24-480.avif": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 18097
+      },
+      "edu-24-800.webp": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 65682
+      },
+      "edu-24-800.avif": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 36529
+      },
+      "edu-24-1200.webp": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 126946
+      },
+      "edu-24-1200.avif": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 67296
+      },
+      "edu-24-1600.webp": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 200886
+      },
+      "edu-24-1600.avif": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 98992
+      }
+    }
+  },
   "edu-27": {
     "original": {
       "largura": 4000,
@@ -92,6 +284,198 @@
         "largura": 1600,
         "altura": 2400,
         "bytes": 264758
+      }
+    }
+  },
+  "edu-33": {
+    "original": {
+      "largura": 4000,
+      "altura": 6000
+    },
+    "arquivos": {
+      "edu-33-480.webp": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 31112
+      },
+      "edu-33-480.avif": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 20280
+      },
+      "edu-33-800.webp": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 64492
+      },
+      "edu-33-800.avif": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 39101
+      },
+      "edu-33-1200.webp": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 114116
+      },
+      "edu-33-1200.avif": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 67920
+      },
+      "edu-33-1600.webp": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 173342
+      },
+      "edu-33-1600.avif": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 101066
+      }
+    }
+  },
+  "edu-36": {
+    "original": {
+      "largura": 4000,
+      "altura": 6000
+    },
+    "arquivos": {
+      "edu-36-480.webp": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 48510
+      },
+      "edu-36-480.avif": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 43602
+      },
+      "edu-36-800.webp": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 97476
+      },
+      "edu-36-800.avif": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 86556
+      },
+      "edu-36-1200.webp": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 173064
+      },
+      "edu-36-1200.avif": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 151357
+      },
+      "edu-36-1600.webp": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 259230
+      },
+      "edu-36-1600.avif": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 239249
+      }
+    }
+  },
+  "edu-38": {
+    "original": {
+      "largura": 6000,
+      "altura": 4000
+    },
+    "arquivos": {
+      "edu-38-480.webp": {
+        "largura": 480,
+        "altura": 320,
+        "bytes": 15618
+      },
+      "edu-38-480.avif": {
+        "largura": 480,
+        "altura": 320,
+        "bytes": 10565
+      },
+      "edu-38-800.webp": {
+        "largura": 800,
+        "altura": 533,
+        "bytes": 30726
+      },
+      "edu-38-800.avif": {
+        "largura": 800,
+        "altura": 533,
+        "bytes": 18050
+      },
+      "edu-38-1200.webp": {
+        "largura": 1200,
+        "altura": 800,
+        "bytes": 51560
+      },
+      "edu-38-1200.avif": {
+        "largura": 1200,
+        "altura": 800,
+        "bytes": 29171
+      },
+      "edu-38-1600.webp": {
+        "largura": 1600,
+        "altura": 1067,
+        "bytes": 74052
+      },
+      "edu-38-1600.avif": {
+        "largura": 1600,
+        "altura": 1067,
+        "bytes": 40898
+      }
+    }
+  },
+  "edu-39": {
+    "original": {
+      "largura": 6000,
+      "altura": 4000
+    },
+    "arquivos": {
+      "edu-39-480.webp": {
+        "largura": 480,
+        "altura": 320,
+        "bytes": 17362
+      },
+      "edu-39-480.avif": {
+        "largura": 480,
+        "altura": 320,
+        "bytes": 11566
+      },
+      "edu-39-800.webp": {
+        "largura": 800,
+        "altura": 533,
+        "bytes": 36492
+      },
+      "edu-39-800.avif": {
+        "largura": 800,
+        "altura": 533,
+        "bytes": 20936
+      },
+      "edu-39-1200.webp": {
+        "largura": 1200,
+        "altura": 800,
+        "bytes": 64122
+      },
+      "edu-39-1200.avif": {
+        "largura": 1200,
+        "altura": 800,
+        "bytes": 33936
+      },
+      "edu-39-1600.webp": {
+        "largura": 1600,
+        "altura": 1067,
+        "bytes": 96954
+      },
+      "edu-39-1600.avif": {
+        "largura": 1600,
+        "altura": 1067,
+        "bytes": 50076
       }
     }
   },

@@ -1,10 +1,18 @@
 /* ============================================================
    Landing page de Eduardo Leopoldino, gaitista.
-   Direção visual "Cromo e mel sobre veludo": docs/spec.md, seção 7.
-   Ordem do arquivo: fontes, tokens, base, tipografia, botões, barra
-   superior, hero, serviços, sobre, chamada final, rodapé, botão
-   flutuante, movimento. Tudo que se move fica no último bloco, dentro
-   de prefers-reduced-motion: no-preference.
+   Direção visual "Cromo e mel sobre veludo" (docs/spec.md, seção 7), com a
+   estrutura e o movimento do site GuidaGaita (decisão de 27/10/2026): foto
+   de fundo em cada seção, cartões de serviço, revelação ao rolar, faixa
+   rolante, grão e vinheta, faíscas e luzes de palco no hero.
+
+   Ordem do arquivo: fontes, tokens, base, texturas, fundos fotográficos,
+   tipografia, botões, barra superior, hero, faixa rolante, serviços,
+   sobre, molduras e galeria, chamada final, rodapé, botão flutuante,
+   revelação ao rolar, transições, responsivo, ponteiro grosso, movimento
+   reduzido.
+
+   Regra de movimento: só opacity, transform (translate, scale, rotate) e
+   clip-path, que o navegador compõe na GPU. Nada que force layout.
    ============================================================ */
 
 /* ---------- Fontes auto-hospedadas (spec, seção 9) ---------- */
@@ -50,13 +58,20 @@
   --veludo: #14171D;
   --palco: #1F232B;
   --mel: #E39A3A;
+  --mel-claro: #F2B65C;
   --mel-queimado: #B8701A;
   --cromo: #D7DADE;
+  --cromo-claro: #F7F8F9;
   --creme: #ECE6DA;
+  --cinza-claro: #B9BEC3;
   --cinza-cromo: #8E949A;
   --whatsapp: #25D366;
+  --whatsapp-claro: #4BE285;
+  --whatsapp-escuro: #1EB85A;
   --whatsapp-texto: #0B1A10;
   --fio: rgba(142, 148, 154, 0.3);
+  --linha: rgba(215, 218, 222, 0.12);
+  --linha-mel: rgba(227, 154, 58, 0.3);
 
   --display: "Big Shoulders Display", "Reserva Condensada", "Reserva Impact", "Reserva Larga", sans-serif;
   --corpo: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -65,37 +80,141 @@
   --margem: clamp(24px, 5vw, 48px);
   --barra: 64px;
   --raio: 4px;
+  --ritmo: clamp(4rem, 9vw, 7rem);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-suave: cubic-bezier(0.33, 1, 0.68, 1);
+
+  color-scheme: dark;
 }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; }
-html { background: var(--veludo); color: var(--creme); font-family: var(--corpo); -webkit-text-size-adjust: 100%; }
-body { font-size: 1.0625rem; line-height: 1.6; min-height: 100vh; }
-img, svg { display: block; }
-[hidden] { display: none !important; }
+html { background: var(--veludo); color: var(--creme); font-family: var(--corpo); -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--barra) + 12px); }
+body { font-size: 1.0625rem; line-height: 1.6; min-height: 100vh; overflow-x: clip; }
+img, svg, canvas { display: block; }
 img { max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
+/* O <picture> só escolhe o formato; quem participa do layout é o <img>. */
+picture { display: contents; }
 a { color: inherit; }
 p { max-width: 60ch; }
+ul { list-style: none; padding: 0; }
+strong { color: var(--cromo); font-weight: 600; }
 ::selection { background: var(--mel); color: var(--veludo); }
 :focus-visible { outline: 2px solid var(--mel); outline-offset: 3px; }
 
+/* Luz ambiente fixa: um refletor quente no alto e um reflexo de cromo embaixo.
+   Camada fixa própria, não background-attachment no body: assim a rolagem é só
+   deslocamento de camada, sem repintura. */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 100vw 60vh at 50% -10%, rgba(227, 154, 58, 0.14), transparent 68%),
+    radial-gradient(ellipse 60vw 40vh at 110% 85%, rgba(215, 218, 222, 0.05), transparent 70%);
+}
+
 .faixa { width: min(var(--largura), 100% - 2 * var(--margem)); margin-inline: auto; }
-.bloco { padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--fio); }
+.secao { position: relative; padding-block: var(--ritmo); }
 .secundario { color: var(--cinza-cromo); font-size: 0.9375rem; }
 
 /* Link "pular para o conteúdo": só aparece com foco de teclado. */
-.pular { position: absolute; top: -100px; left: var(--margem); z-index: 30; padding: 0.75rem 1rem; background: var(--mel); color: var(--veludo); font-weight: 600; text-decoration: none; border-radius: var(--raio); }
+.pular { position: absolute; top: -100px; left: var(--margem); z-index: 400; padding: 0.75rem 1rem; background: var(--mel); color: var(--veludo); font-weight: 600; text-decoration: none; border-radius: var(--raio); }
 .pular:focus { top: 12px; }
 
-/* ---------- Tipografia ---------- */
-.sobretitulo { font-family: var(--display); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mel); }
-.titulo { font-family: var(--display); font-weight: 800; font-size: clamp(2.25rem, 5vw, 4rem); line-height: 0.95; text-transform: uppercase; color: var(--cromo); }
-.titulo-servico { font-family: var(--display); font-weight: 800; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1; text-transform: uppercase; color: var(--cromo); }
-.cabecalho-secao { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2.5rem; }
-.cabecalho-secao .secundario { margin-top: 0.5rem; }
+/* ---------- Texturas de ambiente: grão de filme e vinheta ---------- */
+/* Inset negativo dá folga pra textura deslizar sem mostrar a borda. */
+.fx-grao {
+  position: fixed; inset: -8%; z-index: 300; pointer-events: none; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 260px 260px;
+  animation: grao 700ms steps(4) infinite;
+}
+@keyframes grao {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-3%, 2%); }
+  50% { transform: translate(2%, -3%); }
+  75% { transform: translate(-2%, -2%); }
+  100% { transform: translate(3%, 1%); }
+}
+.fx-vinheta { position: fixed; inset: 0; z-index: 290; pointer-events: none; background: radial-gradient(ellipse 78% 68% at 50% 45%, transparent 42%, rgba(8, 10, 14, 0.38) 100%); }
 
-/* Assinatura: o nome estampado no cromo (spec, seção 7.3). Nada mais na página brilha. */
-.nome { font-family: var(--display); font-weight: 900; font-size: clamp(3.5rem, 9.5vw, 8.5rem); line-height: 0.88; text-transform: uppercase; letter-spacing: -0.005em; color: var(--cromo); margin-top: 0.75rem; }
+/* ---------- Fundos fotográficos de seção ---------- */
+/* Cada seção leva uma foto do ensaio atrás do conteúdo. A intensidade sai de duas
+   variáveis: --fundo-op (quanto a foto aparece) e --veu (quanto a camada escura
+   cobre). Seção com muito texto usa foto fraca e véu forte. */
+.com-fundo { position: relative; overflow: hidden; overflow: clip; }
+.fundo {
+  position: absolute; inset: 0; z-index: 0;
+  opacity: var(--fundo-op, 0.5);
+  filter: saturate(1.05) contrast(1.08) brightness(0.76);
+  /* A "foto que revela" (abaixo) mede a posição deste elemento na tela. */
+  view-timeline: --foto block;
+  /* Tom de aço em multiply: entra escura e fria, revela a cor e a luz de mel. */
+  --tinta: #8C96A2;
+}
+.fundo img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 40%); }
+
+/* Foto que revela: duas camadas de tinta sobre a própria foto. A de entrada (::before)
+   está opaca quando a foto começa a entrar por baixo e some quando acabou de entrar; a de
+   saída (::after) faz o inverso quando a foto sai por cima. Só opacity, por linha do
+   tempo de rolagem, sem JS. Sem suporte, fica um tom de aço leve e fixo. */
+.fundo::before, .fundo::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: var(--tinta); mix-blend-mode: multiply; opacity: 0; }
+.fundo::before { opacity: 0.45; }
+@supports (animation-timeline: view()) {
+  .fundo::before { animation: foto-entra linear both; animation-timeline: --foto; animation-range: entry 0% entry 85%; }
+  .fundo::after { animation: foto-sai linear both; animation-timeline: --foto; animation-range: exit 15% exit 100%; }
+}
+@keyframes foto-entra { from { opacity: 1; } to { opacity: 0; } }
+@keyframes foto-sai { from { opacity: 0; } to { opacity: 1; } }
+
+/* O véu: escuro no meio, Veludo puro nas bordas, pra uma seção derreter na outra. */
+.com-fundo::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(to bottom, var(--veludo) 1%, rgba(20, 23, 29, var(--veu, 0.7)) 24%, rgba(20, 23, 29, var(--veu, 0.7)) 76%, var(--veludo) 99%);
+}
+.com-fundo > .faixa { position: relative; z-index: 2; }
+
+/* Intensidade e enquadramento, seção a seção */
+.secao-servicos { --fundo-op: 0.6; --veu: 0.62; }
+.secao-servicos .fundo { --pos: 50% 30%; }
+.secao-sobre { --fundo-op: 0.55; --veu: 0.64; }
+.secao-sobre .fundo { --pos: 45% 35%; }
+.chamada { --fundo-op: 0.72; --veu: 0.5; }
+.chamada .fundo { --pos: 50% 55%; }
+.rodape { --fundo-op: 0.35; --veu: 0.78; }
+.rodape .fundo { --pos: 50% 50%; }
+
+/* No celular a seção é muito mais alta que larga e "cover" deixaria só uma fatia da
+   foto. Aqui ela vira uma faixa no topo da seção, com o enquadramento natural, e
+   derrete no escuro; o resto da seção fica sobre o fundo liso. */
+@media (max-width: 899.98px) {
+  .com-fundo .fundo {
+    height: min(100%, 150vw);
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+}
+
+/* ---------- Tipografia ---------- */
+.sobretitulo { display: flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mel); line-height: 1.4; }
+.sobretitulo .estrela { color: var(--mel-queimado); font-size: 0.8em; animation: estrela 3.5s ease-in-out infinite; }
+@keyframes estrela { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+.titulo { font-family: var(--display); font-weight: 800; font-size: clamp(2.25rem, 5vw, 4rem); line-height: 0.95; text-transform: uppercase; color: var(--cromo); text-wrap: balance; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 14px 40px rgba(0, 0, 0, 0.5); }
+.ink-mel { color: var(--mel); text-shadow: 0 0 30px rgba(227, 154, 58, 0.3); }
+.cabecalho-secao { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2.5rem; }
+.cabecalho-secao .secundario { margin-top: 0.4rem; color: var(--cinza-claro); }
+
+/* Equalizador: quatro barras pulsando ao lado do sobretítulo do hero, "ao vivo". */
+.equalizador { display: inline-flex; align-items: flex-end; gap: 2px; height: 0.9em; }
+.equalizador i { display: block; width: 3px; height: 100%; background: var(--mel); transform-origin: bottom; animation: equalizador 1s ease-in-out infinite; }
+.equalizador i:nth-child(2) { animation-delay: -0.25s; }
+.equalizador i:nth-child(3) { animation-delay: -0.5s; }
+.equalizador i:nth-child(4) { animation-delay: -0.75s; }
+@keyframes equalizador { 0%, 100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
+
+/* Assinatura: o nome estampado no cromo (spec, seção 7.3). Nada mais na página brilha assim. */
+.nome { font-family: var(--display); font-weight: 900; font-size: clamp(3.5rem, 10vw, 9.5rem); line-height: 0.88; text-transform: uppercase; letter-spacing: -0.005em; color: var(--cromo); margin-top: 0.75rem; }
 .nome span { display: block; width: max-content; max-width: 100%; padding-bottom: 0.04em; }
 @supports (-webkit-background-clip: text) or (background-clip: text) {
   .nome span {
@@ -108,78 +227,141 @@ p { max-width: 60ch; }
 }
 
 /* ---------- Botões ---------- */
-.botao { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; font: 600 1rem/1 var(--corpo); padding: 0.95rem 1.4rem; min-height: 48px; border-radius: var(--raio); text-decoration: none; border: 1.5px solid transparent; }
+.botao { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; font: 600 1rem/1.2 var(--corpo); padding: 0.9rem 1.4rem; min-height: 48px; border-radius: var(--raio); text-decoration: none; text-align: center; border: 1.5px solid transparent; overflow: hidden; }
 .botao svg { width: 20px; height: 20px; flex: none; }
-.botao-whatsapp { background: var(--whatsapp); color: var(--whatsapp-texto); border-color: var(--whatsapp); }
-.botao-whatsapp:hover { background: #33DD75; border-color: #33DD75; }
-.botao-secundario { color: var(--mel); border-color: var(--mel); background: transparent; }
-.botao-secundario:hover { background: rgba(227, 154, 58, 0.12); }
+.botao-whatsapp {
+  color: var(--whatsapp-texto);
+  background: linear-gradient(160deg, var(--whatsapp-claro) 0%, var(--whatsapp) 48%, var(--whatsapp-escuro) 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 10px 30px rgba(37, 211, 102, 0.22), 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+.botao-whatsapp:hover { box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset, 0 16px 44px rgba(37, 211, 102, 0.32), 0 3px 8px rgba(0, 0, 0, 0.45); }
+/* Reflexo que varre o botão: um brilho inclinado que atravessa no hover e, uma vez, ao entrar na tela. */
+.botao-whatsapp::after { content: ""; position: absolute; top: 0; left: -140%; width: 55%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5), transparent); transform: skewX(-18deg); pointer-events: none; }
+.botao-whatsapp:hover::after, .botao-whatsapp:focus-visible::after { animation: brilho 0.85s var(--ease-suave); }
+@keyframes brilho { to { transform: skewX(-18deg) translateX(527%); } }
+/* Nome diferente de propósito: se fosse o mesmo, o navegador não reiniciaria a animação no hover. */
+@keyframes brilho-uma-vez { to { transform: skewX(-18deg) translateX(527%); } }
+.js .botao-whatsapp.revela.entrou::after { animation: brilho-uma-vez 0.9s var(--ease-suave) 1s 1; }
+.js .botao-whatsapp.revela.entrou:hover::after, .js .botao-whatsapp.revela.entrou:focus-visible::after { animation: brilho 0.85s var(--ease-suave); }
+/* O botão principal do hero respira: uma luz interna que vai e volta, só opacity. */
+.botao-brasa::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(ellipse at 50% 120%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.18) 45%, transparent 72%); opacity: 0.2; pointer-events: none; animation: respira 4.2s ease-in-out infinite; }
+@keyframes respira { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.6; } }
+.botao-brasa:hover::before { animation: none; opacity: 0.5; }
+.botao-secundario { color: var(--mel); border-color: var(--mel); background: rgba(20, 23, 29, 0.35); }
+.botao-secundario:hover { background: rgba(227, 154, 58, 0.14); }
 .botao-compacto { padding: 0.6rem 1rem; min-height: 44px; font-size: 0.9375rem; }
+.botao-bloco { display: flex; width: 100%; }
+.botao-grande { padding: 1.15rem 2.2rem; min-height: 60px; font-size: 1.1rem; }
 
 /* ---------- Barra superior (spec, seção 5) ---------- */
-.barra { position: sticky; top: 0; z-index: 10; background: rgba(20, 23, 29, 0.86); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid rgba(142, 148, 154, 0.18); }
+.barra { position: sticky; top: 0; z-index: 200; background: rgba(20, 23, 29, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--linha); }
 .barra.oculta { transform: translateY(-100%); }
 .barra .faixa { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: var(--barra); }
 .marca { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--display); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--cromo); text-decoration: none; white-space: nowrap; }
 .marca:hover { color: var(--mel); }
 
-/* ---------- Hero (spec, seção 7.4) ---------- */
-.hero { position: relative; overflow: hidden; }
-.hero .faixa { display: grid; gap: 2.5rem; align-items: center; padding-block: clamp(3rem, 8vh, 5rem) 0; }
-.hero-texto { position: relative; z-index: 2; }
-.hero-frase { font-size: clamp(1.125rem, 1.6vw, 1.375rem); max-width: 34ch; margin-top: 1.75rem; }
-.hero-botoes { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
-.hero-foto { position: relative; height: 60vh; min-height: 420px; }
-/* O brilho é maior que a foto e deslocado pra esquerda e pra baixo: é nas
-   bordas mascaradas da foto que ele aparece. */
-.hero-foto::before { content: ""; position: absolute; inset: -20% -15% -25% -40%; background: radial-gradient(ellipse at 58% 52%, rgba(227, 154, 58, 0.5) 0%, rgba(227, 154, 58, 0.22) 38%, rgba(227, 154, 58, 0) 70%); filter: blur(28px); z-index: 0; pointer-events: none; }
-.hero-foto img {
-  position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: 40% 28%;
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%), linear-gradient(to top, transparent 0, #000 18%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent 0, #000 22%), linear-gradient(to top, transparent 0, #000 18%);
-  mask-composite: intersect;
-}
-@media (min-width: 900px) {
-  .hero .faixa { grid-template-columns: 1.1fr 0.9fr; min-height: calc(100vh - var(--barra)); padding-block: 2rem 0; }
-  .hero-foto { height: min(88vh, 900px); margin-right: calc(-1 * var(--margem)); }
-}
+/* ---------- Hero: a foto cobre tudo, o nome em cromo vai por cima ---------- */
+.hero { position: relative; display: grid; align-items: center; min-height: calc(100svh - var(--barra)); padding-block: clamp(3.5rem, 9vh, 5.5rem) clamp(4rem, 11vh, 7rem); overflow: hidden; overflow: clip; text-align: center; }
+.hero .fundo { --fundo-op: 1; filter: saturate(1.05) contrast(1.06) brightness(0.82); }
+.hero .fundo img { object-position: 50% 24%; }
+/* Véu que garante a leitura sobre a foto; mais fechado embaixo, onde ficam os botões. */
+.hero-veu { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to bottom, rgba(20, 23, 29, 0.5) 0%, rgba(20, 23, 29, 0.6) 35%, rgba(20, 23, 29, 0.84) 72%, var(--veludo) 100%), linear-gradient(to top, rgba(227, 154, 58, 0.12), transparent 45%); }
+/* Luzes de palco: dois canhões presos no alto, um de mel e um de cromo, balançando devagar.
+   Cada feixe é um gradiente cônico com a ponta no topo da seção, girando em volta dela. */
+.hero-luzes { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.hero-luzes::before, .hero-luzes::after { content: ""; position: absolute; top: 0; left: 50%; width: 160vmax; height: 160vmax; margin-left: -80vmax; transform-origin: 50% 0; }
+.hero-luzes::before { background: conic-gradient(from 150deg at 50% 0%, transparent 0deg, transparent 10deg, rgba(227, 154, 58, 0.16) 19deg, transparent 28deg); animation: luz-mel 11s ease-in-out infinite alternate; }
+.hero-luzes::after { background: conic-gradient(from 184deg at 50% 0%, transparent 0deg, transparent 9deg, rgba(215, 218, 222, 0.11) 16deg, transparent 24deg); animation: luz-cromo 13s ease-in-out infinite alternate; }
+@keyframes luz-mel { from { transform: rotate(-8deg); } to { transform: rotate(8deg); } }
+@keyframes luz-cromo { from { transform: rotate(7deg); } to { transform: rotate(-7deg); } }
+/* Faíscas (js/palco.js): só decoração, canvas atrás do conteúdo. */
+.hero-faiscas { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; pointer-events: none; opacity: 0.9; }
+.hero-conteudo { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; }
+.hero-conteudo .sobretitulo { justify-content: center; }
+.hero-frase { font-size: clamp(1.125rem, 1.7vw, 1.4rem); max-width: 38ch; margin-top: 1.5rem; color: var(--creme); text-shadow: 0 1px 14px rgba(0, 0, 0, 0.85); }
+.hero-botoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
 
-/* ---------- Serviços: linhas como um setlist (spec, seções 4 e 7.4) ---------- */
-.servicos { border-top: 1px solid var(--fio); }
-.servico { display: grid; gap: 0.75rem 2rem; padding: 1.75rem 1rem; margin-inline: -1rem; border-bottom: 1px solid var(--fio); border-radius: var(--raio); }
-.servico:hover, .servico:focus-within { background: var(--palco); }
-.servico:hover h3, .servico:focus-within h3 { color: var(--mel); }
-.servico p { max-width: 46ch; }
-.servico .botao { justify-self: start; }
-/* Etiqueta de formato: só nos serviços que acontecem online. Onde não há etiqueta, o serviço é ao vivo. */
-.formato { display: inline-block; margin-top: 0.6rem; padding: 0.2rem 0.5rem 0.15rem; border: 1px solid var(--mel); border-radius: var(--raio); font-family: var(--display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.2; color: var(--mel); }
-@media (min-width: 900px) {
-  .servico { grid-template-columns: 4fr 5fr 3fr; align-items: center; }
-  .servico .botao { justify-self: end; }
+/* ---------- Faixa rolante: o setlist passando ---------- */
+.faixa-rolante { position: relative; overflow: hidden; padding-block: 0.9rem; border-block: 1px solid var(--linha); background: linear-gradient(90deg, rgba(227, 154, 58, 0.08), rgba(215, 218, 222, 0.04), rgba(227, 154, 58, 0.08)); -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); }
+.faixa-rolante__trilho { display: flex; width: max-content; animation: rolar 36s linear infinite; }
+.faixa-rolante:hover .faixa-rolante__trilho { animation-play-state: paused; }
+@keyframes rolar { to { transform: translateX(-50%); } }
+.faixa-rolante__grupo { display: flex; align-items: center; gap: 1.6rem; padding-right: 1.6rem; flex-shrink: 0; }
+.faixa-rolante__grupo span { font-family: var(--display); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cromo); white-space: nowrap; }
+.faixa-rolante__grupo b { color: var(--mel); font-size: 0.7rem; }
+
+/* ---------- Serviços: cartões de produto (spec, seção 4) ---------- */
+.cartoes { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+.cartao {
+  position: relative; display: flex; flex-direction: column; gap: 0.9rem; padding: 2rem 1.5rem 1.6rem;
+  background: linear-gradient(168deg, #272C36, var(--palco) 60%, #181B22);
+  border: 1px solid rgba(215, 218, 222, 0.16); border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 24px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
+.cartao:hover { transform: translateY(-5px); border-color: var(--linha-mel); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 34px 80px rgba(0, 0, 0, 0.6), 0 0 50px rgba(227, 154, 58, 0.12); }
+.cartao--destaque { border-color: rgba(227, 154, 58, 0.45); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 50px rgba(227, 154, 58, 0.1); }
+/* Fita de cromo e mel correndo no topo do cartão: o gradiente tem o padrão duas vezes e
+   desliza 50 %, então o laço fecha sem emenda. */
+.cartao__fita { position: absolute; inset: 0 0 auto; height: 3px; overflow: hidden; }
+.cartao__fita::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 200%; background: linear-gradient(90deg, var(--mel-queimado), var(--mel), var(--cromo-claro), var(--mel), var(--mel-queimado), var(--mel), var(--cromo-claro), var(--mel), var(--mel-queimado)); animation: fita 7s linear infinite; }
+@keyframes fita { to { transform: translateX(-50%); } }
+.cartao__selo { position: absolute; top: 1rem; right: 1rem; padding: 0.32rem 0.7rem; font: 700 0.68rem/1.2 var(--corpo); letter-spacing: 0.07em; text-transform: uppercase; color: var(--veludo); background: linear-gradient(150deg, var(--mel-claro), var(--mel)); border-radius: 40px; box-shadow: 0 4px 14px rgba(227, 154, 58, 0.35); }
+/* Etiqueta de formato: "Online" em mel, "Ao vivo" em cromo. */
+.cartao__tag { align-self: flex-start; padding: 0.2rem 0.5rem 0.15rem; border: 1px solid var(--mel); border-radius: var(--raio); font-family: var(--display); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.2; color: var(--mel); }
+.cartao__tag--vivo { color: var(--cromo); border-color: rgba(215, 218, 222, 0.55); }
+.cartao__titulo { font-family: var(--display); font-weight: 800; font-size: clamp(1.75rem, 2.8vw, 2.25rem); line-height: 1; text-transform: uppercase; color: var(--cromo); }
+.cartao:hover .cartao__titulo { color: var(--mel); }
+.cartao__texto { color: var(--creme); font-size: 0.98rem; line-height: 1.65; }
+.checks { display: flex; flex-direction: column; gap: 0.55rem; padding-top: 0.9rem; margin-top: 0.1rem; border-top: 1px solid var(--linha); }
+.checks li { position: relative; padding-left: 1.75rem; font-size: 0.92rem; line-height: 1.5; color: var(--cinza-claro); }
+.checks li::before { content: ""; position: absolute; left: 0; top: 0.15em; width: 1.15rem; height: 1.15rem; border: 1px solid var(--linha-mel); border-radius: 3px; background: rgba(227, 154, 58, 0.1) url("data:image/svg+xml,%3Csvg width='11' height='9' viewBox='0 0 11 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4.4L4 7.4L10 1' stroke='%23E39A3A' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 62% no-repeat; }
+.cartao .botao { margin-top: auto; }
 
 /* ---------- Sobre ---------- */
-.sobre { display: grid; gap: 2rem; align-items: center; }
-.sobre img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: var(--raio); }
-.sobre .titulo { margin: 0.5rem 0 1.25rem; }
-.sobre p + p { margin-top: 1rem; }
-@media (min-width: 900px) {
-  .sobre { grid-template-columns: 5fr 1fr 6fr; }
-  .sobre picture { grid-column: 1; }
-  .sobre-texto { grid-column: 3; }
-}
+.sobre { display: grid; gap: 2rem; align-items: center; padding: 2rem 1.5rem; background: linear-gradient(160deg, rgba(31, 35, 43, 0.78), rgba(20, 23, 29, 0.6)); border: 1px solid var(--linha); border-radius: 10px; }
+.sobre-foto { justify-self: center; width: 100%; max-width: 320px; }
+.sobre-texto { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+.sobre-texto p { color: var(--creme); }
+.fichas { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.fichas li { padding: 0.34rem 0.8rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; color: var(--creme); background: rgba(227, 154, 58, 0.08); border: 1px solid var(--linha-mel); border-radius: 40px; }
 
-/* ---------- Chamada final (spec, seção 7.4) ---------- */
-.chamada { position: relative; min-height: 60vh; display: grid; place-items: center; text-align: center; isolation: isolate; overflow: hidden; padding-block: 5rem; border-top: 1px solid var(--fio); }
-.chamada picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; z-index: -2; }
-.chamada::before { content: ""; position: absolute; inset: 0; background: rgba(20, 23, 29, 0.72); z-index: -1; }
-.chamada .faixa { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+/* ---------- Molduras: foto do ensaio como chapa, com cantoneiras de cromo ---------- */
+.moldura { position: relative; padding: 8px; background: linear-gradient(150deg, #2A2F39, var(--palco) 55%, #171A20); border: 1px solid rgba(215, 218, 222, 0.2); border-radius: 4px; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 22px 60px rgba(0, 0, 0, 0.6); overflow: hidden; }
+.moldura img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: var(--pos, 50% 25%); border-radius: 2px; }
+/* Vinheta interna, como chapa antiga */
+.moldura::after { content: ""; position: absolute; inset: 8px; border-radius: 2px; pointer-events: none; background: radial-gradient(ellipse 82% 78% at 50% 42%, transparent 48%, rgba(8, 10, 14, 0.45) 100%); }
+.moldura:hover { border-color: rgba(227, 154, 58, 0.45); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 28px 74px rgba(0, 0, 0, 0.68), 0 0 44px rgba(227, 154, 58, 0.15); }
+.moldura:hover img { transform: scale(1.03); }
+.moldura__canto { position: absolute; width: 17px; height: 17px; border: 1.5px solid var(--cromo); opacity: 0.55; z-index: 2; pointer-events: none; }
+.moldura__canto--se { top: 4px; left: 4px; border-right: 0; border-bottom: 0; }
+.moldura__canto--sd { top: 4px; right: 4px; border-left: 0; border-bottom: 0; }
+.moldura__canto--ie { bottom: 4px; left: 4px; border-right: 0; border-top: 0; }
+.moldura__canto--id { bottom: 4px; right: 4px; border-left: 0; border-top: 0; }
+.moldura:hover .moldura__canto { opacity: 1; width: 23px; height: 23px; }
+.moldura--inclinada { transform: rotate(-1.5deg); }
+.moldura--inclinada:hover { transform: rotate(0deg); }
+
+/* Galeria: faixa com rolagem horizontal no celular, grade de quatro no desktop. */
+.galeria { display: flex; gap: 1.25rem; margin-top: 2.5rem; padding: 1rem var(--margem) 1.5rem; margin-inline: calc(-1 * var(--margem)); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--cinza-cromo) transparent; }
+.galeria li { flex: 0 0 min(72vw, 300px); scroll-snap-align: center; }
+.galeria li:nth-child(odd) .moldura { transform: rotate(-1.6deg); }
+.galeria li:nth-child(even) .moldura { transform: rotate(1.6deg); }
+.galeria li .moldura:hover { transform: rotate(0deg); }
+
+/* ---------- Chamada final: o bis ---------- */
+.chamada { text-align: center; padding-block: clamp(5rem, 12vw, 9rem); border-top: 1px solid var(--linha); }
+/* Mantém um brilho de mel por cima do véu padrão */
+.chamada::after { background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(227, 154, 58, 0.14), transparent 70%), linear-gradient(to bottom, var(--veludo) 1%, rgba(20, 23, 29, var(--veu)) 24%, rgba(20, 23, 29, var(--veu)) 76%, var(--veludo) 99%); }
+.chamada-conteudo { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+.chamada .sobretitulo { justify-content: center; }
+.chamada .titulo { font-size: clamp(2.4rem, 7vw, 4.75rem); }
 .chamada p { max-width: 44ch; }
-.chamada .botao { margin-top: 0.75rem; }
+.chamada .botao { margin-top: 0.5rem; }
 
 /* ---------- Rodapé ---------- */
-.rodape { padding-block: 2.5rem; border-top: 1px solid var(--fio); color: var(--cinza-cromo); font-size: 0.9375rem; }
+.rodape { padding-block: 2.5rem; border-top: 1px solid var(--linha); color: var(--cinza-cromo); font-size: 0.9375rem; }
 .rodape .faixa { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
 /* Alvo de toque de 44 px sem mudar o visual: padding compensado por margem negativa. */
 .rodape a { display: inline-block; padding-block: 0.75rem; margin-block: -0.75rem; color: var(--creme); text-decoration: none; }
@@ -187,34 +369,127 @@ p { max-width: 60ch; }
 
 /* ---------- Botão flutuante (spec, seção 6) ---------- */
 /* Único botão com cantos totalmente arredondados: o balão de WhatsApp que as pessoas já conhecem. */
-.flutuante { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 20; min-height: 56px; padding: 0 1rem; border-radius: 999px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); }
+.flutuante { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 250; min-height: 56px; padding: 0 1rem; border-radius: 999px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 30px rgba(37, 211, 102, 0.2); }
 .flutuante svg { width: 26px; height: 26px; }
 .flutuante span { display: none; }
-@media (min-width: 900px) {
-  .flutuante { padding: 0 1.4rem 0 1.1rem; }
-  .flutuante span { display: inline; }
-}
 /* Com JS, o botão só aparece quando nenhum outro botão de WhatsApp está na tela (js/pagina.js). Sem JS, fica sempre visível. */
 .js .flutuante { opacity: 0; visibility: hidden; transform: translateY(8px); pointer-events: none; }
 .js .flutuante.visivel { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
 
-/* ---------- Movimento (spec, seção 7.5): um momento orquestrado e mais nada ---------- */
-@media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth; }
-  .botao { transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.15s; }
-  .botao:hover, .js .flutuante.visivel:hover { transform: translateY(-1px); }
-  .servico { transition: background-color 0.2s; }
-  .servico h3 { transition: color 0.2s; }
-  .marca { transition: color 0.15s; }
-  .barra { transition: transform 0.25s ease; }
-  .js .flutuante { transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
+/* ---------- Revelação ao rolar ----------
+   Vocabulário de entradas. Todas disparam pelo mesmo IntersectionObserver do js/pagina.js
+   (classe .entrou) e só existem com o JS vivo (.js no <html>): sem script, tudo aparece de
+   uma vez. Só opacity, clip-path e as propriedades individuais de transformação (translate,
+   scale, rotate), de propósito: assim o hover dos cartões, que usa transform, continua
+   funcionando depois da entrada.
+   .revela            fade + 14 px pra cima (padrão)
+   .revela--palavras  cada .w sobe na vez dela (--i)
+   .revela--carimbo   carimbo: pousa de cima com leve giro
+   .revela--cortina   cortina da esquerda pra direita
+   .revela--lado      entra de lado; ímpar da esquerda, par da direita
+   .checks--sequencia lista que vai se marcando, item a item
+   --d adia a entrada; --i é a posição na fila. */
+.js .revela { opacity: 0; translate: 0 var(--dy, 14px); transition: opacity 0.45s var(--ease-suave) var(--d, 0ms), translate 0.45s var(--ease-suave) var(--d, 0ms); }
+.js .revela.entrou { opacity: 1; translate: none; }
+.js .cartao.revela { --dy: 28px; transition: opacity 0.55s var(--ease-suave) var(--d, 0ms), translate 0.55s var(--ease-suave) var(--d, 0ms), transform 0.5s var(--ease), border-color 0.4s, box-shadow 0.5s var(--ease); }
+.js .revela--carimbo { translate: none; scale: 1.22; rotate: -3deg; transition: opacity 0.55s var(--ease-suave) var(--d, 0ms), scale 0.55s cubic-bezier(0.2, 1.3, 0.4, 1) var(--d, 0ms), rotate 0.55s cubic-bezier(0.2, 1.3, 0.4, 1) var(--d, 0ms); }
+/* O nome é largo: carimbo mais contido e um pouco mais lento */
+.js .nome.revela--carimbo { scale: 1.1; rotate: -1.5deg; transition-duration: 0.7s; }
+.js .revela--carimbo.entrou, .js .nome.revela--carimbo.entrou { scale: 1; rotate: 0deg; }
+.js .revela--cortina { opacity: 1; translate: none; clip-path: inset(0 100% 0 0); transition: clip-path 0.6s var(--ease) var(--d, 0ms); }
+.js .revela--cortina.entrou { clip-path: inset(0 0 0 0); }
+.js .revela--lado { translate: -28px 0; }
+.js .revela--lado:nth-child(even) { translate: 28px 0; }
+.js .revela--lado.entrou { translate: none; }
+.js .revela--palavras { opacity: 1; translate: none; transition: none; }
+.js .revela--palavras .w { display: inline-block; opacity: 0; translate: 0 0.55em; transition: opacity 0.5s var(--ease-suave), translate 0.6s var(--ease); transition-delay: calc(var(--d, 0ms) + var(--i, 0) * 70ms); }
+.js .revela--palavras.entrou .w { opacity: 1; translate: none; }
+.js .checks--sequencia li { opacity: 0; translate: -8px 0; transition: opacity 0.4s var(--ease-suave) calc(var(--i, 0) * 55ms), translate 0.4s var(--ease-suave) calc(var(--i, 0) * 55ms); }
+.js .checks--sequencia li::before { opacity: 0; scale: 0.4; transition: opacity 0.25s calc(var(--i, 0) * 55ms + 120ms), scale 0.35s cubic-bezier(0.2, 1.3, 0.4, 1) calc(var(--i, 0) * 55ms + 120ms); }
+.checks--sequencia li:nth-child(1) { --i: 0; }
+.checks--sequencia li:nth-child(2) { --i: 1; }
+.checks--sequencia li:nth-child(3) { --i: 2; }
+.checks--sequencia li:nth-child(4) { --i: 3; }
+/* A lista dispara quando o cartão que a contém entra */
+.js .entrou .checks--sequencia li, .js .entrou .checks--sequencia li::before { opacity: 1; translate: none; scale: none; }
+/* A palavra em mel ganha um sublinhado que cresce depois de o título entrar. Fundo de 2 px,
+   não border: cresce por background-size, sem mexer no layout. */
+.js .revela .ink-mel { background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-size: 0% 2px; background-position: 0 100%; transition: background-size 0.55s var(--ease) calc(var(--d, 0ms) + var(--ink-d, 350ms)); }
+.js .revela.entrou .ink-mel { background-size: 100% 2px; }
+/* Sequência dos quatro cartões, só onde ficam lado a lado */
+@media (min-width: 620px) {
+  .cartoes .cartao:nth-child(2) { --d: 120ms; }
+  .cartoes .cartao:nth-child(3) { --d: 240ms; }
+  .cartoes .cartao:nth-child(4) { --d: 360ms; }
+}
 
-  /* A foto só sobe, sem fade: elemento que começa com opacidade 0 fica fora da medição de LCP,
-     e a foto é o LCP legítimo da página. Os textos sobem e aparecem. */
-  .hero .entra { transform: translateY(12px); animation: entra 0.5s ease-out forwards; }
-  .hero-texto > .entra { opacity: 0; }
-  .hero-texto > .entra:nth-child(2) { animation-delay: 80ms; }
-  .hero-texto > .entra:nth-child(3), .hero .hero-foto.entra { animation-delay: 160ms; }
-  .hero-texto > .entra:nth-child(4) { animation-delay: 240ms; }
-  @keyframes entra { to { opacity: 1; transform: none; } }
+/* ---------- Transições de hover (no bloco de movimento reduzido viram instantâneas) ---------- */
+.botao { transition: box-shadow 0.3s var(--ease), background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.15s; }
+.botao:hover { transform: translateY(-1px); }
+.js .flutuante.visivel:hover { transform: translateY(-1px); }
+.cartao { transition: transform 0.5s var(--ease), border-color 0.4s, box-shadow 0.5s var(--ease); }
+.cartao__titulo { transition: color 0.2s; }
+.marca { transition: color 0.15s; }
+.barra { transition: transform 0.25s ease; }
+.js .flutuante { transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
+.moldura { transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.4s; }
+.moldura img { transition: transform 0.7s var(--ease); }
+.moldura__canto { transition: opacity 0.4s, width 0.4s var(--ease), height 0.4s var(--ease); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+/* ---------- Celular: tudo centralizado e ritmo mais curto ---------- */
+@media (max-width: 619.98px) {
+  :root { --ritmo: clamp(2.75rem, 7vw, 4.5rem); }
+  .cabecalho-secao { align-items: center; text-align: center; }
+  .cabecalho-secao .sobretitulo { justify-content: center; }
+  .cartao { text-align: center; align-items: center; }
+  .cartao__tag { align-self: center; }
+  .checks { width: 100%; text-align: left; }
+  .cartao--destaque .cartao__tag { margin-top: 1.6rem; }
+  .sobre-texto { align-items: center; text-align: center; }
+  .sobre-texto .sobretitulo { justify-content: center; }
+  .fichas { justify-content: center; }
+  .rodape .faixa { flex-direction: column; align-items: center; text-align: center; }
+}
+
+/* ---------- Tablet: 620 px ---------- */
+@media (min-width: 620px) {
+  .cartoes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Desktop: 900 px ---------- */
+@media (min-width: 900px) {
+  .hero { text-align: left; }
+  .hero .fundo img { object-position: 50% 30%; }
+  .hero-veu { background: linear-gradient(100deg, rgba(20, 23, 29, 0.9) 0%, rgba(20, 23, 29, 0.72) 38%, rgba(20, 23, 29, 0.42) 68%, rgba(20, 23, 29, 0.6) 100%), linear-gradient(to bottom, rgba(20, 23, 29, 0.35) 0%, transparent 30%, rgba(20, 23, 29, 0.5) 80%, var(--veludo) 100%); }
+  .hero-conteudo { align-items: flex-start; }
+  .hero-conteudo .sobretitulo { justify-content: flex-start; }
+  .hero-botoes { justify-content: flex-start; }
+  .sobre { grid-template-columns: 340px 1fr; gap: 3rem; padding: 2.6rem 2.4rem; }
+  .galeria { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 1rem 0 0; margin-inline: 0; overflow: visible; }
+  .galeria li { flex: none; }
+  .flutuante { padding: 0 1.4rem 0 1.1rem; }
+  .flutuante span { display: inline; }
+  /* Deriva sutil dos fundos ao rolar, sem JS: cada foto anda um pouco mais devagar que a página. */
+  @supports (animation-timeline: view()) {
+    .com-fundo .fundo { inset: -7% 0; animation: deriva linear both; animation-timeline: view(); }
+  }
+}
+@keyframes deriva { from { transform: translateY(-4%); } to { transform: translateY(4%); } }
+
+/* ---------- Ponteiro grosso: efeitos de hover só onde há ponteiro ---------- */
+@media (hover: none) {
+  .cartao:hover, .botao:hover { transform: none; }
+  .moldura:hover, .moldura--inclinada:hover, .galeria li .moldura:hover { transform: inherit; }
+}
+
+/* ---------- Movimento reduzido: nada se move, tudo aparece ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .js .revela, .js .revela--palavras .w, .js .checks--sequencia li, .js .checks--sequencia li::before { opacity: 1; translate: none; scale: none; rotate: none; }
+  .js .revela--cortina { clip-path: none; }
+  .js .revela .ink-mel { background-size: 100% 2px; }
+  .fx-grao, .faixa-rolante__trilho, .equalizador i, .cartao__fita::before, .botao-brasa::before, .sobretitulo .estrela, .hero-luzes::before, .hero-luzes::after, .fundo, .fundo::before, .fundo::after { animation: none; }
+  .hero-faiscas, .hero-luzes { display: none; }
 }

@@ -15,6 +15,21 @@ const browser = await puppeteer.launch({ executablePath: NAVEGADOR, headless: tr
 const resumo = { larguras: {} };
 const larguras = [[360, 800], [390, 844], [768, 1024], [1024, 768], [1440, 900]];
 
+// Rola a página inteira devagar, pra disparar todas as revelações, e volta ao topo.
+async function rolarTudo(page, h) {
+  const altura = await page.evaluate(() => document.documentElement.scrollHeight);
+  for (let y = 0; y < altura; y += Math.round(h * 0.6)) {
+    await page.evaluate(yy => window.scrollTo({ top: yy, behavior: 'instant' }), y);
+    await dormir(140);
+  }
+  // A galeria rola na horizontal no celular: leva os itens escondidos à direita até a tela e volta.
+  await page.evaluate(() => { const g = document.querySelector('.galeria'); if (g) { g.scrollIntoView({ block: 'center', behavior: 'instant' }); g.scrollTo({ left: g.scrollWidth, behavior: 'instant' }); } });
+  await dormir(400);
+  await page.evaluate(() => { const g = document.querySelector('.galeria'); if (g) g.scrollTo({ left: 0, behavior: 'instant' }); });
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  await dormir(900);
+}
+
 for (const [w, h] of larguras) {
   const page = await browser.newPage();
   const falhas = [], consoleErros = [];
@@ -25,26 +40,26 @@ for (const [w, h] of larguras) {
   await page.setViewport({ width: w, height: h, deviceScaleFactor: 1 });
   await page.goto(URL_PAGINA, { waitUntil: 'networkidle0' });
   await page.evaluate(() => document.fonts.ready);
-  await dormir(900); // animação de entrada termina em 740 ms
+  await dormir(1600); // entrada do hero termina em ~1,6 s
 
   const dados = await page.evaluate(() => {
     const q = s => document.querySelector(s);
     const nome = q('.nome'); const spans = [...nome.querySelectorAll('span')];
     const rect = el => el.getBoundingClientRect();
-    const t = rect(q('.hero-texto')), f = rect(q('.hero-foto img'));
-    const sobrepoe = !(f.left >= t.right || f.right <= t.left || f.top >= t.bottom || f.bottom <= t.top);
     const recursos = performance.getEntriesByType('resource');
     return {
       transbordaHorizontal: document.documentElement.scrollWidth > window.innerWidth,
       nomeLinhas: Math.round(rect(nome).height / (parseFloat(getComputedStyle(nome).fontSize) * 0.88)),
       nomeFonte: getComputedStyle(nome).fontSize,
       spansTransbordam: spans.some(s => s.scrollWidth > nome.clientWidth + 1),
-      fotoCobreTextoDesktop: window.innerWidth >= 900 && sobrepoe,
+      heroEntrou: [...document.querySelectorAll('.hero .revela')].every(el => el.classList.contains('entrou')),
+      nomeOpacidade: getComputedStyle(nome).opacity,
       fonteDisplay: document.fonts.check('900 1em "Big Shoulders Display"'),
       fonteCorpo: document.fonts.check('400 1em "Instrument Sans"'),
       requisicoesExternas: recursos.filter(e => !e.name.startsWith(location.origin)).map(e => e.name),
       transferidoKB: Math.round(recursos.reduce((a, e) => a + (e.transferSize || e.encodedBodySize || 0), 0) / 1024),
-      imagemHero: ((recursos.find(e => /edu-27/.test(e.name)) || {}).name || '').split('/').pop(),
+      imagemHero: ((recursos.find(e => /edu-24/.test(e.name)) || {}).name || '').split('/').pop(),
+      faixaRolanteGrupos: document.querySelectorAll('.faixa-rolante__grupo').length,
       flutuanteVisivelNoTopo: q('.flutuante').classList.contains('visivel'),
       alvosPequenos: [...document.querySelectorAll('a')].map(a => { const r = rect(a); return { t: (a.getAttribute('aria-label') || a.textContent).trim().slice(0, 28), w: Math.round(r.width), h: Math.round(r.height) }; }).filter(a => a.w && a.h && (a.w < 44 || a.h < 44)),
       titulos: [...document.querySelectorAll('h1,h2,h3')].map(x => x.tagName + ' ' + x.textContent.trim().replace(/\s+/g, ' ')),
@@ -63,17 +78,21 @@ for (const [w, h] of larguras) {
   await page.evaluate(() => window.scrollBy({ top: -300, behavior: 'instant' }));
   await dormir(400);
   const barraVoltou = await page.evaluate(() => !document.querySelector('.barra').classList.contains('oculta'));
-  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
-  await dormir(400);
+
+  // Rola tudo pra revelar cada bloco; nada pode ficar escondido depois disso.
+  await rolarTudo(page, h);
+  const naoRevelados = await page.evaluate(() => [...document.querySelectorAll('.revela:not(.entrou)')].map(el => el.className));
+  const transferidoDepoisDeRolarKB = await page.evaluate(() => Math.round(performance.getEntriesByType('resource').reduce((a, e) => a + (e.transferSize || e.encodedBodySize || 0), 0) / 1024));
 
   await page.screenshot({ path: `${SAIDA}/pagina-${w}.png`, fullPage: true });
   await page.screenshot({ path: `${SAIDA}/hero-${w}.png` });
-  resumo.larguras[w] = { ...dados, emSobre, flutuanteNaChamada, barraVoltou, falhas, consoleErros };
+  resumo.larguras[w] = { ...dados, emSobre, flutuanteNaChamada, barraVoltou, naoRevelados, transferidoDepoisDeRolarKB, falhas, consoleErros };
 
   if (w === 1440) {
     // Ordem de foco por teclado.
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
     const ordem = [];
-    for (let i = 0; i < 13; i++) {
+    for (let i = 0; i < 14; i++) {
       await page.keyboard.press('Tab');
       ordem.push(await page.evaluate(() => { const a = document.activeElement; const cs = getComputedStyle(a); return (a.className || a.tagName) + ' | ' + (a.getAttribute('aria-label') || a.textContent).trim().replace(/\s+/g, ' ').slice(0, 40) + ' | contorno ' + cs.outlineColor + ' ' + cs.outlineWidth; }));
     }
@@ -84,12 +103,20 @@ for (const [w, h] of larguras) {
   await page.close();
 }
 
-// Movimento reduzido: nada se move.
+// Movimento reduzido: nada se move e tudo está visível.
 const pr = await browser.newPage();
 await pr.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
 await pr.setViewport({ width: 1440, height: 900 });
 await pr.goto(URL_PAGINA, { waitUntil: 'load' });
-resumo.movimentoReduzido = await pr.evaluate(() => { const cs = getComputedStyle(document.querySelector('.nome')); return { opacity: cs.opacity, animation: cs.animationName, scroll: getComputedStyle(document.documentElement).scrollBehavior }; });
+await dormir(300);
+resumo.movimentoReduzido = await pr.evaluate(() => ({
+  nomeOpacidade: getComputedStyle(document.querySelector('.nome')).opacity,
+  nomeEscala: getComputedStyle(document.querySelector('.nome')).scale,
+  faiscas: getComputedStyle(document.querySelector('.hero-faiscas')).display,
+  faixaRolante: getComputedStyle(document.querySelector('.faixa-rolante__trilho')).animationName,
+  scroll: getComputedStyle(document.documentElement).scrollBehavior,
+  escondidos: document.querySelectorAll('.revela:not(.entrou)').length,
+}));
 await pr.close();
 
 // Candidatos a LCP num celular emulado: a foto do hero deve ser o maior.
@@ -100,7 +127,7 @@ await pl.evaluateOnNewDocument(() => {
   new PerformanceObserver(l => l.getEntries().forEach(e => window.__lcp.push({ ms: Math.round(e.startTime), tamanho: e.size, elemento: e.element ? e.element.tagName + '.' + e.element.className : null, url: (e.url || '').split('/').pop() }))).observe({ type: 'largest-contentful-paint', buffered: true });
 });
 await pl.goto(URL_PAGINA, { waitUntil: 'networkidle0' });
-await dormir(2000);
+await dormir(2500);
 resumo.candidatosLCP = await pl.evaluate(() => window.__lcp);
 await pl.close();
 

@@ -28,11 +28,18 @@
 
 <link rel="preload" href="fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="img/edu-27-480.avif 480w, img/edu-27-800.avif 800w, img/edu-27-1200.avif 1200w, img/edu-27-1600.avif 1600w" imagesizes="(min-width: 900px) 42vw, calc(100vw - 48px)">
+<!-- A foto do hero é o maior elemento da primeira tela (o LCP): o pedido sai junto com o do CSS.
+     O type filtra: navegador sem AVIF ignora esta linha e pega o WebP do <picture>. -->
+<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="img/edu-24-480.avif 480w, img/edu-24-800.avif 800w, img/edu-24-1200.avif 1200w, img/edu-24-1600.avif 1600w" imagesizes="100vw">
 <link rel="stylesheet" href="css/estilo.css">
+<!-- Marca que o JS está vivo: só com ela a revelação ao rolar começa escondida. Sem script, tudo aparece. -->
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+
+<!-- Texturas de ambiente: grão de filme e vinheta, por cima de tudo, sem pegar clique. -->
+<div class="fx-grao" aria-hidden="true"></div>
+<div class="fx-vinheta" aria-hidden="true"></div>
 
 <svg hidden aria-hidden="true" focusable="false">
   <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
@@ -52,111 +59,266 @@
 
 <main id="conteudo">
 
-  <!-- ===== HERO: a assinatura (spec, seções 7.3 e 7.4) ===== -->
+  <!-- ===== HERO: a foto cobre tudo, o nome em cromo vai por cima (spec, seções 7.3 e 7.4) ===== -->
   <section class="hero" id="topo" aria-labelledby="nome">
-    <div class="faixa">
-      <div class="hero-texto">
-        <p class="sobretitulo entra">Gaitista de rock · Brasília, DF</p>
-        <h1 class="nome entra" id="nome"><span>Eduardo</span><span>Leopoldino</span></h1>
-        <p class="hero-frase entra">Aulas online, gravações a distância, shows e eventos particulares. Gaita com a energia do rock.</p>
-        <div class="hero-botoes entra">
-          <a class="botao botao-whatsapp" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20seu%20trabalho%20com%20gaita." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp: abre uma conversa com Eduardo em nova aba">
-            <svg aria-hidden="true"><use href="#i-whatsapp"/></svg>
-            Chamar no WhatsApp
-          </a>
-          <a class="botao botao-secundario" href="#servicos">Ver serviços</a>
-        </div>
-      </div>
-      <div class="hero-foto entra">
-        <picture>
-          <source type="image/avif" srcset="img/edu-27-480.avif 480w, img/edu-27-800.avif 800w, img/edu-27-1200.avif 1200w, img/edu-27-1600.avif 1600w" sizes="(min-width: 900px) 42vw, calc(100vw - 48px)">
-          <source type="image/webp" srcset="img/edu-27-480.webp 480w, img/edu-27-800.webp 800w, img/edu-27-1200.webp 1200w, img/edu-27-1600.webp 1600w" sizes="(min-width: 900px) 42vw, calc(100vw - 48px)">
-          <img src="img/edu-27-1200.webp" width="1200" height="1800" alt="Mão segurando uma gaita cromática na vertical, contra a camisa escura de veludo" fetchpriority="high" decoding="async">
-        </picture>
+    <div class="fundo" aria-hidden="true">
+      <picture>
+        <source type="image/avif" srcset="img/edu-24-480.avif 480w, img/edu-24-800.avif 800w, img/edu-24-1200.avif 1200w, img/edu-24-1600.avif 1600w" sizes="100vw">
+        <source type="image/webp" srcset="img/edu-24-480.webp 480w, img/edu-24-800.webp 800w, img/edu-24-1200.webp 1200w, img/edu-24-1600.webp 1600w" sizes="100vw">
+        <img src="img/edu-24-1200.webp" width="1200" height="1800" alt="" fetchpriority="high" decoding="async">
+      </picture>
+    </div>
+    <div class="hero-veu" aria-hidden="true"></div>
+    <div class="hero-luzes" aria-hidden="true"></div>
+    <canvas class="hero-faiscas" id="faiscas" aria-hidden="true"></canvas>
+
+    <div class="faixa hero-conteudo">
+      <p class="sobretitulo revela"><span class="equalizador" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Gaitista de rock · Brasília, DF</p>
+      <h1 class="nome revela revela--carimbo" id="nome" style="--d:150ms"><span>Eduardo</span><span>Leopoldino</span></h1>
+      <!-- Cada palavra é um .w com --i, a posição dela na fila de entrada. -->
+      <p class="hero-frase revela revela--palavras" style="--d:550ms">
+        <span class="w" style="--i:0">Aulas</span>
+        <span class="w" style="--i:1">online,</span>
+        <span class="w" style="--i:2">gravações</span>
+        <span class="w" style="--i:3">a</span>
+        <span class="w" style="--i:4">distância,</span>
+        <span class="w" style="--i:5">shows</span>
+        <span class="w" style="--i:6">e</span>
+        <span class="w" style="--i:7">eventos</span>
+        <span class="w" style="--i:8">particulares.</span>
+        <span class="w" style="--i:9">Gaita</span>
+        <span class="w" style="--i:10">com</span>
+        <span class="w" style="--i:11">a</span>
+        <span class="w" style="--i:12">energia</span>
+        <span class="w" style="--i:13">do</span>
+        <span class="w" style="--i:14">rock.</span>
+      </p>
+      <div class="hero-botoes revela" style="--d:1100ms">
+        <a class="botao botao-whatsapp botao-brasa" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20seu%20trabalho%20com%20gaita." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp: abre uma conversa com Eduardo em nova aba">
+          <svg aria-hidden="true"><use href="#i-whatsapp"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a class="botao botao-secundario" href="#servicos">Ver serviços</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== SERVIÇOS: linhas como um setlist, na ordem da spec (seção 4) ===== -->
-  <section class="bloco" id="servicos" aria-labelledby="t-servicos">
+  <!-- ===== FAIXA ROLANTE: o setlist passando (decorativa; o js/pagina.js fecha o laço) ===== -->
+  <div class="faixa-rolante" aria-hidden="true">
+    <div class="faixa-rolante__trilho" id="faixa-rolante">
+      <span class="faixa-rolante__grupo">
+        <span>Aulas online</span><b>★</b>
+        <span>Gravações a distância</span><b>★</b>
+        <span>Shows</span><b>★</b>
+        <span>Eventos particulares</span><b>★</b>
+        <span>Brasília, DF</span><b>★</b>
+        <span>Rock e blues</span><b>★</b>
+        <span>Diatônica e cromática</span><b>★</b>
+      </span>
+    </div>
+  </div>
+
+  <!-- ===== SERVIÇOS: cartões, na ordem da spec (seção 4) ===== -->
+  <section class="secao com-fundo secao-servicos" id="servicos" aria-labelledby="t-servicos">
+    <div class="fundo" aria-hidden="true">
+      <picture>
+        <source type="image/avif" srcset="img/edu-33-800.avif 800w, img/edu-33-1200.avif 1200w, img/edu-33-1600.avif 1600w" sizes="100vw">
+        <source type="image/webp" srcset="img/edu-33-800.webp 800w, img/edu-33-1200.webp 1200w, img/edu-33-1600.webp 1600w" sizes="100vw">
+        <img src="img/edu-33-1200.webp" width="1200" height="1800" alt="" loading="lazy" decoding="async">
+      </picture>
+    </div>
     <div class="faixa">
       <div class="cabecalho-secao">
-        <p class="sobretitulo">Serviços</p>
-        <h2 class="titulo" id="t-servicos">O que a gaita pode fazer pelo seu projeto</h2>
-        <p class="secundario">Escolhe o que você precisa e chama no WhatsApp. A conversa já começa com o assunto certo.</p>
+        <p class="sobretitulo revela">Serviços</p>
+        <h2 class="titulo revela" id="t-servicos">O que a gaita pode fazer <span class="ink-mel">pelo seu projeto</span></h2>
+        <p class="secundario revela">Escolhe o que você precisa e chama no WhatsApp. A conversa já começa com o assunto certo.</p>
       </div>
-      <div class="servicos">
-        <article class="servico">
-          <div class="servico-nome">
-            <h3 class="titulo-servico">Aulas particulares</h3>
-            <p class="formato">Online</p>
-          </div>
-          <p>Para começar do zero ou destravar o que você já toca. Aula online, ao vivo, de onde você estiver.</p>
-          <a class="botao botao-whatsapp" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20mais%20sobre%20as%20aulas%20particulares%20de%20gaita." target="_blank" rel="noopener" aria-label="Quero fazer aula: abre o WhatsApp em nova aba com a mensagem sobre aulas particulares">Quero fazer aula</a>
+      <div class="cartoes">
+        <article class="cartao cartao--destaque revela">
+          <span class="cartao__fita" aria-hidden="true"></span>
+          <span class="cartao__selo revela revela--carimbo" style="--d:420ms">Comece por aqui</span>
+          <p class="cartao__tag revela revela--cortina" style="--d:120ms">Online</p>
+          <h3 class="cartao__titulo">Aulas particulares</h3>
+          <p class="cartao__texto">Para começar do zero ou destravar o que você já toca. Aula online, ao vivo, de onde você estiver.</p>
+          <ul class="checks checks--sequencia">
+            <li>Do zero ou pra quem já toca</li>
+            <li>Gaita diatônica e cromática</li>
+            <li>No seu ritmo, com o repertório que você curte</li>
+          </ul>
+          <a class="botao botao-whatsapp botao-bloco revela" style="--d:520ms" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20mais%20sobre%20as%20aulas%20particulares%20de%20gaita." target="_blank" rel="noopener" aria-label="Quero fazer aula: abre o WhatsApp em nova aba com a mensagem sobre aulas particulares">Quero fazer aula</a>
         </article>
-        <article class="servico">
-          <div class="servico-nome">
-            <h3 class="titulo-servico">Gravações</h3>
-            <p class="formato">Online</p>
-          </div>
-          <p>Gaita na sua música: solos, bases e arranjos gravados a distância. Você manda a guia, recebe os takes.</p>
-          <a class="botao botao-whatsapp" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20sobre%20grava%C3%A7%C3%A3o%20de%20gaita%20para%20um%20projeto." target="_blank" rel="noopener" aria-label="Quero gaita na minha música: abre o WhatsApp em nova aba com a mensagem sobre gravações">Quero gaita na minha música</a>
+
+        <article class="cartao revela">
+          <span class="cartao__fita" aria-hidden="true"></span>
+          <p class="cartao__tag revela revela--cortina" style="--d:120ms">Online</p>
+          <h3 class="cartao__titulo">Gravações</h3>
+          <p class="cartao__texto">Gaita na sua música: solos, bases e arranjos gravados a distância. Você manda a guia, recebe os takes.</p>
+          <ul class="checks checks--sequencia">
+            <li>Você manda a guia, recebe os takes</li>
+            <li>Solos, bases e arranjos</li>
+            <li>Rock, blues e o que a música pedir</li>
+          </ul>
+          <a class="botao botao-whatsapp botao-bloco revela" style="--d:520ms" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20sobre%20grava%C3%A7%C3%A3o%20de%20gaita%20para%20um%20projeto." target="_blank" rel="noopener" aria-label="Quero gaita na minha música: abre o WhatsApp em nova aba com a mensagem sobre gravações">Quero gaita na minha música</a>
         </article>
-        <article class="servico">
-          <div class="servico-nome">
-            <h3 class="titulo-servico">Shows</h3>
-          </div>
-          <p>Repertório de rock e blues para bares, festivais e bandas que querem gaita no palco.</p>
-          <a class="botao botao-whatsapp" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20sobre%20contratar%20um%20show." target="_blank" rel="noopener" aria-label="Quero contratar um show: abre o WhatsApp em nova aba com a mensagem sobre shows">Quero contratar um show</a>
+
+        <article class="cartao revela">
+          <span class="cartao__fita" aria-hidden="true"></span>
+          <p class="cartao__tag cartao__tag--vivo revela revela--cortina" style="--d:120ms">Ao vivo</p>
+          <h3 class="cartao__titulo">Shows</h3>
+          <p class="cartao__texto">Repertório de rock e blues para bares, festivais e bandas que querem gaita no palco.</p>
+          <ul class="checks checks--sequencia">
+            <li>Rock e blues</li>
+            <li>Bares, festivais e bandas</li>
+            <li>Energia de palco</li>
+          </ul>
+          <a class="botao botao-whatsapp botao-bloco revela" style="--d:520ms" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20sobre%20contratar%20um%20show." target="_blank" rel="noopener" aria-label="Quero contratar um show: abre o WhatsApp em nova aba com a mensagem sobre shows">Quero contratar um show</a>
         </article>
-        <article class="servico">
-          <div class="servico-nome">
-            <h3 class="titulo-servico">Eventos particulares</h3>
-          </div>
-          <p>Música ao vivo com gaita para casamentos, aniversários e eventos corporativos.</p>
-          <a class="botao botao-whatsapp" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20sobre%20gaita%20ao%20vivo%20em%20um%20evento%20particular." target="_blank" rel="noopener" aria-label="Quero gaita no meu evento: abre o WhatsApp em nova aba com a mensagem sobre eventos particulares">Quero gaita no meu evento</a>
+
+        <article class="cartao revela">
+          <span class="cartao__fita" aria-hidden="true"></span>
+          <p class="cartao__tag cartao__tag--vivo revela revela--cortina" style="--d:120ms">Ao vivo</p>
+          <h3 class="cartao__titulo">Eventos particulares</h3>
+          <p class="cartao__texto">Música ao vivo com gaita para casamentos, aniversários e eventos corporativos.</p>
+          <ul class="checks checks--sequencia">
+            <li>Casamentos e aniversários</li>
+            <li>Eventos corporativos</li>
+            <li>Formato combinado com você</li>
+          </ul>
+          <a class="botao botao-whatsapp botao-bloco revela" style="--d:520ms" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20sobre%20gaita%20ao%20vivo%20em%20um%20evento%20particular." target="_blank" rel="noopener" aria-label="Quero gaita no meu evento: abre o WhatsApp em nova aba com a mensagem sobre eventos particulares">Quero gaita no meu evento</a>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ===== SOBRE: texto genérico até o currículo chegar (spec, seções 5 e 11) ===== -->
-  <section class="bloco" id="sobre" aria-labelledby="t-sobre">
-    <div class="faixa sobre">
+  <section class="secao com-fundo secao-sobre" id="sobre" aria-labelledby="t-sobre">
+    <div class="fundo" aria-hidden="true">
       <picture>
-        <source type="image/avif" srcset="img/edu-32-480.avif 480w, img/edu-32-800.avif 800w, img/edu-32-1200.avif 1200w" sizes="(min-width: 900px) min(41vw, 500px), calc(100vw - 48px)">
-        <source type="image/webp" srcset="img/edu-32-480.webp 480w, img/edu-32-800.webp 800w, img/edu-32-1200.webp 1200w" sizes="(min-width: 900px) min(41vw, 500px), calc(100vw - 48px)">
-        <img src="img/edu-32-800.webp" width="800" height="1200" alt="Eduardo Leopoldino, retrato ao ar livre, com uma gaita no bolso da camisa" loading="lazy" decoding="async">
+        <source type="image/avif" srcset="img/edu-27-800.avif 800w, img/edu-27-1200.avif 1200w, img/edu-27-1600.avif 1600w" sizes="100vw">
+        <source type="image/webp" srcset="img/edu-27-800.webp 800w, img/edu-27-1200.webp 1200w, img/edu-27-1600.webp 1600w" sizes="100vw">
+        <img src="img/edu-27-1200.webp" width="1200" height="1800" alt="" loading="lazy" decoding="async">
       </picture>
-      <div class="sobre-texto">
-        <p class="sobretitulo">Sobre</p>
-        <h2 class="titulo" id="t-sobre">Gaita, rock e Brasília</h2>
-        <p>Eduardo Leopoldino é gaitista com foco em rock, de Brasília, DF. Toca gaita diatônica e cromática, dá aulas, grava para outros artistas e leva a gaita para palcos e eventos.</p>
-        <p>As aulas e as gravações acontecem online, para qualquer cidade. Shows e eventos, ao vivo.</p>
+    </div>
+    <div class="faixa">
+      <div class="sobre">
+        <div class="sobre-foto revela">
+          <figure class="moldura moldura--inclinada">
+            <picture>
+              <source type="image/avif" srcset="img/edu-32-480.avif 480w, img/edu-32-800.avif 800w" sizes="(min-width: 900px) 340px, min(100vw - 96px, 320px)">
+              <source type="image/webp" srcset="img/edu-32-480.webp 480w, img/edu-32-800.webp 800w" sizes="(min-width: 900px) 340px, min(100vw - 96px, 320px)">
+              <img src="img/edu-32-800.webp" width="800" height="1200" alt="Eduardo Leopoldino, retrato ao ar livre, com uma gaita no bolso da camisa" loading="lazy" decoding="async">
+            </picture>
+            <span class="moldura__canto moldura__canto--se" aria-hidden="true"></span>
+            <span class="moldura__canto moldura__canto--sd" aria-hidden="true"></span>
+            <span class="moldura__canto moldura__canto--ie" aria-hidden="true"></span>
+            <span class="moldura__canto moldura__canto--id" aria-hidden="true"></span>
+          </figure>
+        </div>
+        <div class="sobre-texto revela" style="--d:80ms">
+          <p class="sobretitulo">Sobre</p>
+          <h2 class="titulo" id="t-sobre">Gaita, rock e <span class="ink-mel">Brasília</span></h2>
+          <p>Eduardo Leopoldino é gaitista com foco em rock, de Brasília, DF. Toca gaita diatônica e cromática, dá aulas, grava para outros artistas e leva a gaita para palcos e eventos.</p>
+          <p>As aulas e as gravações acontecem online, para qualquer cidade. Shows e eventos, ao vivo.</p>
+          <ul class="fichas">
+            <li>Brasília, DF</li>
+            <li>Rock e blues</li>
+            <li>Diatônica e cromática</li>
+            <li>Aulas e gravações online</li>
+          </ul>
+          <a class="botao botao-secundario" href="#servicos">Ver serviços</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CHAMADA FINAL (spec, seção 7.4) ===== -->
-  <section class="chamada" id="contato" aria-labelledby="t-chamada">
-    <picture>
-      <source type="image/avif" srcset="img/edu-40-800.avif 800w, img/edu-40-1200.avif 1200w, img/edu-40-1600.avif 1600w" sizes="100vw">
-      <source type="image/webp" srcset="img/edu-40-800.webp 800w, img/edu-40-1200.webp 1200w, img/edu-40-1600.webp 1600w" sizes="100vw">
-      <img src="img/edu-40-1200.webp" width="1200" height="1800" alt="" loading="lazy" decoding="async">
-    </picture>
+  <!-- ===== GALERIA: fotos do ensaio em molduras ===== -->
+  <section class="secao secao-galeria" aria-labelledby="t-galeria">
     <div class="faixa">
-      <h2 class="titulo" id="t-chamada">Vamos colocar gaita nisso?</h2>
-      <p>Chama no WhatsApp e conta o que você precisa: aula, gravação, show ou evento.</p>
-      <a class="botao botao-whatsapp" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20seu%20trabalho%20com%20gaita." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp: abre uma conversa com Eduardo em nova aba">
+      <div class="cabecalho-secao">
+        <p class="sobretitulo revela">Galeria</p>
+        <h2 class="titulo revela" id="t-galeria">Gaita <span class="ink-mel">no sangue</span></h2>
+      </div>
+      <ul class="galeria">
+        <li class="revela revela--lado">
+          <figure class="moldura">
+            <picture>
+              <source type="image/avif" srcset="img/edu-22-480.avif 480w, img/edu-22-800.avif 800w" sizes="(min-width: 900px) 280px, 72vw">
+              <source type="image/webp" srcset="img/edu-22-480.webp 480w, img/edu-22-800.webp 800w" sizes="(min-width: 900px) 280px, 72vw">
+              <img src="img/edu-22-800.webp" width="800" height="1200" alt="Eduardo tocando gaita diatônica bem de perto, com as mãos em concha" loading="lazy" decoding="async">
+            </picture>
+            <span class="moldura__canto moldura__canto--se" aria-hidden="true"></span><span class="moldura__canto moldura__canto--sd" aria-hidden="true"></span><span class="moldura__canto moldura__canto--ie" aria-hidden="true"></span><span class="moldura__canto moldura__canto--id" aria-hidden="true"></span>
+          </figure>
+        </li>
+        <li class="revela revela--lado" style="--d:90ms">
+          <figure class="moldura">
+            <picture>
+              <source type="image/avif" srcset="img/edu-11-480.avif 480w, img/edu-11-800.avif 800w" sizes="(min-width: 900px) 280px, 72vw">
+              <source type="image/webp" srcset="img/edu-11-480.webp 480w, img/edu-11-800.webp 800w" sizes="(min-width: 900px) 280px, 72vw">
+              <img src="img/edu-11-800.webp" width="800" height="1200" alt="Eduardo de perfil, tocando gaita com as mãos em concha, entre palmeiras" loading="lazy" decoding="async">
+            </picture>
+            <span class="moldura__canto moldura__canto--se" aria-hidden="true"></span><span class="moldura__canto moldura__canto--sd" aria-hidden="true"></span><span class="moldura__canto moldura__canto--ie" aria-hidden="true"></span><span class="moldura__canto moldura__canto--id" aria-hidden="true"></span>
+          </figure>
+        </li>
+        <li class="revela revela--lado" style="--d:180ms">
+          <figure class="moldura">
+            <picture>
+              <source type="image/avif" srcset="img/edu-36-480.avif 480w, img/edu-36-800.avif 800w" sizes="(min-width: 900px) 280px, 72vw">
+              <source type="image/webp" srcset="img/edu-36-480.webp 480w, img/edu-36-800.webp 800w" sizes="(min-width: 900px) 280px, 72vw">
+              <img src="img/edu-36-800.webp" width="800" height="1200" alt="Eduardo de óculos escuros tocando violão, com a gaita no suporte de pescoço" loading="lazy" decoding="async">
+            </picture>
+            <span class="moldura__canto moldura__canto--se" aria-hidden="true"></span><span class="moldura__canto moldura__canto--sd" aria-hidden="true"></span><span class="moldura__canto moldura__canto--ie" aria-hidden="true"></span><span class="moldura__canto moldura__canto--id" aria-hidden="true"></span>
+          </figure>
+        </li>
+        <li class="revela revela--lado" style="--d:270ms">
+          <figure class="moldura">
+            <picture>
+              <source type="image/avif" srcset="img/edu-2-480.avif 480w, img/edu-2-800.avif 800w" sizes="(min-width: 900px) 280px, 72vw">
+              <source type="image/webp" srcset="img/edu-2-480.webp 480w, img/edu-2-800.webp 800w" sizes="(min-width: 900px) 280px, 72vw">
+              <img src="img/edu-2-800.webp" width="800" height="1200" alt="Eduardo de óculos escuros, com a gaita na boca e a mão aberta, tocando ao ar livre" loading="lazy" decoding="async">
+            </picture>
+            <span class="moldura__canto moldura__canto--se" aria-hidden="true"></span><span class="moldura__canto moldura__canto--sd" aria-hidden="true"></span><span class="moldura__canto moldura__canto--ie" aria-hidden="true"></span><span class="moldura__canto moldura__canto--id" aria-hidden="true"></span>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== CHAMADA FINAL: o bis (spec, seção 7.4) ===== -->
+  <section class="secao com-fundo chamada" id="contato" aria-labelledby="t-chamada">
+    <div class="fundo" aria-hidden="true">
+      <picture>
+        <source type="image/avif" srcset="img/edu-38-800.avif 800w, img/edu-38-1200.avif 1200w, img/edu-38-1600.avif 1600w" sizes="100vw">
+        <source type="image/webp" srcset="img/edu-38-800.webp 800w, img/edu-38-1200.webp 1200w, img/edu-38-1600.webp 1600w" sizes="100vw">
+        <img src="img/edu-38-1200.webp" width="1200" height="800" alt="" loading="lazy" decoding="async">
+      </picture>
+    </div>
+    <div class="faixa chamada-conteudo">
+      <p class="sobretitulo revela"><span class="estrela" aria-hidden="true">★</span>O bis<span class="estrela" aria-hidden="true">★</span></p>
+      <h2 class="titulo revela revela--palavras" id="t-chamada">
+        <span class="w" style="--i:0">Vamos</span>
+        <span class="w" style="--i:1">colocar</span>
+        <span class="w" style="--i:2">gaita</span>
+        <span class="w ink-mel" style="--i:3">nisso?</span>
+      </h2>
+      <p class="revela" style="--d:120ms">Chama no WhatsApp e conta o que você precisa: aula, gravação, show ou evento.</p>
+      <a class="botao botao-whatsapp botao-grande revela" style="--d:220ms" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20seu%20trabalho%20com%20gaita." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp: abre uma conversa com Eduardo em nova aba">
         <svg aria-hidden="true"><use href="#i-whatsapp"/></svg>
         Chamar no WhatsApp
       </a>
+      <p class="secundario revela" style="--d:300ms">Aulas e gravações online · Shows e eventos ao vivo · Brasília, DF</p>
     </div>
   </section>
 
 </main>
 
-<footer class="rodape">
+<footer class="rodape com-fundo">
+  <div class="fundo" aria-hidden="true">
+    <picture>
+      <source type="image/avif" srcset="img/edu-39-800.avif 800w, img/edu-39-1200.avif 1200w, img/edu-39-1600.avif 1600w" sizes="100vw">
+      <source type="image/webp" srcset="img/edu-39-800.webp 800w, img/edu-39-1200.webp 1200w, img/edu-39-1600.webp 1600w" sizes="100vw">
+      <img src="img/edu-39-1200.webp" width="1200" height="800" alt="" loading="lazy" decoding="async">
+    </picture>
+  </div>
   <div class="faixa">
     <p>Eduardo Leopoldino · Gaitista · Brasília, DF</p>
     <p><a href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20seu%20trabalho%20com%20gaita." target="_blank" rel="noopener">+55 61 98108-0310</a></p>
@@ -171,5 +333,7 @@
 </a>
 
 <script src="js/pagina.js" defer></script>
+<!-- Faíscas do hero: só decoração, num arquivo à parte que a página inteira dispensa. -->
+<script src="js/palco.js" defer></script>
 </body>
 </html>
