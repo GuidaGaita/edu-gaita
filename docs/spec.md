@@ -276,7 +276,7 @@ Os originais nunca entram no repositório nem no site.
 | Onde | Foto | Corte | Entrega |
 |---|---|---|---|
 | Hero (fundo) | edu-9 | sentado, olhando a gaita na mão; à direita do nome no desktop, no alto da tela no celular; presa pelo topo | 1 |
-| Cartões de serviço | edu-14 (aulas), edu-17 (gravações), edu-35 (shows), edu-36 (eventos, de óculos escuros) | cobrem o cartão inteiro, presas pelo topo, e perdem opacidade até a base, por trás do texto | 1 |
+| Cartões de serviço | edu-14 (aulas), edu-17 (gravações), edu-35 (shows), edu-36 (eventos, de óculos escuros) | no alto do cartão, presas pelo topo, somem em degradê até a metade dele; o texto fica abaixo, sobre o fundo liso | 1 |
 | Serviços (fundo) | edu-33 | sentado no muro com violão e gaita no suporte | 1 |
 | Sobre (moldura) | edu-32 | retrato 3:4 na moldura, gaita no bolso da camisa | 1 |
 | Sobre (fundo) | edu-27 | a mão com a gaita cromática, atrás do bloco do "Sobre" | 1 |
@@ -391,6 +391,6 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | 27/10/2026 | Galeria com quatro fotos entrou na entrega 1 (era da entrega 2). |
 | 27/10/2026 | Etiqueta "Ao vivo" nos cartões de shows e eventos, além de "Online" nos de aulas e gravações; selo "Comece por aqui" no cartão de aulas; três marcas por serviço. |
 | 27/10/2026 | Hero trocado pra foto edu-14, a pedido ("uma foto dele forte"), com véu mais leve; a edu-24 saiu do repositório. Foto do ensaio no topo de cada cartão de serviço: edu-9, edu-17, edu-35, edu-34. |
-| 27/10/2026 | A pedido: foto do hero e do cartão de aulas trocadas (hero edu-9, aulas edu-14); cartão de eventos com edu-36, de óculos escuros (a edu-34 foi pra galeria); fotos presas pelo topo pra não cortar a cabeça; nos cartões a foto cobre o cartão todo e some aos poucos até a base, por trás do texto. |
+| 27/10/2026 | A pedido: foto do hero e do cartão de aulas trocadas (hero edu-9, aulas edu-14); cartão de eventos com edu-36, de óculos escuros (a edu-34 foi pra galeria); fotos presas pelo topo pra não cortar a cabeça; nos cartões a foto cobre o alto do cartão e some de vez até a metade dele, com o texto abaixo, sobre o fundo liso (ajustado no mesmo dia porque o texto sobre a foto ficava ruim de ler). |
 | 27/10/2026 | Entrega 1 publicada no GitHub Pages: repositório público `GuidaGaita/edu-gaita`, URL `https://guidagaita.github.io/edu-gaita/`. Push na `main` republica o site. |
 | 27/10/2026 | Fotos de fundo comprimidas mais forte (`--qualidade webp=58,avif=40`) pra manter o LCP abaixo de 2,5 s. |
