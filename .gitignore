@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node (se um dia entrar)
+node_modules/
+
+# Hospedagem
+.vercel/
+.netlify/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Saídas temporárias
+/tmp/
+/screenshots/
