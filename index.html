@@ -30,7 +30,7 @@
 <link rel="preload" href="fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
 <!-- A foto do hero é o maior elemento da primeira tela (o LCP): o pedido sai junto com o do CSS.
      O type filtra: navegador sem AVIF ignora esta linha e pega o WebP do <picture>. -->
-<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="img/edu-14-480.avif 480w, img/edu-14-800.avif 800w, img/edu-14-1200.avif 1200w, img/edu-14-1600.avif 1600w" imagesizes="100vw">
+<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="img/edu-9-480.avif 480w, img/edu-9-800.avif 800w, img/edu-9-1200.avif 1200w, img/edu-9-1600.avif 1600w" imagesizes="100vw">
 <link rel="stylesheet" href="css/estilo.css">
 <!-- Marca que o JS está vivo: só com ela a revelação ao rolar começa escondida. Sem script, tudo aparece. -->
 <script>document.documentElement.classList.add("js");</script>
@@ -63,9 +63,9 @@
   <section class="hero" id="topo" aria-labelledby="nome">
     <div class="fundo" aria-hidden="true">
       <picture>
-        <source type="image/avif" srcset="img/edu-14-480.avif 480w, img/edu-14-800.avif 800w, img/edu-14-1200.avif 1200w, img/edu-14-1600.avif 1600w" sizes="100vw">
-        <source type="image/webp" srcset="img/edu-14-480.webp 480w, img/edu-14-800.webp 800w, img/edu-14-1200.webp 1200w, img/edu-14-1600.webp 1600w" sizes="100vw">
-        <img src="img/edu-14-1200.webp" width="1200" height="1800" alt="" fetchpriority="high" decoding="async">
+        <source type="image/avif" srcset="img/edu-9-480.avif 480w, img/edu-9-800.avif 800w, img/edu-9-1200.avif 1200w, img/edu-9-1600.avif 1600w" sizes="100vw">
+        <source type="image/webp" srcset="img/edu-9-480.webp 480w, img/edu-9-800.webp 800w, img/edu-9-1200.webp 1200w, img/edu-9-1600.webp 1600w" sizes="100vw">
+        <img src="img/edu-9-1200.webp" width="1200" height="1800" alt="" fetchpriority="high" decoding="async">
       </picture>
     </div>
     <div class="hero-veu" aria-hidden="true"></div>
@@ -137,11 +137,11 @@
         <article class="cartao cartao--destaque revela">
           <span class="cartao__fita" aria-hidden="true"></span>
           <span class="cartao__selo revela revela--carimbo" style="--d:420ms">Comece por aqui</span>
-          <figure class="cartao__foto" style="--pos:50% 30%">
+          <figure class="cartao__foto" style="--pos:50% 0%">
             <picture>
-              <source type="image/avif" srcset="img/edu-9-480.avif 480w, img/edu-9-800.avif 800w, img/edu-9-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
-              <source type="image/webp" srcset="img/edu-9-480.webp 480w, img/edu-9-800.webp 800w, img/edu-9-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
-              <img src="img/edu-9-800.webp" width="800" height="1200" alt="Eduardo sentado, olhando para a gaita na mão" loading="lazy" decoding="async">
+              <source type="image/avif" srcset="img/edu-14-480.avif 480w, img/edu-14-800.avif 800w, img/edu-14-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <source type="image/webp" srcset="img/edu-14-480.webp 480w, img/edu-14-800.webp 800w, img/edu-14-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <img src="img/edu-14-800.webp" width="800" height="1200" alt="Eduardo encarando a câmera, com a gaita cromática na frente da boca" loading="lazy" decoding="async">
             </picture>
           </figure>
           <p class="cartao__tag revela revela--cortina" style="--d:120ms">Online</p>
@@ -157,7 +157,7 @@
 
         <article class="cartao revela">
           <span class="cartao__fita" aria-hidden="true"></span>
-          <figure class="cartao__foto" style="--pos:50% 20%">
+          <figure class="cartao__foto" style="--pos:50% 0%">
             <picture>
               <source type="image/avif" srcset="img/edu-17-480.avif 480w, img/edu-17-800.avif 800w, img/edu-17-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
               <source type="image/webp" srcset="img/edu-17-480.webp 480w, img/edu-17-800.webp 800w, img/edu-17-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
@@ -177,7 +177,7 @@
 
         <article class="cartao revela">
           <span class="cartao__fita" aria-hidden="true"></span>
-          <figure class="cartao__foto" style="--pos:50% 22%">
+          <figure class="cartao__foto" style="--pos:50% 0%">
             <picture>
               <source type="image/avif" srcset="img/edu-35-480.avif 480w, img/edu-35-800.avif 800w, img/edu-35-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
               <source type="image/webp" srcset="img/edu-35-480.webp 480w, img/edu-35-800.webp 800w, img/edu-35-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
@@ -197,11 +197,11 @@
 
         <article class="cartao revela">
           <span class="cartao__fita" aria-hidden="true"></span>
-          <figure class="cartao__foto" style="--pos:50% 22%">
+          <figure class="cartao__foto" style="--pos:50% 0%">
             <picture>
-              <source type="image/avif" srcset="img/edu-34-480.avif 480w, img/edu-34-800.avif 800w, img/edu-34-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
-              <source type="image/webp" srcset="img/edu-34-480.webp 480w, img/edu-34-800.webp 800w, img/edu-34-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
-              <img src="img/edu-34-800.webp" width="800" height="1200" alt="Eduardo sorrindo enquanto toca violão, com a gaita no suporte de pescoço" loading="lazy" decoding="async">
+              <source type="image/avif" srcset="img/edu-36-480.avif 480w, img/edu-36-800.avif 800w, img/edu-36-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <source type="image/webp" srcset="img/edu-36-480.webp 480w, img/edu-36-800.webp 800w, img/edu-36-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
+              <img src="img/edu-36-800.webp" width="800" height="1200" alt="Eduardo de óculos escuros tocando violão, com a gaita no suporte de pescoço" loading="lazy" decoding="async">
             </picture>
           </figure>
           <p class="cartao__tag cartao__tag--vivo revela revela--cortina" style="--d:120ms">Ao vivo</p>
@@ -290,9 +290,9 @@
         <li class="revela revela--lado" style="--d:180ms">
           <figure class="moldura">
             <picture>
-              <source type="image/avif" srcset="img/edu-36-480.avif 480w, img/edu-36-800.avif 800w" sizes="(min-width: 900px) 280px, 72vw">
-              <source type="image/webp" srcset="img/edu-36-480.webp 480w, img/edu-36-800.webp 800w" sizes="(min-width: 900px) 280px, 72vw">
-              <img src="img/edu-36-800.webp" width="800" height="1200" alt="Eduardo de óculos escuros tocando violão, com a gaita no suporte de pescoço" loading="lazy" decoding="async">
+              <source type="image/avif" srcset="img/edu-34-480.avif 480w, img/edu-34-800.avif 800w" sizes="(min-width: 900px) 280px, 72vw">
+              <source type="image/webp" srcset="img/edu-34-480.webp 480w, img/edu-34-800.webp 800w" sizes="(min-width: 900px) 280px, 72vw">
+              <img src="img/edu-34-800.webp" width="800" height="1200" alt="Eduardo sorrindo enquanto toca violão, com a gaita no suporte de pescoço" loading="lazy" decoding="async">
             </picture>
             <span class="moldura__canto moldura__canto--se" aria-hidden="true"></span><span class="moldura__canto moldura__canto--sd" aria-hidden="true"></span><span class="moldura__canto moldura__canto--ie" aria-hidden="true"></span><span class="moldura__canto moldura__canto--id" aria-hidden="true"></span>
           </figure>

@@ -56,42 +56,42 @@
       "edu-9-480.webp": {
         "largura": 480,
         "altura": 720,
-        "bytes": 32896
+        "bytes": 25244
       },
       "edu-9-480.avif": {
         "largura": 480,
         "altura": 720,
-        "bytes": 33683
+        "bytes": 20642
       },
       "edu-9-800.webp": {
         "largura": 800,
         "altura": 1200,
-        "bytes": 84614
+        "bytes": 63000
       },
       "edu-9-800.avif": {
         "largura": 800,
         "altura": 1200,
-        "bytes": 77841
+        "bytes": 44417
       },
       "edu-9-1200.webp": {
         "largura": 1200,
         "altura": 1800,
-        "bytes": 177744
+        "bytes": 130554
       },
       "edu-9-1200.avif": {
         "largura": 1200,
         "altura": 1800,
-        "bytes": 157113
+        "bytes": 87749
       },
       "edu-9-1600.webp": {
         "largura": 1600,
         "altura": 2400,
-        "bytes": 300746
+        "bytes": 209206
       },
       "edu-9-1600.avif": {
         "largura": 1600,
         "altura": 2400,
-        "bytes": 261408
+        "bytes": 135790
       }
     }
   },
@@ -152,42 +152,42 @@
       "edu-14-480.webp": {
         "largura": 480,
         "altura": 720,
-        "bytes": 20026
+        "bytes": 26554
       },
       "edu-14-480.avif": {
         "largura": 480,
         "altura": 720,
-        "bytes": 17955
+        "bytes": 28691
       },
       "edu-14-800.webp": {
         "largura": 800,
         "altura": 1200,
-        "bytes": 47514
+        "bytes": 65630
       },
       "edu-14-800.avif": {
         "largura": 800,
         "altura": 1200,
-        "bytes": 38939
+        "bytes": 64680
       },
       "edu-14-1200.webp": {
         "largura": 1200,
         "altura": 1800,
-        "bytes": 92248
+        "bytes": 123802
       },
       "edu-14-1200.avif": {
         "largura": 1200,
         "altura": 1800,
-        "bytes": 72008
+        "bytes": 123947
       },
       "edu-14-1600.webp": {
         "largura": 1600,
         "altura": 2400,
-        "bytes": 143618
+        "bytes": 195010
       },
       "edu-14-1600.avif": {
         "largura": 1600,
         "altura": 2400,
-        "bytes": 111505
+        "bytes": 196460
       }
     }
   },

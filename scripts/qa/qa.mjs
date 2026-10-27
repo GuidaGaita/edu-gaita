@@ -58,7 +58,7 @@ for (const [w, h] of larguras) {
       fonteCorpo: document.fonts.check('400 1em "Instrument Sans"'),
       requisicoesExternas: recursos.filter(e => !e.name.startsWith(location.origin)).map(e => e.name),
       transferidoKB: Math.round(recursos.reduce((a, e) => a + (e.transferSize || e.encodedBodySize || 0), 0) / 1024),
-      imagemHero: ((recursos.find(e => /edu-14/.test(e.name)) || {}).name || '').split('/').pop(),
+      imagemHero: ((recursos.find(e => /edu-9/.test(e.name)) || {}).name || '').split('/').pop(),
       faixaRolanteGrupos: document.querySelectorAll('.faixa-rolante__grupo').length,
       flutuanteVisivelNoTopo: q('.flutuante').classList.contains('visivel'),
       alvosPequenos: [...document.querySelectorAll('a')].map(a => { const r = rect(a); return { t: (a.getAttribute('aria-label') || a.textContent).trim().slice(0, 28), w: Math.round(r.width), h: Math.round(r.height) }; }).filter(a => a.w && a.h && (a.w < 44 || a.h < 44)),

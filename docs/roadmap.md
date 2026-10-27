@@ -96,6 +96,7 @@ Modelo: o site GuidaGaita, de quem contratou (pasta `landing-page-vendas`, decis
 - [x] Vocabulário de revelação ao rolar (padrão, palavras, carimbo, cortina, de lado, lista que se marca), faixa rolante, grão e vinheta, faíscas e luzes de palco no hero, equalizador, reflexo nos botões (spec 7.5).
 - [x] Galeria com quatro fotos em molduras inclinadas (adiantada da entrega 2).
 - [x] Hero com a foto edu-14, mais forte e com véu leve, e uma foto em cada cartão de serviço (pedido de 27/10/2026). Verificado: QA nas cinco larguras sem erro, Lighthouse 98/100/100/100, LCP 2,1 s com a foto do hero, CLS 0.
+- [x] Troca pedida em 27/10/2026: hero com edu-9, aulas com edu-14, eventos com edu-36 (óculos escuros); fotos presas pelo topo; foto do cartão cobrindo o cartão todo com fade até a base. QA nas cinco larguras sem erro.
 - [x] Fundos comprimidos mais forte (`--qualidade webp=58,avif=40`) pra o LCP voltar pra baixo de 2,5 s: antes 2,8 s com a foto do hero a 87 KB, depois 2,1 s com 36 KB.
 - Pronto quando: a bateria da tarefa 1.10 passa de novo (passou em 27/10/2026) e quem contratou aprova as capturas de `docs/capturas/` (entrega1-desktop.jpg e entrega1-celular.jpg, refeitas em 27/10/2026).
 

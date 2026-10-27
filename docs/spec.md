@@ -275,15 +275,15 @@ Os originais nunca entram no repositório nem no site.
 
 | Onde | Foto | Corte | Entrega |
 |---|---|---|---|
-| Hero (fundo) | edu-14 | encarando a câmera, cromática na frente da boca; à direita do nome no desktop, no alto da tela no celular | 1 |
-| Cartões de serviço | edu-9 (aulas), edu-17 (gravações), edu-35 (shows), edu-34 (eventos) | recorte 3:2 no topo de cada cartão | 1 |
+| Hero (fundo) | edu-9 | sentado, olhando a gaita na mão; à direita do nome no desktop, no alto da tela no celular; presa pelo topo | 1 |
+| Cartões de serviço | edu-14 (aulas), edu-17 (gravações), edu-35 (shows), edu-36 (eventos, de óculos escuros) | cobrem o cartão inteiro, presas pelo topo, e perdem opacidade até a base, por trás do texto | 1 |
 | Serviços (fundo) | edu-33 | sentado no muro com violão e gaita no suporte | 1 |
 | Sobre (moldura) | edu-32 | retrato 3:4 na moldura, gaita no bolso da camisa | 1 |
 | Sobre (fundo) | edu-27 | a mão com a gaita cromática, atrás do bloco do "Sobre" | 1 |
 | Chamada final (fundo) | edu-38 | gaitas sobre o violão, foto horizontal | 1 |
 | Rodapé (fundo) | edu-39 | gaitas sobre o violão, horizontal, bem apagada | 1 |
 | Imagem de compartilhamento (Open Graph) | edu-40 | 1200 × 630: nome em cromo à esquerda, foto à direita com a mesma fusão do hero; gerada por captura de um HTML (`scripts/qa/og.html`) e gravada em `img/og.jpg` (114 KB) | 1 |
-| Galeria | edu-22, edu-11, edu-36, edu-2 | 3:4 nas molduras | 1 (entrou em 27/10/2026) |
+| Galeria | edu-22, edu-11, edu-34, edu-2 | 3:4 nas molduras | 1 (entrou em 27/10/2026) |
 
 Pipeline (`scripts/otimizar_fotos.py`, Python com Pillow): lê a pasta de origem, corrige orientação pelo EXIF, remove
 os metadados, redimensiona para as larguras 480, 800, 1200 e 1600 px e grava WebP (qualidade 78) e AVIF (qualidade 60)
@@ -391,5 +391,6 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | 27/10/2026 | Galeria com quatro fotos entrou na entrega 1 (era da entrega 2). |
 | 27/10/2026 | Etiqueta "Ao vivo" nos cartões de shows e eventos, além de "Online" nos de aulas e gravações; selo "Comece por aqui" no cartão de aulas; três marcas por serviço. |
 | 27/10/2026 | Hero trocado pra foto edu-14, a pedido ("uma foto dele forte"), com véu mais leve; a edu-24 saiu do repositório. Foto do ensaio no topo de cada cartão de serviço: edu-9, edu-17, edu-35, edu-34. |
+| 27/10/2026 | A pedido: foto do hero e do cartão de aulas trocadas (hero edu-9, aulas edu-14); cartão de eventos com edu-36, de óculos escuros (a edu-34 foi pra galeria); fotos presas pelo topo pra não cortar a cabeça; nos cartões a foto cobre o cartão todo e some aos poucos até a base, por trás do texto. |
 | 27/10/2026 | Entrega 1 publicada no GitHub Pages: repositório público `GuidaGaita/edu-gaita`, URL `https://guidagaita.github.io/edu-gaita/`. Push na `main` republica o site. |
 | 27/10/2026 | Fotos de fundo comprimidas mais forte (`--qualidade webp=58,avif=40`) pra manter o LCP abaixo de 2,5 s. |
