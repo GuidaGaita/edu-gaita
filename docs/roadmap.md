@@ -15,7 +15,7 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 | Etapa | O que entrega | Estado |
 |---|---|---|
 | Fase 0: Fundação | repositório, spec, roadmap, script de fotos, protótipo de cores | feita em 26/10/2026; protótipo aprovado em 26/10/2026 |
-| Entrega 1: MVP publicado | hero, faixa rolante, cartões de serviço, sobre, galeria, chamada final, rodapé, botão flutuante, SEO básico, no ar no GitHub Pages | construída em 26/10/2026, refeita na versão rock em 27/10/2026 e verificada localmente; falta publicar (tarefa 1.9) e testar em celular real |
+| Entrega 1: MVP publicado | hero, faixa rolante, cartões de serviço, sobre, galeria, chamada final, rodapé, botão flutuante, SEO básico, no ar no GitHub Pages | publicada em 27/10/2026 em https://guidagaita.github.io/edu-gaita/ e verificada na URL real; falta a prévia no WhatsApp e o teste em celular real |
 | Entrega 2: Versão completa | textos finais do currículo, vídeo e depoimentos (se houver), SEO completo, hospedagem definitiva e domínio, entrega ao cliente | a fazer |
 | Backlog | o que só entra se o cliente pedir | sem data |
 
@@ -75,15 +75,15 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 - [~] Pronto quando: a prévia de compartilhamento no WhatsApp mostra título, descrição e a imagem. Só dá pra testar com a URL pública (tarefa 1.9).
 
 ### 1.9 Publicação no GitHub Pages (a configurar junto com quem contratou, pedido de 26/10/2026)
-- [ ] Criar o repositório no GitHub (conta já autenticada na máquina: GuidaGaita; nome sugerido `edu-gaita`) e enviar o branch `main`. Num plano gratuito o Pages exige repositório público.
-- [ ] Ativar o Pages em Settings, Pages, "Deploy from a branch", branch `main`, pasta `/ (root)`. O `.nojekyll` já está na raiz.
-- [ ] Confirmar a URL publicada. Se for diferente de `https://guidagaita.github.io/edu-gaita/`, corrigir `canonical`, `og:url`, `og:image` (em `index.html`), `robots.txt` e `sitemap.xml`.
-- [ ] Testar a prévia de compartilhamento mandando a URL num chat do WhatsApp; testar os nove botões num Android e num iPhone.
+- [x] Criar o repositório no GitHub e enviar o branch `main`. Feito em 27/10/2026: `GuidaGaita/edu-gaita`, público.
+- [x] Ativar o Pages servindo o branch `main` da pasta raiz. Feito em 27/10/2026; cada push na `main` republica o site.
+- [x] Confirmar a URL publicada: `https://guidagaita.github.io/edu-gaita/`, igual à dos metadados. Página, CSS, JS, fontes, fotos AVIF e `og.jpg` respondem 200 com o tipo certo; as tags Open Graph apontam pra URLs absolutas que abrem.
+- [ ] Testar a prévia de compartilhamento mandando a URL num chat do WhatsApp; testar os nove botões num Android e num iPhone. Fica com quem contratou.
 - Pronto quando: a URL abre a página em celular e desktop, a prévia do WhatsApp mostra título, descrição e imagem, e os botões abrem a conversa com a mensagem certa.
 
 ### 1.10 Qualidade da entrega 1
 - [x] Testar em 360, 390, 768, 1024 e 1440 px de largura; nada rola na horizontal. Refeito em 27/10/2026 com `scripts/qa/qa.mjs` (Edge sem janela): sem rolagem horizontal, sem erro de console, sem requisição que falhe, nenhum bloco de revelação fica escondido depois de rolar a página e a galeria.
-- [x] Lighthouse em celular: nota mínima 90 em desempenho, acessibilidade, boas práticas e SEO. Em 27/10/2026, no servidor local: 99, 100, 100 e 100; LCP 2,1 s (elemento: a foto do hero), CLS 0, TBT 80 ms, 318 KB na primeira carga. Transferência medida no QA: 164 KB ao abrir e 414 KB depois de rolar tudo, no celular de 390 px; 304 KB e 685 KB no desktop de 1440 px. Repetir na URL publicada.
+- [x] Lighthouse em celular: nota mínima 90 em desempenho, acessibilidade, boas práticas e SEO. Em 27/10/2026, no servidor local: 99, 100, 100 e 100; LCP 2,1 s (elemento: a foto do hero), CLS 0, TBT 80 ms, 318 KB na primeira carga. Transferência medida no QA: 164 KB ao abrir e 414 KB depois de rolar tudo, no celular de 390 px; 304 KB e 685 KB no desktop de 1440 px. Repetido na URL publicada em 27/10/2026: 97, 100, 100 e 100; LCP 1,9 s (a foto do hero), CLS 0, TBT 30 ms, 271 KB; o QA nas cinco larguras passou sem erro.
 - [x] Navegação só por teclado: todo botão e link alcançável, foco visível, ordem lógica. Verificado em 27/10/2026: o primeiro Tab cai no "Pular para o conteúdo" com o contorno Mel; a ordem segue o DOM (barra, hero, quatro cartões, sobre, chamada, rodapé, flutuante).
 - [x] Leitor de tela: títulos em ordem (H1 nome; H2 serviços com quatro H3; H2 sobre; H2 galeria; H2 chamada), `alt` das fotos das molduras, fundos e faixa rolante escondidos com `aria-hidden`, rótulos dos botões de WhatsApp começando pelo texto visível e avisando que abrem em nova aba. Conferido pela árvore do DOM e pelo Lighthouse, não com um leitor de tela real.
 - [x] Revisão de texto: sem erro de acento, sem afirmação não confirmada. Refeita em 27/10/2026 com os textos dos cartões, das fichas e da galeria.

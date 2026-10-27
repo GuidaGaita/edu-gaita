@@ -389,4 +389,5 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | 27/10/2026 | Hero com a foto edu-24 cobrindo a seção e o nome em cromo por cima; a foto edu-27 virou fundo do "Sobre". |
 | 27/10/2026 | Galeria com quatro fotos entrou na entrega 1 (era da entrega 2). |
 | 27/10/2026 | Etiqueta "Ao vivo" nos cartões de shows e eventos, além de "Online" nos de aulas e gravações; selo "Comece por aqui" no cartão de aulas; três marcas por serviço. |
+| 27/10/2026 | Entrega 1 publicada no GitHub Pages: repositório público `GuidaGaita/edu-gaita`, URL `https://guidagaita.github.io/edu-gaita/`. Push na `main` republica o site. |
 | 27/10/2026 | Fotos de fundo comprimidas mais forte (`--qualidade webp=58,avif=40`) pra manter o LCP abaixo de 2,5 s. |

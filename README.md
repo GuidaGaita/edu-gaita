@@ -1,6 +1,7 @@
 # edu-gaita
 
 Landing page de uma página só para Eduardo Leopoldino, gaitista de rock de Brasília, DF.
+No ar em https://guidagaita.github.io/edu-gaita/ (GitHub Pages: cada push na `main` republica).
 Objetivo da página: levar quem chega a mandar mensagem no WhatsApp pedindo um dos quatro
 serviços (aulas particulares online, gravações a distância, shows, eventos particulares).
 
