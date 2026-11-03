@@ -324,7 +324,7 @@ body::before {
    topo, sumindo em degradê. O texto começa a 82 % da largura do cartão, abaixo do rosto e da gaita: padding
    em porcentagem acompanha a largura, então isso vale do celular ao computador. */
 .cartao { padding-top: 82%; }
-.cartao > :not(.cartao__foto):not(.cartao__fita):not(.cartao__selo):not(.cartao__fogo) { position: relative; z-index: 1; }
+.cartao > :not(.cartao__foto):not(.cartao__fita):not(.cartao__selo) { position: relative; z-index: 1; }
 .cartao__foto { position: absolute; top: 0; left: 0; right: 0; aspect-ratio: 1 / 1; z-index: 0; margin: 0; overflow: hidden; pointer-events: none;
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0, 0, 0, 0.4) 78%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0, 0, 0, 0.4) 78%, transparent 100%); }
@@ -333,37 +333,35 @@ body::before {
 .cartao__foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(31, 35, 43, 0.85) 100%); }
 .cartao__titulo, .cartao__texto { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.7); }
 
-/* ---------- Cartão do curso: pegando fogo ---------- */
-/* Só opacity e transform: as chamas em si são um canvas (js/fogo.js), que para fora da tela. */
-.cartao--fogo { padding-top: 95%; border-color: rgba(255, 122, 26, 0.6); background: linear-gradient(168deg, #2C211B, #201B1C 60%, #181519); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 60px rgba(255, 100, 20, 0.28); }
-.cartao--fogo .cartao__fita::before { background: linear-gradient(90deg, #C2300F, #FF7A1A, #FFE08A, #FF7A1A, #C2300F, #FF7A1A, #FFE08A, #FF7A1A, #C2300F); animation-duration: 3s; }
-/* Brasa respirando nas bordas de dentro do cartão */
-.cartao--fogo::before { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 44px rgba(255, 110, 20, 0.4), inset 0 -36px 70px rgba(255, 80, 10, 0.28); animation: brasa-cartao 2.3s ease-in-out infinite; }
-@keyframes brasa-cartao { 0%, 100% { opacity: 0.45; } 35% { opacity: 1; } 55% { opacity: 0.65; } 75% { opacity: 0.95; } }
-.cartao--fogo .cartao__foto img { object-position: var(--pos, 50% 0%); }
-/* As chamas nascem logo acima do texto, no celular; nunca atrás de texto corrido. */
-.cartao__fogo { position: absolute; top: 0; left: 0; z-index: 0; width: 100%; aspect-ratio: 1 / 0.95; pointer-events: none;
-  -webkit-mask-image: linear-gradient(to top, transparent 0, #000 7%); mask-image: linear-gradient(to top, transparent 0, #000 7%); }
-.cartao--fogo .cartao__titulo { font-size: clamp(2.6rem, 5.4vw, 3.9rem); line-height: 0.95; color: #FF9A3D; text-shadow: none; }
+/* ---------- Cartão do curso: em brasa, pulsando ---------- */
+/* Só opacity: a borda, o brilho de dentro e o brilho do título respiram no mesmo compasso. */
+.cartao--curso { border-color: rgba(255, 122, 26, 0.6); background: linear-gradient(168deg, #2C211B, #201B1C 60%, #181519); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 60px rgba(255, 100, 20, 0.28); }
+.cartao--curso .cartao__fita::before { background: linear-gradient(90deg, #C2300F, #FF7A1A, #FFE08A, #FF7A1A, #C2300F, #FF7A1A, #FFE08A, #FF7A1A, #C2300F); animation-duration: 3s; }
+.cartao--curso::before { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 0 2px rgba(255, 150, 60, 0.95), inset 0 0 60px rgba(255, 110, 20, 0.55), inset 0 -36px 80px rgba(255, 80, 10, 0.32); animation: pulso-brasa 2.2s ease-in-out infinite; }
+@keyframes pulso-brasa { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+.cartao--curso .cartao__titulo { font-size: clamp(2.6rem, 5.4vw, 3.9rem); line-height: 0.95; color: #FF9A3D; text-shadow: none; }
 @supports (-webkit-background-clip: text) or (background-clip: text) {
-  .cartao--fogo .cartao__titulo { background-image: linear-gradient(180deg, #FFE9A8 0%, #FFB547 38%, #FF7A1A 68%, #D93A12 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .cartao--curso .cartao__titulo { background-image: linear-gradient(180deg, #FFE9A8 0%, #FFB547 38%, #FF7A1A 68%, #D93A12 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 }
-/* O título tremula: uma cópia borrada atrás dele, piscando como chama. */
-.cartao--fogo .cartao__titulo::after { content: attr(data-texto); content: attr(data-texto) / ""; position: absolute; inset: 0; z-index: -1; -webkit-text-fill-color: #FF6A10; color: #FF6A10; filter: blur(12px); animation: chama-titulo 1.7s linear infinite; pointer-events: none; }
-@keyframes chama-titulo { 0%, 100% { opacity: 0.55; } 12% { opacity: 0.95; } 24% { opacity: 0.6; } 38% { opacity: 1; } 52% { opacity: 0.7; } 66% { opacity: 0.98; } 82% { opacity: 0.5; } }
+/* O brilho do título: uma cópia borrada atrás dele, pulsando junto com o cartão. */
+.cartao--curso .cartao__titulo::after { content: attr(data-texto); content: attr(data-texto) / ""; position: absolute; inset: 0; z-index: -1; -webkit-text-fill-color: #FF6A10; color: #FF6A10; filter: blur(12px); animation: pulso-brasa 2.2s ease-in-out infinite; pointer-events: none; }
 .cartao__tag--breve { display: inline-flex; align-items: center; gap: 0.4rem; color: #FFB547; border-color: #FF7A1A; }
 .cartao__tag--breve::before { content: ""; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: #FF7A1A; animation: ponto-breve 1.1s ease-in-out infinite; }
 @keyframes ponto-breve { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.15); } }
-.cartao--fogo .cartao__selo { background: linear-gradient(150deg, #FFD36E, #FF7A1A); box-shadow: 0 4px 16px rgba(255, 122, 26, 0.5); }
-.cartao--fogo:hover .cartao__titulo { color: #FF9A3D; }
-/* A partir de 620 px ele ocupa a linha toda: foto e fogo à esquerda, texto à direita. */
-@media (min-width: 620px) {
-  .cartao--fogo { grid-column: 1 / -1; padding: 2.75rem 2.5rem 2.25rem calc(42% + 1.75rem); justify-content: center; min-height: 27rem; }
-  .cartao--fogo .cartao__foto { right: auto; bottom: 0; width: 42%; aspect-ratio: auto;
+.cartao--curso .cartao__selo { background: linear-gradient(150deg, #FFD36E, #FF7A1A); box-shadow: 0 4px 16px rgba(255, 122, 26, 0.5); }
+.cartao--curso:hover .cartao__titulo { color: #FF9A3D; }
+
+/* ---------- Cartão largo: o do curso e o de shows e eventos ocupam a linha toda ---------- */
+/* Foto de um lado, texto do outro: a foto à esquerda no curso e à direita em shows e eventos. */
+@media (min-width: 720px) {
+  .cartao--largo { grid-column: 1 / -1; padding: 2.75rem 2.5rem 2.25rem calc(42% + 1.75rem); justify-content: center; min-height: 27rem; }
+  .cartao--largo .botao { margin-top: 0.5rem; }
+  .cartao--largo .cartao__foto { right: auto; bottom: 0; width: 42%; aspect-ratio: auto;
     -webkit-mask-image: linear-gradient(to right, #000 62%, transparent 100%); mask-image: linear-gradient(to right, #000 62%, transparent 100%); }
-  .cartao--fogo .cartao__foto::after { background: linear-gradient(to bottom, transparent 62%, rgba(31, 27, 28, 0.75) 100%); }
-  .cartao__fogo { width: 42%; height: 100%; aspect-ratio: auto;
-    -webkit-mask-image: linear-gradient(to right, #000 68%, transparent 100%); mask-image: linear-gradient(to right, #000 68%, transparent 100%); }
+  .cartao--largo .cartao__foto::after { background: linear-gradient(to bottom, transparent 62%, rgba(26, 26, 30, 0.75) 100%); }
+  .cartao--largo-direita { padding: 2.75rem calc(42% + 1.75rem) 2.25rem 2.5rem; }
+  .cartao--largo-direita .cartao__foto { left: auto; right: 0;
+    -webkit-mask-image: linear-gradient(to left, #000 62%, transparent 100%); mask-image: linear-gradient(to left, #000 62%, transparent 100%); }
 }
 
 /* ---------- Sobre ---------- */
@@ -462,11 +460,9 @@ body::before {
    não border: cresce por background-size, sem mexer no layout. */
 .js .revela .ink-mel { background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-size: 0% 2px; background-position: 0 100%; transition: background-size 0.55s var(--ease) calc(var(--d, 0ms) + var(--ink-d, 350ms)); }
 .js .revela.entrou .ink-mel { background-size: 100% 2px; }
-/* Sequência dos quatro cartões, só onde ficam lado a lado */
-@media (min-width: 620px) {
+/* Aulas e gravações entram em sequência, onde ficam lado a lado */
+@media (min-width: 720px) {
   .cartoes .cartao:nth-child(3) { --d: 120ms; }
-  .cartoes .cartao:nth-child(4) { --d: 240ms; }
-  .cartoes .cartao:nth-child(5) { --d: 360ms; }
 }
 
 /* ---------- Transições de hover (no bloco de movimento reduzido viram instantâneas) ---------- */
@@ -555,6 +551,6 @@ body::before {
   .js .revela, .js .revela--palavras .w, .js .checks--sequencia li, .js .checks--sequencia li::before { opacity: 1; translate: none; scale: none; rotate: none; }
   .js .revela--cortina { clip-path: none; }
   .js .revela .ink-mel { background-size: 100% 2px; }
-  .cartao--fogo::before, .cartao--fogo .cartao__titulo::after, .cartao__tag--breve::before, .fx-grao, .faixa-rolante__trilho, .equalizador i, .cartao__fita::before, .botao-brasa::before, .sobretitulo .estrela, .hero-luzes::before, .hero-luzes::after, .fundo, .fundo::before, .fundo::after { animation: none; }
-  .hero-faiscas, .hero-luzes, .cartao__fogo { display: none; }
+  .cartao--curso::before, .cartao--curso .cartao__titulo::after, .cartao__tag--breve::before, .fx-grao, .faixa-rolante__trilho, .equalizador i, .cartao__fita::before, .botao-brasa::before, .sobretitulo .estrela, .hero-luzes::before, .hero-luzes::after, .fundo, .fundo::before, .fundo::after { animation: none; }
+  .hero-faiscas, .hero-luzes { display: none; }
 }

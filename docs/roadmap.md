@@ -78,7 +78,7 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 - [x] Criar o repositório no GitHub e enviar o branch `main`. Feito em 27/10/2026: `GuidaGaita/edu-gaita`, público.
 - [x] Ativar o Pages servindo o branch `main` da pasta raiz. Feito em 27/10/2026; cada push na `main` republica o site.
 - [x] Confirmar a URL publicada: `https://guidagaita.github.io/edu-gaita/`, igual à dos metadados. Página, CSS, JS, fontes, fotos AVIF e `og.jpg` respondem 200 com o tipo certo; as tags Open Graph apontam pra URLs absolutas que abrem.
-- [ ] Testar a prévia de compartilhamento mandando a URL num chat do WhatsApp; testar os dez botões num Android e num iPhone. Fica com quem contratou.
+- [ ] Testar a prévia de compartilhamento mandando a URL num chat do WhatsApp; testar os nove botões num Android e num iPhone. Fica com quem contratou.
 - Pronto quando: a URL abre a página em celular e desktop, a prévia do WhatsApp mostra título, descrição e imagem, e os botões abrem a conversa com a mensagem certa.
 
 ### 1.10 Qualidade da entrega 1
@@ -95,6 +95,11 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 - [ ] O cliente confirmar o texto da pré-venda e que vai atender essas mensagens (spec, pendência P11).
 - Verificado em 03/11/2026: QA nas cinco larguras sem erro; Lighthouse local em três rodadas, 94 a 97 em desempenho e 100 nas outras três; LCP 2,4 a 2,5 s; CLS 0.
 
+### 1.13 Cartão do curso sem fogo e shows com eventos (segundo pedido de 03/11/2026)
+- [x] Tirar as chamas do cartão do curso e deixar o cartão pulsando em brasa.
+- [x] Juntar os cartões de shows e de eventos particulares em "Shows e eventos particulares", com uma mensagem só no WhatsApp.
+- Verificado em 03/11/2026: QA nas cinco larguras sem erro, nove botões com a mensagem certa; Lighthouse local em três rodadas, 93 a 94 em desempenho e 100 nas outras três; LCP 2,3 s; CLS 0.
+
 ### 1.11 Versão rock (pedido de 27/10/2026: "tá genérico, queria rock n roll")
 Modelo: o site GuidaGaita, de quem contratou (pasta `landing-page-vendas`, decisão registrada na spec, seção 12).
 - [x] Foto do ensaio atrás de cada seção, com véu, "foto que revela" e deriva ao rolar (spec 7.4): hero edu-24, serviços edu-33, sobre edu-27, chamada final edu-38, rodapé edu-39.
@@ -110,7 +115,7 @@ Modelo: o site GuidaGaita, de quem contratou (pasta `landing-page-vendas`, decis
 
 ### 2.1 Textos finais com o currículo
 - [ ] Receber o currículo e as respostas das pendências P2 a P6 da spec (redes, fatos da bio, formatos de shows e eventos, vídeo, depoimentos).
-- [ ] Reescrever "Sobre" com três ou quatro fatos verificáveis e trocar as fichas pelos fatos; completar os cartões de shows e eventos com os formatos confirmados; revisar o `title` e a `meta description`.
+- [ ] Reescrever "Sobre" com três ou quatro fatos verificáveis e trocar as fichas pelos fatos; completar o cartão de shows e eventos com os formatos confirmados; revisar o `title` e a `meta description`.
 - [ ] Regerar `img/og.jpg` se o texto da imagem mudar (`scripts/qa/gerar-imagens.mjs`).
 - [ ] Atualizar a spec: pendências resolvidas viram decisões na seção 12.
 - Pronto quando: não sobra nenhum **[A CONFIRMAR]** na página nem na spec.

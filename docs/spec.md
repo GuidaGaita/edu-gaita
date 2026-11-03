@@ -30,13 +30,13 @@ Sem formulário, sem CMS, sem blog, sem área de login.
 
 ## 4. Serviços: ordem e textos
 
-Ordem fixa, decidida em 26/10/2026 por prioridade comercial: aulas primeiro, gravações em segundo, shows em terceiro, eventos particulares por último.
+Ordem fixa, decidida em 26/10/2026 por prioridade comercial: aulas primeiro, gravações em segundo, shows e eventos particulares por último, num cartão só desde 03/11/2026.
 
 Os textos abaixo são a versão genérica. Tudo marcado com **[A CONFIRMAR]** depende do currículo e das respostas do cliente; nada que não esteja confirmado pode virar afirmação na página.
 
 ### 4.0 Curso de gaita rock (em breve)
 
-- Primeiro cartão da seção, decidido em 03/11/2026; ocupa a linha toda a partir de 620 px e é o único com fogo.
+- Primeiro cartão da seção, decidido em 03/11/2026; ocupa a linha toda a partir de 720 px e é o único que pulsa em brasa.
 - Título: **Curso de gaita rock!** Etiqueta "Em breve", selo "Pré-venda".
 - Texto: "O curso de gaita rock do Eduardo está chegando. Manda mensagem e entra na pré-venda pra saber primeiro quando abrir."
 - Marcas: "Lançamento em breve", "Pré-venda pelo WhatsApp", "Você fica sabendo primeiro".
@@ -61,21 +61,14 @@ Os textos abaixo são a versão genérica. Tudo marcado com **[A CONFIRMAR]** de
 - **[A CONFIRMAR]**: prazo típico; formatos de entrega (WAV, stems); se cobra por música ou por take.
 - Botão: "Quero gaita na minha música", abre o WhatsApp com a mensagem de gravações.
 
-### 4.3 Shows
+### 4.3 Shows e eventos particulares
 
-- Título: **Shows**
-- Texto: "Repertório de rock e blues para bares, festivais e bandas que querem gaita no palco."
-- Marcas: "Rock e blues", "Bares, festivais e bandas", "Energia de palco".
-- **[A CONFIRMAR]**: formatos (solo, com banda própria, como convidado), estrutura necessária, raio de deslocamento a partir de Brasília.
-- Botão: "Quero contratar um show", abre o WhatsApp com a mensagem de shows.
-
-### 4.4 Eventos particulares
-
-- Título: **Eventos particulares**
-- Texto: "Música ao vivo com gaita para casamentos, aniversários e eventos corporativos."
-- Marcas: "Casamentos e aniversários", "Eventos corporativos", "Formato combinado com você".
-- **[A CONFIRMAR]**: formatos (solo, duo, com violão), duração dos sets, se toca repertório pedido pelo contratante.
-- Botão: "Quero gaita no meu evento", abre o WhatsApp com a mensagem de eventos.
+- Um cartão só desde 03/11/2026; ocupa a linha toda a partir de 720 px, com a foto à direita.
+- Título: **Shows e eventos particulares**
+- Texto: "Gaita ao vivo, com repertório de rock e blues, no palco ou na sua festa."
+- Marcas: "Bares, festivais e bandas", "Casamentos e aniversários", "Eventos corporativos".
+- **[A CONFIRMAR]**: formatos (solo, duo, com violão, com banda própria, como convidado), estrutura necessária, duração dos sets, se toca repertório pedido pelo contratante, raio de deslocamento a partir de Brasília.
+- Botão: "Quero gaita ao vivo", abre o WhatsApp com a mensagem de shows e eventos.
 
 Regras dos textos de serviço: uma frase de efeito e, no máximo, uma de detalhe. Sem preço na página (decisão de 26/10/2026). Sem ícone genérico ao lado de cada serviço. Sem numeração 01/02/03: a ordem é prioridade comercial, não uma sequência de passos. Cada serviço é um cartão (decisão de 27/10/2026, no modelo dos cartões de oferta do site GuidaGaita): etiqueta de formato ("Online" em Mel nas aulas e gravações, "Ao vivo" em Cromo nos shows e eventos), título, a frase de efeito, três marcas de detalhe e o botão de WhatsApp ocupando a largura toda. O cartão de aulas leva o selo "Comece por aqui", porque é o serviço prioritário. Sem ícone, sem numeração, sem preço.
 
@@ -119,8 +112,7 @@ Mensagens pré-preenchidas (vão no parâmetro `text`, codificadas pra URL):
 | Curso de gaita rock (pré-venda) | Oi, Eduardo! Quero entrar na pré-venda do curso de gaita rock. |
 | Aulas particulares | Oi, Eduardo! Quero saber mais sobre as aulas particulares de gaita. |
 | Gravações | Oi, Eduardo! Quero saber sobre gravação de gaita para um projeto. |
-| Shows | Oi, Eduardo! Quero saber sobre contratar um show. |
-| Eventos particulares | Oi, Eduardo! Quero saber sobre gaita ao vivo em um evento particular. |
+| Shows e eventos particulares | Oi, Eduardo! Quero saber sobre gaita ao vivo em um show ou evento particular. |
 
 Exemplo de link completo (aulas):
 `https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20mais%20sobre%20as%20aulas%20particulares%20de%20gaita.`
@@ -286,8 +278,8 @@ Os originais nunca entram no repositório nem no site.
 | Onde | Foto | Corte | Entrega |
 |---|---|---|---|
 | Hero (fundo) | edu-9 | sentado, olhando a gaita na mão; à direita do nome no desktop, no alto da tela no celular; presa pelo topo | 1 |
-| Cartão do curso | edu-1 | de óculos escuros, tocando; chamas em canvas sobre a base da foto | 1 |
-| Cartões de serviço | edu-14 (aulas), edu-17 (gravações), edu-35 (shows), edu-36 (eventos, de óculos escuros) | no alto do cartão, presas pelo topo, somem em degradê até a metade dele; o texto fica abaixo, sobre o fundo liso | 1 |
+| Cartão do curso | edu-1 | de óculos escuros, tocando; à esquerda do texto a partir de 720 px | 1 |
+| Cartões de serviço | edu-14 (aulas), edu-17 (gravações), edu-36 (shows e eventos, de óculos escuros) | no alto do cartão, presas pelo topo, somem em degradê até a metade dele; o texto fica abaixo, sobre o fundo liso | 1 |
 | Serviços (fundo) | edu-33 | sentado no muro com violão e gaita no suporte | 1 |
 | Sobre (moldura) | edu-32 | retrato 3:4 na moldura, gaita no bolso da camisa | 1 |
 | Sobre (fundo) | edu-27 | a mão com a gaita cromática, atrás do bloco do "Sobre" | 1 |
@@ -352,7 +344,6 @@ edu-gaita/
   css/estilo.css   tokens, reset, tipografia, seções (entrega 1)
   js/pagina.js     comportamentos opcionais (entrega 1)
   js/palco.js      faíscas do hero, só decoração (entrega 1)
-  js/fogo.js       chamas do cartão do curso, só decoração (entrega 1)
   site.webmanifest, robots.txt, sitemap.xml, .nojekyll   metadados e marcador do GitHub Pages (entrega 1)
   scripts/qa/      verificação automática (larguras, comportamento, Lighthouse) e geração de og.jpg e ícones, em Node
 ```
@@ -406,6 +397,7 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | 27/10/2026 | Hero trocado pra foto edu-14, a pedido ("uma foto dele forte"), com véu mais leve; a edu-24 saiu do repositório. Foto do ensaio no topo de cada cartão de serviço: edu-9, edu-17, edu-35, edu-34. |
 | 27/10/2026 | A pedido: foto do hero e do cartão de aulas trocadas (hero edu-9, aulas edu-14); cartão de eventos com edu-36, de óculos escuros (a edu-34 foi pra galeria); fotos presas pelo topo pra não cortar a cabeça; nos cartões a foto cobre o alto do cartão e some de vez até a metade dele, com o texto abaixo, sobre o fundo liso (ajustado no mesmo dia porque o texto sobre a foto ficava ruim de ler). No celular a foto é um bloco de altura fixa no topo e o texto fica junto embaixo, com linhas mais apertadas; etiqueta de formato com fundo escuro; cada marca e cada botão numa linha só. |
 | 03/11/2026 | Cartão "Curso de gaita rock!" como primeiro produto, em breve, com mensagem própria de pré-venda no WhatsApp e animações de fogo: chamas em canvas (`js/fogo.js`), brasa nas bordas, título tremulando, fita acelerada. |
+| 03/11/2026 | Fogo tirado do cartão do curso: sem as chamas em canvas (`js/fogo.js` saiu), ficam a borda, o brilho de dentro e o brilho do título pulsando no mesmo compasso. Shows e eventos particulares num cartão só, largo e com a foto edu-36 à direita; a edu-35 saiu do repositório. |
 | 03/11/2026 | Sem zoom nas fotos: nos cartões a foto fica na largura exata, num bloco quadrado no topo, e o texto começa a 82 % da largura do cartão, abaixo do rosto, em todas as larguras. Hero no computador ocupa os 44 % da direita, com a foto quase inteira. Molduras com a foto inteira (2:3) e sem aumentar no hover. |
 | 03/11/2026 | Faíscas do hero começam só depois do carregamento e a faixa rolante não mede mais o layout na partida, pra segurar o tempo de bloqueio com o canvas novo. Grade de cartões em duas colunas a partir de 720 px. |
 | 27/10/2026 | Entrega 1 publicada no GitHub Pages: repositório público `GuidaGaita/edu-gaita`, URL `https://guidagaita.github.io/edu-gaita/`. Push na `main` republica o site. |

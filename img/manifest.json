@@ -527,54 +527,6 @@
       }
     }
   },
-  "edu-35": {
-    "original": {
-      "largura": 4000,
-      "altura": 6000
-    },
-    "arquivos": {
-      "edu-35-480.webp": {
-        "largura": 480,
-        "altura": 720,
-        "bytes": 45456
-      },
-      "edu-35-480.avif": {
-        "largura": 480,
-        "altura": 720,
-        "bytes": 40473
-      },
-      "edu-35-800.webp": {
-        "largura": 800,
-        "altura": 1200,
-        "bytes": 94682
-      },
-      "edu-35-800.avif": {
-        "largura": 800,
-        "altura": 1200,
-        "bytes": 84610
-      },
-      "edu-35-1200.webp": {
-        "largura": 1200,
-        "altura": 1800,
-        "bytes": 172034
-      },
-      "edu-35-1200.avif": {
-        "largura": 1200,
-        "altura": 1800,
-        "bytes": 155574
-      },
-      "edu-35-1600.webp": {
-        "largura": 1600,
-        "altura": 2400,
-        "bytes": 281646
-      },
-      "edu-35-1600.avif": {
-        "largura": 1600,
-        "altura": 2400,
-        "bytes": 261329
-      }
-    }
-  },
   "edu-36": {
     "original": {
       "largura": 4000,

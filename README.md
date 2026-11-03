@@ -22,7 +22,6 @@ sobre veludo" e as fontes são próprias. Tudo isso está na spec.
 | `css/estilo.css` | tokens da paleta, tipografia, fundos fotográficos, componentes, seções e o vocabulário de revelação ao rolar |
 | `js/pagina.js` | revelação ao rolar, faixa rolante, barra que some ao rolar, botão flutuante; a página funciona sem ele |
 | `js/palco.js` | faíscas do hero em canvas; só decoração, desligado com `prefers-reduced-motion` |
-| `js/fogo.js` | chamas do cartão do curso em canvas; só decoração, desligado com `prefers-reduced-motion` |
 | `fonts/` | Big Shoulders Display e Instrument Sans em WOFF2 (fontes variáveis), licenças OFL e `LEIA-ME.md` |
 | `img/` | fotos otimizadas (WebP e AVIF) geradas pelo script, `manifest.json`, imagem de compartilhamento `og.jpg` e ícones |
 | `site.webmanifest`, `robots.txt`, `sitemap.xml`, `.nojekyll` | metadados e o marcador que desliga o Jekyll no GitHub Pages |

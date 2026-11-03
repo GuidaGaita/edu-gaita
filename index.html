@@ -135,7 +135,7 @@
         <p class="secundario revela">Escolhe o que você precisa e chama no WhatsApp. A conversa já começa com o assunto certo.</p>
       </div>
       <div class="cartoes">
-        <article class="cartao cartao--fogo revela">
+        <article class="cartao cartao--curso cartao--largo revela">
           <span class="cartao__fita" aria-hidden="true"></span>
           <span class="cartao__selo revela revela--carimbo" style="--d:420ms">Pré-venda</span>
           <figure class="cartao__foto">
@@ -145,7 +145,6 @@
               <img src="img/edu-1-800.webp" width="800" height="1200" alt="Eduardo de óculos escuros, tocando gaita com as mãos em concha" loading="lazy" decoding="async">
             </picture>
           </figure>
-          <canvas class="cartao__fogo" id="fogo" aria-hidden="true"></canvas>
           <p class="cartao__tag cartao__tag--breve revela revela--cortina" style="--d:120ms">Em breve</p>
           <h3 class="cartao__titulo" data-texto="Curso de gaita rock!">Curso de gaita rock!</h3>
           <p class="cartao__texto">O curso de gaita rock do Eduardo está chegando. Manda mensagem e entra na pré-venda pra saber primeiro quando abrir.</p>
@@ -198,27 +197,7 @@
           <a class="botao botao-whatsapp botao-bloco revela" style="--d:520ms" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20sobre%20grava%C3%A7%C3%A3o%20de%20gaita%20para%20um%20projeto." target="_blank" rel="noopener" aria-label="Quero gaita na minha música: abre o WhatsApp em nova aba com a mensagem sobre gravações">Quero gaita na minha música</a>
         </article>
 
-        <article class="cartao revela">
-          <span class="cartao__fita" aria-hidden="true"></span>
-          <figure class="cartao__foto" style="--pos:50% 0%">
-            <picture>
-              <source type="image/avif" srcset="img/edu-35-480.avif 480w, img/edu-35-800.avif 800w, img/edu-35-1200.avif 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
-              <source type="image/webp" srcset="img/edu-35-480.webp 480w, img/edu-35-800.webp 800w, img/edu-35-1200.webp 1200w" sizes="(min-width: 620px) 480px, calc(100vw - 48px)">
-              <img src="img/edu-35-800.webp" width="800" height="1200" alt="Eduardo tocando violão com a gaita no suporte de pescoço, olhando para a câmera" loading="lazy" decoding="async">
-            </picture>
-          </figure>
-          <p class="cartao__tag cartao__tag--vivo revela revela--cortina" style="--d:120ms">Ao vivo</p>
-          <h3 class="cartao__titulo">Shows</h3>
-          <p class="cartao__texto">Repertório de rock e blues para bares, festivais e bandas que querem gaita no palco.</p>
-          <ul class="checks checks--sequencia">
-            <li>Rock e blues</li>
-            <li>Bares, festivais e bandas</li>
-            <li>Energia de palco</li>
-          </ul>
-          <a class="botao botao-whatsapp botao-bloco revela" style="--d:520ms" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20sobre%20contratar%20um%20show." target="_blank" rel="noopener" aria-label="Quero contratar um show: abre o WhatsApp em nova aba com a mensagem sobre shows">Quero contratar um show</a>
-        </article>
-
-        <article class="cartao revela">
+        <article class="cartao cartao--largo cartao--largo-direita revela">
           <span class="cartao__fita" aria-hidden="true"></span>
           <figure class="cartao__foto" style="--pos:50% 0%">
             <picture>
@@ -228,14 +207,14 @@
             </picture>
           </figure>
           <p class="cartao__tag cartao__tag--vivo revela revela--cortina" style="--d:120ms">Ao vivo</p>
-          <h3 class="cartao__titulo">Eventos particulares</h3>
-          <p class="cartao__texto">Música ao vivo com gaita para casamentos, aniversários e eventos corporativos.</p>
+          <h3 class="cartao__titulo">Shows e eventos particulares</h3>
+          <p class="cartao__texto">Gaita ao vivo, com repertório de rock e blues, no palco ou na sua festa.</p>
           <ul class="checks checks--sequencia">
+            <li>Bares, festivais e bandas</li>
             <li>Casamentos e aniversários</li>
             <li>Eventos corporativos</li>
-            <li>Formato combinado com você</li>
           </ul>
-          <a class="botao botao-whatsapp botao-bloco revela" style="--d:520ms" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20sobre%20gaita%20ao%20vivo%20em%20um%20evento%20particular." target="_blank" rel="noopener" aria-label="Quero gaita no meu evento: abre o WhatsApp em nova aba com a mensagem sobre eventos particulares">Quero gaita no meu evento</a>
+          <a class="botao botao-whatsapp botao-bloco revela" style="--d:520ms" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20saber%20sobre%20gaita%20ao%20vivo%20em%20um%20show%20ou%20evento%20particular." target="_blank" rel="noopener" aria-label="Quero gaita ao vivo: abre o WhatsApp em nova aba com a mensagem sobre shows e eventos particulares">Quero gaita ao vivo</a>
         </article>
       </div>
     </div>
@@ -387,6 +366,5 @@
 <!-- Faíscas do hero: só decoração, num arquivo à parte que a página inteira dispensa. -->
 <script src="js/palco.js" defer></script>
 <!-- Chamas do cartão do curso: também só decoração. -->
-<script src="js/fogo.js" defer></script>
 </body>
 </html>
