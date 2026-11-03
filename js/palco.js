@@ -57,7 +57,7 @@
   }
 
   function semear() {
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     var w = hero.offsetWidth;
     var h = hero.offsetHeight;
     cw = w;
@@ -67,7 +67,7 @@
     canvas.style.width = w + "px";
     canvas.style.height = h + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var n = Math.min(Math.round(w * h / 7000), w < 700 ? 55 : 80);
+    var n = Math.min(Math.round(w * h / 7000), w < 700 ? 34 : 70);
     parts = [];
     for (var i = 0; i < n; i++) {
       var p = {};
@@ -112,29 +112,39 @@
     raf = null;
   }
 
-  semear();
-  ligar();
+  /* Só começa depois que a página carregou: medir o hero e desenhar durante o carregamento
+     atrasa a primeira interação, e faísca nenhuma vale isso. */
+  var visivel = true;
+  var pronto = false;
+  function atualizar() {
+    if (pronto && visivel && !document.hidden) { ligar(); } else { desligar(); }
+  }
+  function iniciar() {
+    setTimeout(function () {
+      semear();
+      pronto = true;
+      atualizar();
+    }, 800);
+  }
+  if (document.readyState === "complete") { iniciar(); } else { window.addEventListener("load", iniciar, { once: true }); }
 
   /* Só anima enquanto o hero estiver na tela... */
-  var visivel = true;
   if ("IntersectionObserver" in window) {
     new IntersectionObserver(function (entradas) {
       visivel = entradas[0].isIntersecting;
-      if (visivel && !document.hidden) { ligar(); } else { desligar(); }
+      atualizar();
     }, { threshold: 0 }).observe(hero);
   }
 
   /* ...e enquanto a aba estiver em primeiro plano */
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden || !visivel) { desligar(); } else { ligar(); }
-  });
+  document.addEventListener("visibilitychange", atualizar);
 
   var temporizador;
   window.addEventListener("resize", function () {
     clearTimeout(temporizador);
     temporizador = setTimeout(function () {
-      semear();
-      if (visivel && !document.hidden) { ligar(); }
+      if (pronto) { semear(); }
+      atualizar();
     }, 200);
   }, { passive: true });
 })();

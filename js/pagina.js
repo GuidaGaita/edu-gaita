@@ -34,14 +34,14 @@
   }
 
   /* 2. Faixa rolante: duplica o grupo até cobrir uma volta e meia da tela, depois espelha a
-        volta inteira, pra animação de -50 % fechar sem emenda. Mede uma vez só. */
+        volta inteira, pra animação de -50 % fechar sem emenda. Não mede o grupo: ler o layout na partida
+        força um recálculo da página inteira. 700 px é menos que a largura real de um grupo, então sempre cobre. */
   function faixaRolante() {
     var trilho = document.getElementById("faixa-rolante");
     if (!trilho) { return; }
     var grupo = trilho.querySelector(".faixa-rolante__grupo");
     if (!grupo) { return; }
-    var largura = grupo.getBoundingClientRect().width;
-    var porVolta = largura > 0 ? Math.min(Math.max(Math.ceil((window.innerWidth * 1.5) / largura), 1), 12) : 1;
+    var porVolta = Math.min(Math.max(Math.ceil((window.innerWidth * 1.5) / 700), 1), 12);
     var volta = document.createDocumentFragment();
     for (var i = 1; i < porVolta; i++) { volta.appendChild(grupo.cloneNode(true)); }
     trilho.appendChild(volta);

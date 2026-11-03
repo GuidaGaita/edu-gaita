@@ -1,4 +1,52 @@
 {
+  "edu-1": {
+    "original": {
+      "largura": 4000,
+      "altura": 6000
+    },
+    "arquivos": {
+      "edu-1-480.webp": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 35460
+      },
+      "edu-1-480.avif": {
+        "largura": 480,
+        "altura": 720,
+        "bytes": 34016
+      },
+      "edu-1-800.webp": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 79950
+      },
+      "edu-1-800.avif": {
+        "largura": 800,
+        "altura": 1200,
+        "bytes": 74987
+      },
+      "edu-1-1200.webp": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 155960
+      },
+      "edu-1-1200.avif": {
+        "largura": 1200,
+        "altura": 1800,
+        "bytes": 145042
+      },
+      "edu-1-1600.webp": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 244494
+      },
+      "edu-1-1600.avif": {
+        "largura": 1600,
+        "altura": 2400,
+        "bytes": 226790
+      }
+    }
+  },
   "edu-2": {
     "original": {
       "largura": 4000,

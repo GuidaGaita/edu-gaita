@@ -30,7 +30,7 @@
 <link rel="preload" href="fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
 <!-- A foto do hero é o maior elemento da primeira tela (o LCP): o pedido sai junto com o do CSS.
      O type filtra: navegador sem AVIF ignora esta linha e pega o WebP do <picture>. -->
-<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="img/edu-9-480.avif 480w, img/edu-9-800.avif 800w, img/edu-9-1200.avif 1200w, img/edu-9-1600.avif 1600w" imagesizes="100vw">
+<link rel="preload" as="image" fetchpriority="high" type="image/avif" imagesrcset="img/edu-9-480.avif 480w, img/edu-9-800.avif 800w, img/edu-9-1200.avif 1200w, img/edu-9-1600.avif 1600w" imagesizes="(min-width: 900px) 44vw, 100vw">
 <link rel="stylesheet" href="css/estilo.css">
 <!-- Marca que o JS está vivo: só com ela a revelação ao rolar começa escondida. Sem script, tudo aparece. -->
 <script>document.documentElement.classList.add("js");</script>
@@ -63,8 +63,8 @@
   <section class="hero" id="topo" aria-labelledby="nome">
     <div class="fundo" aria-hidden="true">
       <picture>
-        <source type="image/avif" srcset="img/edu-9-480.avif 480w, img/edu-9-800.avif 800w, img/edu-9-1200.avif 1200w, img/edu-9-1600.avif 1600w" sizes="100vw">
-        <source type="image/webp" srcset="img/edu-9-480.webp 480w, img/edu-9-800.webp 800w, img/edu-9-1200.webp 1200w, img/edu-9-1600.webp 1600w" sizes="100vw">
+        <source type="image/avif" srcset="img/edu-9-480.avif 480w, img/edu-9-800.avif 800w, img/edu-9-1200.avif 1200w, img/edu-9-1600.avif 1600w" sizes="(min-width: 900px) 44vw, 100vw">
+        <source type="image/webp" srcset="img/edu-9-480.webp 480w, img/edu-9-800.webp 800w, img/edu-9-1200.webp 1200w, img/edu-9-1600.webp 1600w" sizes="(min-width: 900px) 44vw, 100vw">
         <img src="img/edu-9-1200.webp" width="1200" height="1800" alt="" fetchpriority="high" decoding="async">
       </picture>
     </div>
@@ -107,6 +107,7 @@
   <div class="faixa-rolante" aria-hidden="true">
     <div class="faixa-rolante__trilho" id="faixa-rolante">
       <span class="faixa-rolante__grupo">
+        <span>Curso de gaita rock em breve</span><b>★</b>
         <span>Aulas online</span><b>★</b>
         <span>Gravações a distância</span><b>★</b>
         <span>Shows</span><b>★</b>
@@ -134,6 +135,28 @@
         <p class="secundario revela">Escolhe o que você precisa e chama no WhatsApp. A conversa já começa com o assunto certo.</p>
       </div>
       <div class="cartoes">
+        <article class="cartao cartao--fogo revela">
+          <span class="cartao__fita" aria-hidden="true"></span>
+          <span class="cartao__selo revela revela--carimbo" style="--d:420ms">Pré-venda</span>
+          <figure class="cartao__foto">
+            <picture>
+              <source type="image/avif" srcset="img/edu-1-480.avif 480w, img/edu-1-800.avif 800w, img/edu-1-1200.avif 1200w" sizes="(min-width: 620px) 420px, calc(100vw - 48px)">
+              <source type="image/webp" srcset="img/edu-1-480.webp 480w, img/edu-1-800.webp 800w, img/edu-1-1200.webp 1200w" sizes="(min-width: 620px) 420px, calc(100vw - 48px)">
+              <img src="img/edu-1-800.webp" width="800" height="1200" alt="Eduardo de óculos escuros, tocando gaita com as mãos em concha" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+          <canvas class="cartao__fogo" id="fogo" aria-hidden="true"></canvas>
+          <p class="cartao__tag cartao__tag--breve revela revela--cortina" style="--d:120ms">Em breve</p>
+          <h3 class="cartao__titulo" data-texto="Curso de gaita rock!">Curso de gaita rock!</h3>
+          <p class="cartao__texto">O curso de gaita rock do Eduardo está chegando. Manda mensagem e entra na pré-venda pra saber primeiro quando abrir.</p>
+          <ul class="checks checks--sequencia">
+            <li>Lançamento em breve</li>
+            <li>Pré-venda pelo WhatsApp</li>
+            <li>Você fica sabendo primeiro</li>
+          </ul>
+          <a class="botao botao-whatsapp botao-bloco botao-brasa revela" style="--d:520ms" href="https://wa.me/5561981080310?text=Oi%2C%20Eduardo!%20Quero%20entrar%20na%20pr%C3%A9-venda%20do%20curso%20de%20gaita%20rock." target="_blank" rel="noopener" aria-label="Quero entrar na pré-venda: abre o WhatsApp em nova aba com a mensagem sobre o curso de gaita rock">Quero entrar na pré-venda</a>
+        </article>
+
         <article class="cartao cartao--destaque revela">
           <span class="cartao__fita" aria-hidden="true"></span>
           <span class="cartao__selo revela revela--carimbo" style="--d:420ms">Comece por aqui</span>
@@ -363,5 +386,7 @@
 <script src="js/pagina.js" defer></script>
 <!-- Faíscas do hero: só decoração, num arquivo à parte que a página inteira dispensa. -->
 <script src="js/palco.js" defer></script>
+<!-- Chamas do cartão do curso: também só decoração. -->
+<script src="js/fogo.js" defer></script>
 </body>
 </html>

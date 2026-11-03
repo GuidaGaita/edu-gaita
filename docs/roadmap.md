@@ -78,7 +78,7 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 - [x] Criar o repositório no GitHub e enviar o branch `main`. Feito em 27/10/2026: `GuidaGaita/edu-gaita`, público.
 - [x] Ativar o Pages servindo o branch `main` da pasta raiz. Feito em 27/10/2026; cada push na `main` republica o site.
 - [x] Confirmar a URL publicada: `https://guidagaita.github.io/edu-gaita/`, igual à dos metadados. Página, CSS, JS, fontes, fotos AVIF e `og.jpg` respondem 200 com o tipo certo; as tags Open Graph apontam pra URLs absolutas que abrem.
-- [ ] Testar a prévia de compartilhamento mandando a URL num chat do WhatsApp; testar os nove botões num Android e num iPhone. Fica com quem contratou.
+- [ ] Testar a prévia de compartilhamento mandando a URL num chat do WhatsApp; testar os dez botões num Android e num iPhone. Fica com quem contratou.
 - Pronto quando: a URL abre a página em celular e desktop, a prévia do WhatsApp mostra título, descrição e imagem, e os botões abrem a conversa com a mensagem certa.
 
 ### 1.10 Qualidade da entrega 1
@@ -88,6 +88,12 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 - [x] Leitor de tela: títulos em ordem (H1 nome; H2 serviços com quatro H3; H2 sobre; H2 galeria; H2 chamada), `alt` das fotos das molduras, fundos e faixa rolante escondidos com `aria-hidden`, rótulos dos botões de WhatsApp começando pelo texto visível e avisando que abrem em nova aba. Conferido pela árvore do DOM e pelo Lighthouse, não com um leitor de tela real.
 - [x] Revisão de texto: sem erro de acento, sem afirmação não confirmada. Refeita em 27/10/2026 com os textos dos cartões, das fichas e da galeria.
 - [~] Pronto quando: todas as caixas acima marcadas e a URL publicada enviada ao cliente pra validação. Falta a publicação (tarefa 1.9).
+
+### 1.12 Cartão do curso e fotos sem zoom (pedido de 03/11/2026)
+- [x] Cartão "Curso de gaita rock!" em breve como primeiro produto, com mensagem própria de pré-venda e fogo em canvas.
+- [x] Fotos sem zoom e rosto livre nos cartões, no celular e no computador; hero sem zoom.
+- [ ] O cliente confirmar o texto da pré-venda e que vai atender essas mensagens (spec, pendência P11).
+- Verificado em 03/11/2026: QA nas cinco larguras sem erro; Lighthouse local em três rodadas, 94 a 97 em desempenho e 100 nas outras três; LCP 2,4 a 2,5 s; CLS 0.
 
 ### 1.11 Versão rock (pedido de 27/10/2026: "tá genérico, queria rock n roll")
 Modelo: o site GuidaGaita, de quem contratou (pasta `landing-page-vendas`, decisão registrada na spec, seção 12).

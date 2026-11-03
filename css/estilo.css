@@ -264,14 +264,14 @@ body::before {
 /* ---------- Hero: a foto cobre tudo, o nome em cromo vai por cima ---------- */
 .hero { position: relative; display: grid; align-items: center; min-height: calc(100svh - var(--barra)); padding-block: clamp(3.5rem, 9vh, 5.5rem) clamp(4rem, 11vh, 7rem); overflow: hidden; overflow: clip; text-align: center; }
 .hero .fundo { --fundo-op: 1; filter: saturate(1.08) contrast(1.08) brightness(0.92); }
-.hero .fundo img { object-position: 50% 8%; }
+.hero .fundo img { object-position: 50% 0%; }
 /* Véu que garante a leitura sobre a foto; mais fechado embaixo, onde ficam os botões. */
 /* No celular o rosto fica livre no alto e o texto desce pra base, sobre a parte escura do véu. */
 .hero-veu { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to bottom, rgba(20, 23, 29, 0.1) 0%, rgba(20, 23, 29, 0.2) 30%, rgba(20, 23, 29, 0.78) 55%, var(--veludo) 100%), linear-gradient(to top, rgba(227, 154, 58, 0.12), transparent 45%); }
 /* Luzes de palco: dois canhões presos no alto, um de mel e um de cromo, balançando devagar.
    Cada feixe é um gradiente cônico com a ponta no topo da seção, girando em volta dela. */
 .hero-luzes { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
-.hero-luzes::before, .hero-luzes::after { content: ""; position: absolute; top: 0; left: 50%; width: 160vmax; height: 160vmax; margin-left: -80vmax; transform-origin: 50% 0; }
+.hero-luzes::before, .hero-luzes::after { content: ""; position: absolute; top: -45vh; left: 50%; width: 160vmax; height: 160vmax; margin-left: -80vmax; transform-origin: 50% 0; }
 .hero-luzes::before { background: conic-gradient(from 150deg at 50% 0%, transparent 0deg, transparent 10deg, rgba(227, 154, 58, 0.16) 19deg, transparent 28deg); animation: luz-mel 11s ease-in-out infinite alternate; }
 .hero-luzes::after { background: conic-gradient(from 184deg at 50% 0%, transparent 0deg, transparent 9deg, rgba(215, 218, 222, 0.11) 16deg, transparent 24deg); animation: luz-cromo 13s ease-in-out infinite alternate; }
 @keyframes luz-mel { from { transform: rotate(-8deg); } to { transform: rotate(8deg); } }
@@ -320,18 +320,51 @@ body::before {
 .checks li::before { content: ""; position: absolute; left: 0; top: 0.15em; width: 1.15rem; height: 1.15rem; border: 1px solid var(--linha-mel); border-radius: 3px; background: rgba(227, 154, 58, 0.1) url("data:image/svg+xml,%3Csvg width='11' height='9' viewBox='0 0 11 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4.4L4 7.4L10 1' stroke='%23E39A3A' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 62% no-repeat; }
 .cartao .botao { margin-top: auto; white-space: nowrap; }
 .cartao .checks li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-/* Foto do serviço: cobre o cartão inteiro, presa pelo topo (a cabeça nunca corta), e vai perdendo
-   opacidade até sumir na metade do cartão: o texto fica sobre o fundo liso. O conteúdo começa mais abaixo pra deixar o rosto livre. */
-.cartao { padding-top: clamp(15rem, 40vw, 18.5rem); }
-.cartao > :not(.cartao__foto):not(.cartao__fita):not(.cartao__selo) { position: relative; z-index: 1; }
-.cartao__foto { position: absolute; inset: 0; z-index: 0; margin: 0; overflow: hidden; pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 28%, rgba(0, 0, 0, 0.35) 42%, transparent 52%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 28%, rgba(0, 0, 0, 0.35) 42%, transparent 52%); }
+/* Foto do serviço: bloco quadrado no topo do cartão, com a foto na largura exata (sem zoom) e presa pelo
+   topo, sumindo em degradê. O texto começa a 82 % da largura do cartão, abaixo do rosto e da gaita: padding
+   em porcentagem acompanha a largura, então isso vale do celular ao computador. */
+.cartao { padding-top: 82%; }
+.cartao > :not(.cartao__foto):not(.cartao__fita):not(.cartao__selo):not(.cartao__fogo) { position: relative; z-index: 1; }
+.cartao__foto { position: absolute; top: 0; left: 0; right: 0; aspect-ratio: 1 / 1; z-index: 0; margin: 0; overflow: hidden; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0, 0, 0, 0.4) 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0, 0, 0, 0.4) 78%, transparent 100%); }
 .cartao__foto img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 0%); }
 /* Escurece um pouco onde o texto começa, pra leitura sobre a foto. */
-.cartao__foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 22%, rgba(31, 35, 43, 0.7) 42%, rgba(31, 35, 43, 0.9) 52%); }
+.cartao__foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(31, 35, 43, 0.85) 100%); }
 .cartao__titulo, .cartao__texto { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.7); }
-.cartao:hover .cartao__foto img { transform: scale(1.04); }
+
+/* ---------- Cartão do curso: pegando fogo ---------- */
+/* Só opacity e transform: as chamas em si são um canvas (js/fogo.js), que para fora da tela. */
+.cartao--fogo { padding-top: 95%; border-color: rgba(255, 122, 26, 0.6); background: linear-gradient(168deg, #2C211B, #201B1C 60%, #181519); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 60px rgba(255, 100, 20, 0.28); }
+.cartao--fogo .cartao__fita::before { background: linear-gradient(90deg, #C2300F, #FF7A1A, #FFE08A, #FF7A1A, #C2300F, #FF7A1A, #FFE08A, #FF7A1A, #C2300F); animation-duration: 3s; }
+/* Brasa respirando nas bordas de dentro do cartão */
+.cartao--fogo::before { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 44px rgba(255, 110, 20, 0.4), inset 0 -36px 70px rgba(255, 80, 10, 0.28); animation: brasa-cartao 2.3s ease-in-out infinite; }
+@keyframes brasa-cartao { 0%, 100% { opacity: 0.45; } 35% { opacity: 1; } 55% { opacity: 0.65; } 75% { opacity: 0.95; } }
+.cartao--fogo .cartao__foto img { object-position: var(--pos, 50% 0%); }
+/* As chamas nascem logo acima do texto, no celular; nunca atrás de texto corrido. */
+.cartao__fogo { position: absolute; top: 0; left: 0; z-index: 0; width: 100%; aspect-ratio: 1 / 0.95; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to top, transparent 0, #000 7%); mask-image: linear-gradient(to top, transparent 0, #000 7%); }
+.cartao--fogo .cartao__titulo { font-size: clamp(2.6rem, 5.4vw, 3.9rem); line-height: 0.95; color: #FF9A3D; text-shadow: none; }
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .cartao--fogo .cartao__titulo { background-image: linear-gradient(180deg, #FFE9A8 0%, #FFB547 38%, #FF7A1A 68%, #D93A12 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+}
+/* O título tremula: uma cópia borrada atrás dele, piscando como chama. */
+.cartao--fogo .cartao__titulo::after { content: attr(data-texto); content: attr(data-texto) / ""; position: absolute; inset: 0; z-index: -1; -webkit-text-fill-color: #FF6A10; color: #FF6A10; filter: blur(12px); animation: chama-titulo 1.7s linear infinite; pointer-events: none; }
+@keyframes chama-titulo { 0%, 100% { opacity: 0.55; } 12% { opacity: 0.95; } 24% { opacity: 0.6; } 38% { opacity: 1; } 52% { opacity: 0.7; } 66% { opacity: 0.98; } 82% { opacity: 0.5; } }
+.cartao__tag--breve { display: inline-flex; align-items: center; gap: 0.4rem; color: #FFB547; border-color: #FF7A1A; }
+.cartao__tag--breve::before { content: ""; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: #FF7A1A; animation: ponto-breve 1.1s ease-in-out infinite; }
+@keyframes ponto-breve { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.15); } }
+.cartao--fogo .cartao__selo { background: linear-gradient(150deg, #FFD36E, #FF7A1A); box-shadow: 0 4px 16px rgba(255, 122, 26, 0.5); }
+.cartao--fogo:hover .cartao__titulo { color: #FF9A3D; }
+/* A partir de 620 px ele ocupa a linha toda: foto e fogo à esquerda, texto à direita. */
+@media (min-width: 620px) {
+  .cartao--fogo { grid-column: 1 / -1; padding: 2.75rem 2.5rem 2.25rem calc(42% + 1.75rem); justify-content: center; min-height: 27rem; }
+  .cartao--fogo .cartao__foto { right: auto; bottom: 0; width: 42%; aspect-ratio: auto;
+    -webkit-mask-image: linear-gradient(to right, #000 62%, transparent 100%); mask-image: linear-gradient(to right, #000 62%, transparent 100%); }
+  .cartao--fogo .cartao__foto::after { background: linear-gradient(to bottom, transparent 62%, rgba(31, 27, 28, 0.75) 100%); }
+  .cartao__fogo { width: 42%; height: 100%; aspect-ratio: auto;
+    -webkit-mask-image: linear-gradient(to right, #000 68%, transparent 100%); mask-image: linear-gradient(to right, #000 68%, transparent 100%); }
+}
 
 /* ---------- Sobre ---------- */
 .sobre { display: grid; gap: 2rem; align-items: center; padding: 2rem 1.5rem; background: linear-gradient(160deg, rgba(31, 35, 43, 0.78), rgba(20, 23, 29, 0.6)); border: 1px solid var(--linha); border-radius: 10px; }
@@ -343,11 +376,10 @@ body::before {
 
 /* ---------- Molduras: foto do ensaio como chapa, com cantoneiras de cromo ---------- */
 .moldura { position: relative; padding: 8px; background: linear-gradient(150deg, #2A2F39, var(--palco) 55%, #171A20); border: 1px solid rgba(215, 218, 222, 0.2); border-radius: 4px; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 22px 60px rgba(0, 0, 0, 0.6); overflow: hidden; }
-.moldura img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: var(--pos, 50% 25%); border-radius: 2px; }
+.moldura img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; object-position: var(--pos, 50% 0%); border-radius: 2px; }
 /* Vinheta interna, como chapa antiga */
 .moldura::after { content: ""; position: absolute; inset: 8px; border-radius: 2px; pointer-events: none; background: radial-gradient(ellipse 82% 78% at 50% 42%, transparent 48%, rgba(8, 10, 14, 0.45) 100%); }
 .moldura:hover { border-color: rgba(227, 154, 58, 0.45); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 28px 74px rgba(0, 0, 0, 0.68), 0 0 44px rgba(227, 154, 58, 0.15); }
-.moldura:hover img { transform: scale(1.03); }
 .moldura__canto { position: absolute; width: 17px; height: 17px; border: 1.5px solid var(--cromo); opacity: 0.55; z-index: 2; pointer-events: none; }
 .moldura__canto--se { top: 4px; left: 4px; border-right: 0; border-bottom: 0; }
 .moldura__canto--sd { top: 4px; right: 4px; border-left: 0; border-bottom: 0; }
@@ -432,9 +464,9 @@ body::before {
 .js .revela.entrou .ink-mel { background-size: 100% 2px; }
 /* Sequência dos quatro cartões, só onde ficam lado a lado */
 @media (min-width: 620px) {
-  .cartoes .cartao:nth-child(2) { --d: 120ms; }
-  .cartoes .cartao:nth-child(3) { --d: 240ms; }
-  .cartoes .cartao:nth-child(4) { --d: 360ms; }
+  .cartoes .cartao:nth-child(3) { --d: 120ms; }
+  .cartoes .cartao:nth-child(4) { --d: 240ms; }
+  .cartoes .cartao:nth-child(5) { --d: 360ms; }
 }
 
 /* ---------- Transições de hover (no bloco de movimento reduzido viram instantâneas) ---------- */
@@ -447,7 +479,6 @@ body::before {
 .barra { transition: transform 0.25s ease; }
 .js .flutuante { transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
 .moldura { transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.4s; }
-.moldura img, .cartao__foto img { transition: transform 0.7s var(--ease); }
 .moldura__canto { transition: opacity 0.4s, width 0.4s var(--ease), height 0.4s var(--ease); }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
@@ -458,14 +489,16 @@ body::before {
   .hero .fundo { bottom: auto; height: 68%; -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); mask-image: linear-gradient(to bottom, #000 62%, transparent 100%); }
 }
 
+@media (min-width: 620px) and (max-width: 899.98px) {
+  /* Tablet: o bloco da foto tem a proporção dela, sem zoom, e as laterais somem no fundo. */
+  .hero .fundo { left: 50%; right: auto; width: auto; aspect-ratio: 2 / 3; translate: -50% 0; }
+  .hero .fundo img { -webkit-mask-image: linear-gradient(to right, transparent 0, #000 20%, #000 80%, transparent 100%); mask-image: linear-gradient(to right, transparent 0, #000 20%, #000 80%, transparent 100%); }
+}
+
 @media (max-width: 619.98px) {
   :root { --ritmo: clamp(2.75rem, 7vw, 4.5rem); }
-  /* Cartão no celular: a foto é um bloco de altura fixa no topo e o texto se junta embaixo dela, sem cobrir o rosto. */
-  .cartao { padding-top: 17.5rem; gap: 0.5rem; }
-  .cartao__foto { bottom: auto; height: 22rem;
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0, 0, 0, 0.4) 78%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0, 0, 0, 0.4) 78%, transparent 100%); }
-  .cartao__foto::after { background: linear-gradient(to bottom, transparent 50%, rgba(31, 35, 43, 0.85) 100%); }
+  /* Cartão no celular: texto junto, com as linhas apertadas. */
+  .cartao { gap: 0.5rem; }
   .cartao__titulo { line-height: 0.95; }
   .cartao__texto { line-height: 1.45; font-size: 0.95rem; }
   .cartao .checks { gap: 0.35rem; padding-top: 0.65rem; }
@@ -483,7 +516,7 @@ body::before {
 }
 
 /* ---------- Tablet: 620 px ---------- */
-@media (min-width: 620px) {
+@media (min-width: 720px) {
   .cartoes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -491,8 +524,8 @@ body::before {
 @media (min-width: 900px) {
   .hero { text-align: left; }
   /* A foto ocupa a direita: o rosto fica fora da coluna do nome e a borda esquerda some no escuro. */
-  .hero .fundo { left: 34%; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 32%); mask-image: linear-gradient(to right, transparent 0, #000 32%); }
-  .hero .fundo img { object-position: 50% 22%; }
+  .hero .fundo { left: 56%; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%); mask-image: linear-gradient(to right, transparent 0, #000 22%); }
+  .hero .fundo img { object-position: 50% 0%; }
   .hero-veu { background: linear-gradient(100deg, rgba(20, 23, 29, 0.85) 0%, rgba(20, 23, 29, 0.5) 40%, rgba(20, 23, 29, 0.1) 68%, rgba(20, 23, 29, 0.25) 100%), linear-gradient(to bottom, transparent 70%, var(--veludo) 100%); }
   .hero-conteudo { align-items: flex-start; }
   .hero-conteudo .sobretitulo { justify-content: flex-start; }
@@ -522,6 +555,6 @@ body::before {
   .js .revela, .js .revela--palavras .w, .js .checks--sequencia li, .js .checks--sequencia li::before { opacity: 1; translate: none; scale: none; rotate: none; }
   .js .revela--cortina { clip-path: none; }
   .js .revela .ink-mel { background-size: 100% 2px; }
-  .fx-grao, .faixa-rolante__trilho, .equalizador i, .cartao__fita::before, .botao-brasa::before, .sobretitulo .estrela, .hero-luzes::before, .hero-luzes::after, .fundo, .fundo::before, .fundo::after { animation: none; }
-  .hero-faiscas, .hero-luzes { display: none; }
+  .cartao--fogo::before, .cartao--fogo .cartao__titulo::after, .cartao__tag--breve::before, .fx-grao, .faixa-rolante__trilho, .equalizador i, .cartao__fita::before, .botao-brasa::before, .sobretitulo .estrela, .hero-luzes::before, .hero-luzes::after, .fundo, .fundo::before, .fundo::after { animation: none; }
+  .hero-faiscas, .hero-luzes, .cartao__fogo { display: none; }
 }

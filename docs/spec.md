@@ -34,6 +34,15 @@ Ordem fixa, decidida em 26/10/2026 por prioridade comercial: aulas primeiro, gra
 
 Os textos abaixo são a versão genérica. Tudo marcado com **[A CONFIRMAR]** depende do currículo e das respostas do cliente; nada que não esteja confirmado pode virar afirmação na página.
 
+### 4.0 Curso de gaita rock (em breve)
+
+- Primeiro cartão da seção, decidido em 03/11/2026; ocupa a linha toda a partir de 620 px e é o único com fogo.
+- Título: **Curso de gaita rock!** Etiqueta "Em breve", selo "Pré-venda".
+- Texto: "O curso de gaita rock do Eduardo está chegando. Manda mensagem e entra na pré-venda pra saber primeiro quando abrir."
+- Marcas: "Lançamento em breve", "Pré-venda pelo WhatsApp", "Você fica sabendo primeiro".
+- **[A CONFIRMAR]**: data, formato, conteúdo e preço do curso; como funciona a lista de pré-venda.
+- Botão: "Quero entrar na pré-venda", abre o WhatsApp com a mensagem da pré-venda (seção 6).
+
 ### 4.1 Aulas particulares
 
 - Título: **Aulas particulares**
@@ -77,7 +86,7 @@ Uma página, rolagem vertical, nesta ordem:
 | # | Seção | O que tem | Entrega |
 |---|---|---|---|
 | 0 | Barra superior | Nome em texto, à esquerda; botão compacto "WhatsApp", à direita. Fica fixa no topo e some ao rolar pra baixo, volta ao rolar pra cima. | 1 |
-| 1 | Hero | Foto edu-14 (encarando a câmera com a gaita cromática na frente da boca) atrás de um véu leve: no desktop ocupa a direita da seção, com o rosto fora da coluna do nome; no celular ocupa o alto da tela e o texto fica embaixo. Luzes de palco e faíscas; com luzes de palco e faíscas; por cima, sobretítulo "Gaitista de rock · Brasília, DF" com um equalizador pulsando, nome em cromo (assinatura visual) entrando como carimbo, frase de posicionamento palavra por palavra, botão primário de WhatsApp e botão secundário "Ver serviços". | 1 |
+| 1 | Hero | Foto edu-9 (sentado, olhando a gaita na mão) atrás de um véu leve: no desktop ocupa os 44 % da direita, com o rosto fora da coluna do nome; no celular ocupa o alto da tela e o texto fica embaixo. Luzes de palco e faíscas; com luzes de palco e faíscas; por cima, sobretítulo "Gaitista de rock · Brasília, DF" com um equalizador pulsando, nome em cromo (assinatura visual) entrando como carimbo, frase de posicionamento palavra por palavra, botão primário de WhatsApp e botão secundário "Ver serviços". | 1 |
 | 1b | Faixa rolante | Setlist decorativo passando em loop: "Aulas online ★ Gravações a distância ★ Shows ★ Eventos particulares ★ Brasília, DF ★ Rock e blues ★ Diatônica e cromática". Escondida de leitores de tela. | 1 |
 | 2 | Serviços | Sobretítulo "Serviços", título "O que a gaita pode fazer pelo seu projeto", linha de apoio "Escolhe o que você precisa e chama no WhatsApp. A conversa já começa com o assunto certo." Os quatro serviços da seção 4 em cartões (dois por linha a partir de 620 px), cada um com uma foto do ensaio no topo e seu botão de WhatsApp. Fundo: foto edu-33 (sentado com violão e gaita no suporte). | 1 |
 | 3 | Sobre | Sobretítulo "Sobre", título "Gaita, rock e Brasília", foto edu-32 numa moldura inclinada com cantoneiras de cromo, texto curto de apresentação, fichas ("Brasília, DF", "Rock e blues", "Diatônica e cromática", "Aulas e gravações online") e botão "Ver serviços". Fundo: foto edu-27 (a mão com a gaita cromática). Genérico na entrega 1, com fatos do currículo na entrega 2. | 1 (texto genérico), 2 (texto final) |
@@ -107,6 +116,7 @@ Mensagens pré-preenchidas (vão no parâmetro `text`, codificadas pra URL):
 | Botão | Mensagem |
 |---|---|
 | Barra superior, hero, chamada final, botão flutuante | Oi, Eduardo! Vi seu site e quero saber mais sobre o seu trabalho com gaita. |
+| Curso de gaita rock (pré-venda) | Oi, Eduardo! Quero entrar na pré-venda do curso de gaita rock. |
 | Aulas particulares | Oi, Eduardo! Quero saber mais sobre as aulas particulares de gaita. |
 | Gravações | Oi, Eduardo! Quero saber sobre gravação de gaita para um projeto. |
 | Shows | Oi, Eduardo! Quero saber sobre contratar um show. |
@@ -183,7 +193,7 @@ some em degradê, em vez de uma fatia irreconhecível esticada na seção inteir
 (multiply) e revela a cor; no desktop ela também deriva um pouco mais devagar que a página. Tudo por linha do tempo de
 rolagem, sem JS; sem suporte, fica um tom de aço leve e fixo.
 
-Hero (todas as larguras): foto edu-24 cobrindo a seção, véu mais fechado embaixo (e à esquerda, no desktop), luzes de
+Hero: foto edu-9 sem zoom, à direita no desktop e no alto no celular e no tablet, véu mais fechado embaixo (e à esquerda, no desktop), luzes de
 palco (dois feixes cônicos balançando) e faíscas em canvas. Conteúdo centralizado no celular e alinhado à esquerda a
 partir de 900 px:
 
@@ -276,6 +286,7 @@ Os originais nunca entram no repositório nem no site.
 | Onde | Foto | Corte | Entrega |
 |---|---|---|---|
 | Hero (fundo) | edu-9 | sentado, olhando a gaita na mão; à direita do nome no desktop, no alto da tela no celular; presa pelo topo | 1 |
+| Cartão do curso | edu-1 | de óculos escuros, tocando; chamas em canvas sobre a base da foto | 1 |
 | Cartões de serviço | edu-14 (aulas), edu-17 (gravações), edu-35 (shows), edu-36 (eventos, de óculos escuros) | no alto do cartão, presas pelo topo, somem em degradê até a metade dele; o texto fica abaixo, sobre o fundo liso | 1 |
 | Serviços (fundo) | edu-33 | sentado no muro com violão e gaita no suporte | 1 |
 | Sobre (moldura) | edu-32 | retrato 3:4 na moldura, gaita no bolso da camisa | 1 |
@@ -341,6 +352,7 @@ edu-gaita/
   css/estilo.css   tokens, reset, tipografia, seções (entrega 1)
   js/pagina.js     comportamentos opcionais (entrega 1)
   js/palco.js      faíscas do hero, só decoração (entrega 1)
+  js/fogo.js       chamas do cartão do curso, só decoração (entrega 1)
   site.webmanifest, robots.txt, sitemap.xml, .nojekyll   metadados e marcador do GitHub Pages (entrega 1)
   scripts/qa/      verificação automática (larguras, comportamento, Lighthouse) e geração de og.jpg e ícones, em Node
 ```
@@ -361,6 +373,7 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | P6 | Depoimentos | sem seção de depoimentos | cliente |
 | P7 | Hospedagem definitiva e domínio | validação no GitHub Pages; depois, Pages com domínio próprio ou Vercel, a decidir; domínio `.com.br` pelo registro.br quando o cliente quiser | quem desenvolve e cliente |
 | P8 | Analytics | nenhum no lançamento | cliente, depois do lançamento |
+| P11 | Curso de gaita rock: data, formato, conteúdo, preço e lista de pré-venda | cartão diz só "em breve" e leva pro WhatsApp; nada prometido além disso | cliente |
 | P9 | Crédito das fotos no rodapé | a definir; os direitos estão liberados | quem desenvolve |
 | P10 | Preço na página | não mostra (decidido em 26/10/2026) | fechado |
 
@@ -392,5 +405,8 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | 27/10/2026 | Etiqueta "Ao vivo" nos cartões de shows e eventos, além de "Online" nos de aulas e gravações; selo "Comece por aqui" no cartão de aulas; três marcas por serviço. |
 | 27/10/2026 | Hero trocado pra foto edu-14, a pedido ("uma foto dele forte"), com véu mais leve; a edu-24 saiu do repositório. Foto do ensaio no topo de cada cartão de serviço: edu-9, edu-17, edu-35, edu-34. |
 | 27/10/2026 | A pedido: foto do hero e do cartão de aulas trocadas (hero edu-9, aulas edu-14); cartão de eventos com edu-36, de óculos escuros (a edu-34 foi pra galeria); fotos presas pelo topo pra não cortar a cabeça; nos cartões a foto cobre o alto do cartão e some de vez até a metade dele, com o texto abaixo, sobre o fundo liso (ajustado no mesmo dia porque o texto sobre a foto ficava ruim de ler). No celular a foto é um bloco de altura fixa no topo e o texto fica junto embaixo, com linhas mais apertadas; etiqueta de formato com fundo escuro; cada marca e cada botão numa linha só. |
+| 03/11/2026 | Cartão "Curso de gaita rock!" como primeiro produto, em breve, com mensagem própria de pré-venda no WhatsApp e animações de fogo: chamas em canvas (`js/fogo.js`), brasa nas bordas, título tremulando, fita acelerada. |
+| 03/11/2026 | Sem zoom nas fotos: nos cartões a foto fica na largura exata, num bloco quadrado no topo, e o texto começa a 82 % da largura do cartão, abaixo do rosto, em todas as larguras. Hero no computador ocupa os 44 % da direita, com a foto quase inteira. Molduras com a foto inteira (2:3) e sem aumentar no hover. |
+| 03/11/2026 | Faíscas do hero começam só depois do carregamento e a faixa rolante não mede mais o layout na partida, pra segurar o tempo de bloqueio com o canvas novo. Grade de cartões em duas colunas a partir de 720 px. |
 | 27/10/2026 | Entrega 1 publicada no GitHub Pages: repositório público `GuidaGaita/edu-gaita`, URL `https://guidagaita.github.io/edu-gaita/`. Push na `main` republica o site. |
 | 27/10/2026 | Fotos de fundo comprimidas mais forte (`--qualidade webp=58,avif=40`) pra manter o LCP abaixo de 2,5 s. |
