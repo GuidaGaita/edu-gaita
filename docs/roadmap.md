@@ -95,6 +95,11 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 - [ ] O cliente confirmar o texto da pré-venda e que vai atender essas mensagens (spec, pendência P11).
 - Verificado em 03/11/2026: QA nas cinco larguras sem erro; Lighthouse local em três rodadas, 94 a 97 em desempenho e 100 nas outras três; LCP 2,4 a 2,5 s; CLS 0.
 
+### 1.14 Textos com apelo emocional (pedido de 06/11/2026)
+- [x] Reescrever os textos da página: curso falando de gaita rock; gravações com todos os gêneros (choro, música brasileira, MPB, bossa nova, rock, blues) na diatônica e na cromática.
+- [ ] O cliente responder as perguntas do currículo e confirmar os textos novos (spec, pendências P3 a P6 e P11).
+- Verificado em 06/11/2026: QA nas cinco larguras sem erro, marcas e botões numa linha só, nove botões com a mensagem certa; Lighthouse local em três rodadas, 97 a 98 em desempenho e 100 nas outras três; LCP 2,3 s; CLS 0.
+
 ### 1.13 Cartão do curso sem fogo e shows com eventos (segundo pedido de 03/11/2026)
 - [x] Tirar as chamas do cartão do curso e deixar o cartão pulsando em brasa.
 - [x] Juntar os cartões de shows e de eventos particulares em "Shows e eventos particulares", com uma mensagem só no WhatsApp.

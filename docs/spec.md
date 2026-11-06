@@ -5,6 +5,7 @@ GuidaGaita, de quem contratou (fotos de fundo, cartões de serviço, animações
 contratou o projeto; entrega 1 construída, aguardando publicação.
 Os textos da página ficam genéricos até chegar o currículo do cliente (ver seção 11, Premissas e pendências).
 Fatos confirmados em 26/10/2026: o cliente é de Brasília, DF; as aulas são só online; as gravações são só a distância.
+Informado por quem contratou em 06/11/2026: nas gravações, ele é especializado em todos os gêneros (choro, música brasileira, MPB, bossa nova, rock, blues), na gaita diatônica e na cromática.
 
 ## 1. Resumo
 
@@ -38,8 +39,8 @@ Os textos abaixo são a versão genérica. Tudo marcado com **[A CONFIRMAR]** de
 
 - Primeiro cartão da seção, decidido em 03/11/2026; ocupa a linha toda a partir de 720 px e é o único que pulsa em brasa.
 - Título: **Curso de gaita rock!** Etiqueta "Em breve", selo "Pré-venda".
-- Texto: "O curso de gaita rock do Eduardo está chegando. Manda mensagem e entra na pré-venda pra saber primeiro quando abrir."
-- Marcas: "Lançamento em breve", "Pré-venda pelo WhatsApp", "Você fica sabendo primeiro".
+- Texto: "Sabe aquele solo que arrepia no meio de um rock? O curso de gaita rock do Eduardo é pra quem sonha em tocar assim. Entra na pré-venda e fica sabendo primeiro."
+- Marcas: "Feito pra quem ama rock", "Pré-venda pelo WhatsApp", "Você fica sabendo primeiro".
 - **[A CONFIRMAR]**: data, formato, conteúdo e preço do curso; como funciona a lista de pré-venda.
 - Botão: "Quero entrar na pré-venda", abre o WhatsApp com a mensagem da pré-venda (seção 6).
 
@@ -47,8 +48,8 @@ Os textos abaixo são a versão genérica. Tudo marcado com **[A CONFIRMAR]** de
 
 - Título: **Aulas particulares**
 - Formato: só online (confirmado em 26/10/2026). A linha leva a etiqueta "Online" ao lado do título.
-- Texto: "Para começar do zero ou destravar o que você já toca. Aula online, ao vivo, de onde você estiver."
-- Marcas: "Do zero ou pra quem já toca", "Gaita diatônica e cromática", "No seu ritmo e repertório".
+- Texto: "Sempre quis tocar, ou travou no meio do caminho? Aqui você aprende no seu ritmo, com as músicas que ama, em aula online e ao vivo, de onde estiver."
+- Marcas: "Do zero ou pra quem já toca", "Gaita diatônica e cromática", "Seu ritmo, suas músicas".
 - **[A CONFIRMAR]**: se ensina cromática, público (adultos, crianças), duração e frequência, plataforma da videochamada.
 - Botão: "Quero fazer aula", abre o WhatsApp com a mensagem de aulas (seção 6).
 
@@ -56,8 +57,8 @@ Os textos abaixo são a versão genérica. Tudo marcado com **[A CONFIRMAR]** de
 
 - Título: **Gravações**
 - Formato: só a distância (confirmado em 26/10/2026): quem contrata manda a guia, ele grava e devolve os takes. A linha leva a etiqueta "Online".
-- Texto: "Gaita na sua música: solos, bases e arranjos gravados a distância. Você manda a guia, recebe os takes."
-- Marcas: "Você manda a guia, recebe os takes", "Solos, bases e arranjos", "Rock, blues e o que pedir".
+- Texto: "Tem música que só fica completa quando a gaita entra. Eduardo é especializado em todos os gêneros: choro, música brasileira, MPB, bossa nova, rock e blues, tanto na gaita diatônica quanto na cromática."
+- Marcas: "Você manda a guia, recebe os takes", "Solos, bases e arranjos", "A distância, de qualquer cidade".
 - **[A CONFIRMAR]**: prazo típico; formatos de entrega (WAV, stems); se cobra por música ou por take.
 - Botão: "Quero gaita na minha música", abre o WhatsApp com a mensagem de gravações.
 
@@ -65,12 +66,12 @@ Os textos abaixo são a versão genérica. Tudo marcado com **[A CONFIRMAR]** de
 
 - Um cartão só desde 03/11/2026; ocupa a linha toda a partir de 720 px, com a foto à direita.
 - Título: **Shows e eventos particulares**
-- Texto: "Gaita ao vivo, com repertório de rock e blues, no palco ou na sua festa."
+- Texto: "A gaita entra e o salão inteiro para pra ouvir. Música ao vivo pro seu palco ou pro dia que você quer lembrar pra sempre."
 - Marcas: "Bares, festivais e bandas", "Casamentos e aniversários", "Eventos corporativos".
 - **[A CONFIRMAR]**: formatos (solo, duo, com violão, com banda própria, como convidado), estrutura necessária, duração dos sets, se toca repertório pedido pelo contratante, raio de deslocamento a partir de Brasília.
 - Botão: "Quero gaita ao vivo", abre o WhatsApp com a mensagem de shows e eventos.
 
-Regras dos textos de serviço: uma frase de efeito e, no máximo, uma de detalhe. Sem preço na página (decisão de 26/10/2026). Sem ícone genérico ao lado de cada serviço. Sem numeração 01/02/03: a ordem é prioridade comercial, não uma sequência de passos. Cada serviço é um cartão (decisão de 27/10/2026, no modelo dos cartões de oferta do site GuidaGaita): etiqueta de formato ("Online" em Mel nas aulas e gravações, "Ao vivo" em Cromo nos shows e eventos), título, a frase de efeito, três marcas de detalhe e o botão de WhatsApp ocupando a largura toda. O cartão de aulas leva o selo "Comece por aqui", porque é o serviço prioritário. Sem ícone, sem numeração, sem preço.
+Regras dos textos de serviço: uma frase de efeito e, no máximo, uma de detalhe (o curso ganha uma terceira, o convite pra pré-venda). Sem preço na página (decisão de 26/10/2026). Sem ícone genérico ao lado de cada serviço. Sem numeração 01/02/03: a ordem é prioridade comercial, não uma sequência de passos. Cada serviço é um cartão (decisão de 27/10/2026, no modelo dos cartões de oferta do site GuidaGaita): etiqueta de formato ("Online" em Mel nas aulas e gravações, "Ao vivo" em Cromo nos shows e eventos), título, a frase de efeito, três marcas de detalhe e o botão de WhatsApp ocupando a largura toda. O cartão de aulas leva o selo "Comece por aqui", porque é o serviço prioritário. Sem ícone, sem numeração, sem preço.
 
 ## 5. Estrutura da página
 
@@ -80,23 +81,23 @@ Uma página, rolagem vertical, nesta ordem:
 |---|---|---|---|
 | 0 | Barra superior | Nome em texto, à esquerda; botão compacto "WhatsApp", à direita. Fica fixa no topo e some ao rolar pra baixo, volta ao rolar pra cima. | 1 |
 | 1 | Hero | Foto edu-9 (sentado, olhando a gaita na mão) atrás de um véu leve: no desktop ocupa os 44 % da direita, com o rosto fora da coluna do nome; no celular ocupa o alto da tela e o texto fica embaixo. Luzes de palco e faíscas; com luzes de palco e faíscas; por cima, sobretítulo "Gaitista de rock · Brasília, DF" com um equalizador pulsando, nome em cromo (assinatura visual) entrando como carimbo, frase de posicionamento palavra por palavra, botão primário de WhatsApp e botão secundário "Ver serviços". | 1 |
-| 1b | Faixa rolante | Setlist decorativo passando em loop: "Aulas online ★ Gravações a distância ★ Shows ★ Eventos particulares ★ Brasília, DF ★ Rock e blues ★ Diatônica e cromática". Escondida de leitores de tela. | 1 |
-| 2 | Serviços | Sobretítulo "Serviços", título "O que a gaita pode fazer pelo seu projeto", linha de apoio "Escolhe o que você precisa e chama no WhatsApp. A conversa já começa com o assunto certo." Os quatro serviços da seção 4 em cartões (dois por linha a partir de 620 px), cada um com uma foto do ensaio no topo e seu botão de WhatsApp. Fundo: foto edu-33 (sentado com violão e gaita no suporte). | 1 |
-| 3 | Sobre | Sobretítulo "Sobre", título "Gaita, rock e Brasília", foto edu-32 numa moldura inclinada com cantoneiras de cromo, texto curto de apresentação, fichas ("Brasília, DF", "Rock e blues", "Diatônica e cromática", "Aulas e gravações online") e botão "Ver serviços". Fundo: foto edu-27 (a mão com a gaita cromática). Genérico na entrega 1, com fatos do currículo na entrega 2. | 1 (texto genérico), 2 (texto final) |
+| 1b | Faixa rolante | Setlist decorativo passando em loop: "Aulas online ★ Gravações a distância ★ Shows ★ Eventos particulares ★ Brasília, DF ★ Rock e blues ★ Choro e bossa nova ★ MPB ★ Diatônica e cromática". Escondida de leitores de tela. | 1 |
+| 2 | Serviços | Sobretítulo "Serviços", título "Onde a gaita entra na sua vida", linha de apoio "Aprender, gravar ou levar pro palco: escolhe o seu caminho e chama no WhatsApp. A conversa já começa no assunto certo." Os quatro serviços da seção 4 em cartões (dois por linha a partir de 620 px), cada um com uma foto do ensaio no topo e seu botão de WhatsApp. Fundo: foto edu-33 (sentado com violão e gaita no suporte). | 1 |
+| 3 | Sobre | Sobretítulo "Sobre", título "Quando a gaita fala mais alto", foto edu-32 numa moldura inclinada com cantoneiras de cromo, texto curto de apresentação, fichas ("Brasília, DF", "Rock e blues", "Choro, MPB e bossa nova", "Diatônica e cromática", "Aulas e gravações online") e botão "Ver serviços". Fundo: foto edu-27 (a mão com a gaita cromática). Genérico na entrega 1, com fatos do currículo na entrega 2. | 1 (texto genérico), 2 (texto final) |
 | 4 | Galeria | Sobretítulo "Galeria", título "Gaita no sangue", quatro fotos do ensaio (edu-22, edu-11, edu-36, edu-2) em molduras inclinadas: grade de quatro no desktop, faixa com rolagem horizontal no celular. Sem lightbox. Entrou na entrega 1 em 27/10/2026. | 1 |
 | 5 | Vídeo | Um vídeo do YouTube incorporado com fachada leve (carrega o player só ao clicar). Só entra se o cliente tiver vídeo. | 2 |
 | 6 | Depoimentos | Dois ou três depoimentos curtos, só se forem reais e autorizados. | 2 |
-| 7 | Chamada final | Sobretítulo "O bis" entre duas estrelas; fundo com a foto edu-38 (gaitas sobre o violão, horizontal) escurecida; frase "Vamos colocar gaita nisso?" palavra por palavra, botão grande de WhatsApp e a linha "Aulas e gravações online · Shows e eventos ao vivo · Brasília, DF". | 1 |
+| 7 | Chamada final | Sobretítulo "O bis" entre duas estrelas; fundo com a foto edu-38 (gaitas sobre o violão, horizontal) escurecida; frase "E se a próxima nota for a sua?" palavra por palavra, botão grande de WhatsApp e a linha "Aulas e gravações online · Shows e eventos ao vivo · Brasília, DF". | 1 |
 | 8 | Rodapé | "Eduardo Leopoldino · Gaitista · Brasília, DF", número de WhatsApp em texto clicável, foto edu-39 bem apagada ao fundo, redes sociais **[A CONFIRMAR]**, crédito de fotos **[A CONFIRMAR]**, "© 2026 Eduardo Leopoldino". | 1 |
 | F | Botão flutuante | Botão de WhatsApp fixo no canto inferior direito, visível sempre que nenhum outro botão de WhatsApp do conteúdo está na tela (seção 6). | 1 |
 
 Sobretítulo do hero: "Gaitista de rock · Brasília, DF" (cidade confirmada em 26/10/2026).
 
-Frase de posicionamento do hero: "Aulas online, gravações a distância, shows e eventos particulares. Gaita com a energia do rock." A frase diz logo que aulas e gravações não dependem da cidade de quem lê.
+Frase de posicionamento do hero: "Aquele som de gaita que arrepia, agora na sua mão, na sua música e na sua festa." A mão é o curso e as aulas, a música é a gravação, a festa é o show ou o evento.
 
-Texto genérico do "Sobre" (entrega 1): "Eduardo Leopoldino é gaitista com foco em rock, de Brasília, DF. Toca gaita diatônica e cromática, dá aulas, grava para outros artistas e leva a gaita para palcos e eventos." Segundo parágrafo: "As aulas e as gravações acontecem online, para qualquer cidade. Shows e eventos, ao vivo." Na entrega 2 esse parágrafo é trocado por três ou quatro fatos verificáveis do currículo: anos tocando, com quem tocou ou gravou, formação.
+Texto genérico do "Sobre" (entrega 1): "Eduardo Leopoldino é gaitista de Brasília, DF, com o coração no rock e especializado em todos os gêneros: do blues ao choro, da MPB à bossa nova, na gaita diatônica e na cromática." Segundo parágrafo: "A gaita dele chega até você de três jeitos: ele ensina quem quer aprender, grava para outros artistas e leva a gaita para palcos e festas. Aulas e gravações são online, para qualquer cidade." Na entrega 2 esse parágrafo é trocado por três ou quatro fatos verificáveis do currículo: anos tocando, com quem tocou ou gravou, formação.
 
-Voz dos textos: informal, direta, sem gíria forçada e sem superlativos ("o melhor", "único"). Verbo no imperativo nos botões, dizendo o que acontece ("Chamar no WhatsApp", nunca "Enviar"). Sempre o mesmo nome pra mesma ação em toda a página.
+Voz dos textos: informal, direta, sem gíria forçada e sem superlativos ("o melhor", "único"). Desde 06/11/2026 os textos apelam à emoção: a frase de efeito fala do que quem lê sente ou quer (o arrepio do solo, a vontade de tocar), e os fatos sobre o cliente continuam só os confirmados. Verbo no imperativo nos botões, dizendo o que acontece ("Chamar no WhatsApp", nunca "Enviar"). Sempre o mesmo nome pra mesma ação em toda a página.
 
 ## 6. WhatsApp
 
@@ -199,8 +200,8 @@ partir de 900 px:
 | EDUARDO                                                       |
 | LEOPOLDINO      (cromo, entra como carimbo)                   |
 |                                                               |
-| Aulas online, gravações a distância, shows e                  |
-| eventos particulares. Gaita com a energia do rock.            |
+| Aquele som de gaita que arrepia, agora na sua mão,            |
+| na sua música e na sua festa.                                 |
 |                                                               |
 | [Chamar no WhatsApp] [Ver serviços]                           |
 +---------------------------------------------------------------+
@@ -214,21 +215,21 @@ de aulas tem borda em Mel e o selo "Comece por aqui". Em hover o cartão sobe 5 
 
 ```
 SERVIÇOS
-O QUE A GAITA PODE FAZER PELO SEU PROJETO
+ONDE A GAITA ENTRA NA SUA VIDA
 +-------------------------------+  +-------------------------------+
 | ~~~~ fita ~~~~ [Comece aqui]  |  | ~~~~ fita ~~~~                |
 | [ONLINE]                      |  | [ONLINE]                      |
 | AULAS PARTICULARES            |  | GRAVAÇÕES                     |
-| Para começar do zero ou ...   |  | Gaita na sua música: ...      |
+| Sempre quis tocar, ou ...     |  | Tem música que só fica ...    |
 | ✓ Do zero ou pra quem já toca |  | ✓ Você manda a guia, ...      |
 | ✓ Gaita diatônica e cromática |  | ✓ Solos, bases e arranjos     |
-| ✓ No seu ritmo, ...           |  | ✓ Rock, blues e ...           |
+| ✓ Seu ritmo, suas músicas     |  | ✓ A distância, de qualquer... |
 | [      Quero fazer aula     ] |  | [ Quero gaita na minha ... ]  |
 +-------------------------------+  +-------------------------------+
 ```
 
 Sobre: um bloco com fundo translúcido sobre a foto edu-27; dentro, a foto edu-32 numa moldura inclinada 1,5° com
-cantoneiras de cromo (coluna de 340 px no desktop) e, à direita, sobretítulo, título "Gaita, rock e Brasília", os dois
+cantoneiras de cromo (coluna de 340 px no desktop) e, à direita, sobretítulo, título "Quando a gaita fala mais alto", os dois
 parágrafos, as fichas e o botão "Ver serviços".
 
 Galeria: quatro molduras inclinadas alternando 1,6° pra cada lado; no desktop em grade de quatro, no celular em faixa
@@ -398,6 +399,7 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | 27/10/2026 | A pedido: foto do hero e do cartão de aulas trocadas (hero edu-9, aulas edu-14); cartão de eventos com edu-36, de óculos escuros (a edu-34 foi pra galeria); fotos presas pelo topo pra não cortar a cabeça; nos cartões a foto cobre o alto do cartão e some de vez até a metade dele, com o texto abaixo, sobre o fundo liso (ajustado no mesmo dia porque o texto sobre a foto ficava ruim de ler). No celular a foto é um bloco de altura fixa no topo e o texto fica junto embaixo, com linhas mais apertadas; etiqueta de formato com fundo escuro; cada marca e cada botão numa linha só. |
 | 03/11/2026 | Cartão "Curso de gaita rock!" como primeiro produto, em breve, com mensagem própria de pré-venda no WhatsApp e animações de fogo: chamas em canvas (`js/fogo.js`), brasa nas bordas, título tremulando, fita acelerada. |
 | 03/11/2026 | Fogo tirado do cartão do curso: sem as chamas em canvas (`js/fogo.js` saiu), ficam a borda, o brilho de dentro e o brilho do título pulsando no mesmo compasso. Shows e eventos particulares num cartão só, largo e com a foto edu-36 à direita; a edu-35 saiu do repositório. |
+| 06/11/2026 | Todos os textos reescritos com apelo emocional, a pedido: curso falando de gaita rock, gravações com a especialização em todos os gêneros, novos títulos em serviços, sobre e chamada final. Nomes dos botões e mensagens do WhatsApp sem mudança. |
 | 03/11/2026 | Sem zoom nas fotos: nos cartões a foto fica na largura exata, num bloco quadrado no topo, e o texto começa a 82 % da largura do cartão, abaixo do rosto, em todas as larguras. Hero no computador ocupa os 44 % da direita, com a foto quase inteira. Molduras com a foto inteira (2:3) e sem aumentar no hover. |
 | 03/11/2026 | Faíscas do hero começam só depois do carregamento e a faixa rolante não mede mais o layout na partida, pra segurar o tempo de bloqueio com o canvas novo. Grade de cartões em duas colunas a partir de 720 px. |
 | 27/10/2026 | Entrega 1 publicada no GitHub Pages: repositório público `GuidaGaita/edu-gaita`, URL `https://guidagaita.github.io/edu-gaita/`. Push na `main` republica o site. |
