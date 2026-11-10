@@ -367,34 +367,51 @@ body::before {
 }
 
 /* ---------- Vídeos do Instagram: o setlist que viralizou ---------- */
-/* Sem imitar a interface do Instagram: cartões no visual da página, com os números reais e o link pro post. */
+/* Sem imitar a interface do Instagram: faixas no visual da página, com a capa do post, os números reais e o link.
+   As capas saíram de um print do perfil (242 px de largura), então ficam pequenas pra não perderem nitidez. */
 .secao-videos { padding-bottom: 0; }
 .secao-videos .secundario strong { color: var(--mel-claro); font-weight: 600; }
 .conta { font-variant-numeric: tabular-nums; }
-.reels { display: grid; gap: 1.25rem; max-width: 1000px; margin: 0 auto; }
-.reel { position: relative; display: flex; flex-direction: column; gap: 0.45rem; padding: 1.75rem 1.5rem 1.5rem; overflow: hidden;
-  background: radial-gradient(ellipse 90% 70% at 0% 0%, rgba(227, 154, 58, 0.12), transparent 70%), linear-gradient(168deg, #272C36, var(--palco) 60%, #181B22);
+.reels { display: grid; gap: 1rem; max-width: 1000px; margin: 0 auto; }
+.reel { position: relative; display: grid; grid-template-columns: 7.25rem minmax(0, 1fr); align-items: center; gap: 1rem 1.25rem; padding: 1rem; overflow: hidden;
+  background: radial-gradient(ellipse 70% 90% at 0% 50%, rgba(227, 154, 58, 0.1), transparent 70%), linear-gradient(168deg, #272C36, var(--palco) 60%, #181B22);
   border: 1px solid rgba(215, 218, 222, 0.16); border-radius: 8px; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 24px 60px rgba(0, 0, 0, 0.5); }
-.reel:hover { transform: translateY(-5px); border-color: var(--linha-mel); }
+.reel:hover { transform: translateY(-4px); border-color: var(--linha-mel); }
 .reel--topo { border-color: rgba(227, 154, 58, 0.5); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 50px rgba(227, 154, 58, 0.14); }
-/* Botão de play desenhado em CSS: disco de cromo com o triângulo em mel, pulsando como um ponto ao vivo. */
-.reel__play { position: relative; width: 2.6rem; height: 2.6rem; margin-bottom: 0.5rem; border-radius: 50%; border: 1px solid var(--linha-mel); background: rgba(227, 154, 58, 0.1); }
-.reel__play::before { content: ""; position: absolute; top: 50%; left: 54%; translate: -50% -50%; border-style: solid; border-width: 0.45rem 0 0.45rem 0.75rem; border-color: transparent transparent transparent var(--mel); }
+/* A capa: vertical, como o post, com o play por cima. */
+.reel__capa { position: relative; display: block; aspect-ratio: 242 / 316; overflow: hidden; border-radius: 6px; border: 1px solid rgba(215, 218, 222, 0.18); box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5); }
+.reel__capa img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) brightness(0.86); transition: filter 0.3s; }
+.reel:hover .reel__capa img { filter: saturate(1.1) brightness(1); }
+.reel__capa::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20, 23, 29, 0.55), transparent 45%); pointer-events: none; }
+.reel__play { position: absolute; z-index: 1; right: 0.5rem; bottom: 0.5rem; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 1px solid rgba(242, 182, 92, 0.8); background: rgba(20, 23, 29, 0.55); box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5); }
+.reel__play::before { content: ""; position: absolute; top: 50%; left: 54%; translate: -50% -50%; border-style: solid; border-width: 0.45rem 0 0.45rem 0.75rem; border-color: transparent transparent transparent var(--mel-claro); }
 .reel__play::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; border: 1px solid var(--mel); animation: play-onda 2.4s ease-out infinite; }
 @keyframes play-onda { 0% { opacity: 0.8; transform: scale(1); } 100% { opacity: 0; transform: scale(1.7); } }
-.reel__views { display: flex; flex-direction: column; align-items: flex-start; gap: 0.45rem; font-family: var(--display); font-weight: 800; font-size: clamp(3rem, 6.5vw, 4.25rem); line-height: 0.9; color: var(--mel); }
+.reel__info { display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
+.reel__views { display: flex; flex-direction: column; align-items: flex-start; gap: 0.3rem; font-family: var(--display); font-weight: 800; font-size: clamp(2.5rem, 6vw, 3.75rem); line-height: 0.9; color: var(--mel); }
 @supports (-webkit-background-clip: text) or (background-clip: text) {
   .reel__views .conta { background-image: linear-gradient(180deg, var(--mel-claro), var(--mel) 55%, var(--mel-queimado)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 }
-.reel__views small { font: 600 0.75rem/1 var(--corpo); letter-spacing: 0.1em; text-transform: uppercase; color: var(--cinza-claro); }
-.reel__titulo { margin-top: 0.5rem; font-family: var(--display); font-weight: 800; font-size: clamp(1.5rem, 2.6vw, 1.9rem); line-height: 1; text-transform: uppercase; color: var(--cromo); }
+.reel__views small { font: 600 0.7rem/1 var(--corpo); letter-spacing: 0.1em; text-transform: uppercase; color: var(--cinza-claro); }
+.reel__titulo { margin-top: 0.45rem; font-family: var(--display); font-weight: 800; font-size: clamp(1.35rem, 2.6vw, 1.9rem); line-height: 1; text-transform: uppercase; color: var(--cromo); }
 .reel:hover .reel__titulo { color: var(--mel); }
-.reel__artista { color: var(--cinza-claro); font-size: 0.92rem; }
-.reel .botao { margin-top: auto; }
-.reel .reel__artista { margin-bottom: 0.9rem; }
+.reel__artista { color: var(--cinza-claro); font-size: 0.88rem; }
+.reel__botao { grid-column: 1 / -1; display: flex; width: 100%; white-space: nowrap; }
+/* O selo vai em cima da capa, pra nunca cobrir o número. */
+.reel .cartao__selo { top: 0.55rem; right: auto; left: 0.55rem; }
 .reels__perfil { display: flex; justify-content: center; margin-top: 2rem; }
+/* No computador cada vídeo é uma linha do setlist: capa, números e o botão à direita. */
 @media (min-width: 720px) {
-  .reels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .reel { grid-template-columns: 10.5rem minmax(0, 1fr) auto; gap: 2rem; padding: 1rem 1.75rem 1rem 1rem; }
+  .reel__botao { grid-column: auto; width: auto; }
+  .reel .cartao__selo { top: 1.5rem; left: 1.5rem; }
+}
+/* Com espaço, o número fica ao lado do título, como numa linha de placar. */
+@media (min-width: 900px) {
+  .reel__info { display: grid; grid-template-columns: 13rem minmax(0, 1fr); column-gap: 2rem; align-items: center; }
+  .reel__views { grid-row: 1 / span 2; }
+  .reel__titulo { margin-top: 0; align-self: end; }
+  .reel__artista { align-self: start; }
 }
 
 /* ---------- Sobre ---------- */
@@ -554,8 +571,14 @@ body::before {
 @media (min-width: 900px) {
   .hero { text-align: left; }
   /* A foto ocupa a direita: o rosto fica fora da coluna do nome e a borda esquerda some no escuro. */
-  .hero .fundo { left: 56%; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%); mask-image: linear-gradient(to right, transparent 0, #000 22%); }
+  /* Largura limitada pela altura da tela (77 % dela), pra gaita não sair por baixo numa tela larga e baixa. */
+  .hero .fundo { left: auto; right: 0; width: min(44%, calc((100svh - var(--barra)) * 0.77)); -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%); mask-image: linear-gradient(to right, transparent 0, #000 22%); }
   .hero .fundo img { object-position: 50% 0%; }
+  /* O topo do nome fica na altura do topo da cabeça. A foto vai presa pelo topo e a cabeça começa a 13,2 % da
+     altura desenhada dela. Quando a largura manda, isso é 0,198 × a largura da foto: 8,71 % (de 44 %; porcentagem
+     de padding é da largura) ou 15,25svh − 9,76px (de 77 % da altura do hero). Quando a altura manda, 13,2 % da
+     altura do hero. O nome fica 33 px abaixo do topo do sobretítulo. Tudo em CSS: nada se mexe depois de pintar. */
+  .hero { align-items: start; padding-top: max(2rem, calc(max(min(8.71%, 15.25svh - 9.76px), 13.2svh - 8.45px) - 33px)); }
   .hero-veu { background: linear-gradient(100deg, rgba(20, 23, 29, 0.85) 0%, rgba(20, 23, 29, 0.5) 40%, rgba(20, 23, 29, 0.1) 68%, rgba(20, 23, 29, 0.25) 100%), linear-gradient(to bottom, transparent 70%, var(--veludo) 100%); }
   .hero-conteudo { align-items: flex-start; }
   .hero-conteudo .sobretitulo { justify-content: flex-start; }
@@ -570,6 +593,13 @@ body::before {
     .com-fundo .fundo { inset: -7% 0; animation: deriva linear both; animation-timeline: view(); }
   }
 }
+
+/* ---------- Telas bem largas: a foto do hero fica junto da coluna do texto ---------- */
+@media (min-width: 1600px) {
+  .hero .fundo { right: max(0px, calc((100% - var(--largura)) / 2 - 3rem));
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 22%, #000 80%, transparent 100%); mask-image: linear-gradient(to right, transparent 0, #000 22%, #000 80%, transparent 100%); }
+}
+
 @keyframes deriva { from { transform: translateY(-4%); } to { transform: translateY(4%); } }
 
 /* ---------- Ponteiro grosso: efeitos de hover só onde há ponteiro ---------- */

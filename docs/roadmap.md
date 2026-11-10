@@ -100,6 +100,7 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 - [x] Rock restrito ao curso, que ganhou seção própria; gravações, shows e sobre ecléticos.
 - [x] Hero com foto de rosto e gaita à vista (edu-13); aulas com a edu-26.
 - [x] Mais de 10 anos dando aula e SPAH Youth Scholarship 2021 e 2022 no cartão de aulas e no sobre.
+- [x] Hero no computador com o topo da cabeça na altura do nome, em qualquer largura, e a gaita sempre à vista; vídeos com a capa de cada post (pedido de 10/11/2026).
 - [ ] Data de lançamento do curso e decisão sobre lista de e-mail (spec, pendência P11).
 - [x] Seção "Gaita rock que viralizou" com os três vídeos mais vistos do Instagram @du.gaita e mais de 2 milhões de visualizações; Instagram no rodapé (spec, pendências P12 e P2).
 - Verificado em 10/11/2026: QA nas cinco larguras sem erro, nove botões com a mensagem certa, marcas e botões numa linha só; Lighthouse local em três rodadas, 98 a 99 em desempenho e 100 nas outras três; LCP 2,3 s; CLS 0. Repetido com a seção de vídeos: mesmo resultado.
