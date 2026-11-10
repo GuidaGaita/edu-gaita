@@ -101,8 +101,8 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 - [x] Hero com foto de rosto e gaita à vista (edu-13); aulas com a edu-26.
 - [x] Mais de 10 anos dando aula e SPAH Youth Scholarship 2021 e 2022 no cartão de aulas e no sobre.
 - [ ] Data de lançamento do curso e decisão sobre lista de e-mail (spec, pendência P11).
-- [ ] Seção do vídeo "Comfortably Numb" (spec, pendência P12).
-- Verificado em 10/11/2026: QA nas cinco larguras sem erro, nove botões com a mensagem certa, marcas e botões numa linha só; Lighthouse local em três rodadas, 98 a 99 em desempenho e 100 nas outras três; LCP 2,3 s; CLS 0.
+- [x] Seção "Gaita rock que viralizou" com os três vídeos mais vistos do Instagram @du.gaita e mais de 2 milhões de visualizações; Instagram no rodapé (spec, pendências P12 e P2).
+- Verificado em 10/11/2026: QA nas cinco larguras sem erro, nove botões com a mensagem certa, marcas e botões numa linha só; Lighthouse local em três rodadas, 98 a 99 em desempenho e 100 nas outras três; LCP 2,3 s; CLS 0. Repetido com a seção de vídeos: mesmo resultado.
 
 ### 1.14 Textos com apelo emocional (pedido de 06/11/2026)
 - [x] Reescrever os textos da página: curso falando de gaita rock; gravações com todos os gêneros (choro, música brasileira, MPB, bossa nova, rock, blues) na diatônica e na cromática.

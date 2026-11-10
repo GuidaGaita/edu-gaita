@@ -94,11 +94,46 @@
     outros.forEach(function (b) { observador.observe(b); });
   }
 
+  /* 5. Contagem dos números de visualização: cada .conta sobe do zero até o número escrito no HTML
+        quando entra na tela. Sem JS ou com movimento reduzido, o número já aparece pronto. */
+  function contagem() {
+    var alvos = document.querySelectorAll(".conta");
+    if (!alvos.length || REDUZIDO || !("IntersectionObserver" in window)) { return; }
+    var formatar = function (v, casas) { return v.toFixed(casas).replace(".", ","); };
+    var dados = [];
+    alvos.forEach(function (el) {
+      var m = el.textContent.match(/^(\d+)(?:,(\d+))?(.*)$/);
+      if (!m) { return; }
+      var casas = m[2] ? m[2].length : 0;
+      var d = { el: el, valor: parseFloat(m[1] + "." + (m[2] || "0")), casas: casas, resto: m[3] };
+      el.textContent = formatar(0, casas) + d.resto;
+      dados.push(d);
+    });
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        if (!entrada.isIntersecting) { return; }
+        obs.unobserve(entrada.target);
+        var d = dados.filter(function (x) { return x.el === entrada.target; })[0];
+        var inicio = null;
+        var passo = function (agora) {
+          if (inicio === null) { inicio = agora; }
+          var t = Math.min((agora - inicio) / 1400, 1);
+          var suave = 1 - Math.pow(1 - t, 3);
+          d.el.textContent = formatar(d.valor * suave, d.casas) + d.resto;
+          if (t < 1) { window.requestAnimationFrame(passo); }
+        };
+        window.requestAnimationFrame(passo);
+      });
+    }, { threshold: 0.6 });
+    dados.forEach(function (d) { obs.observe(d.el); });
+  }
+
   function partida() {
     revelacao();
     faixaRolante();
     barra();
     flutuante();
+    contagem();
   }
 
   if (document.readyState === "loading") {
