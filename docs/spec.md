@@ -1,15 +1,16 @@
-# Especificação: landing page de Eduardo Leopoldino, gaitista
+# Especificação: landing page de Eduardo Gonçalves, gaitista
 
 Versão 0.3, escrita em 26/10/2026 e revisada em 27/10/2026, quando a página ganhou a estrutura e o movimento do site
 GuidaGaita, de quem contratou (fotos de fundo, cartões de serviço, animações). Status: aprovada em conversa com quem
 contratou o projeto; entrega 1 construída, aguardando publicação.
 Os textos da página ficam genéricos até chegar o currículo do cliente (ver seção 11, Premissas e pendências).
 Fatos confirmados em 26/10/2026: o cliente é de Brasília, DF; as aulas são só online; as gravações são só a distância.
+Confirmados em 10/11/2026, pelo cliente: o nome na página é Eduardo Gonçalves; dá aula há mais de 10 anos; foi selecionado para o SPAH Youth Scholarship (a lista de bolsistas em spah.org/youth-scholarships traz "Eduardo Gonçalves" em 2021, convenção virtual, e em 2022).
 Informado por quem contratou em 06/11/2026: nas gravações, ele é especializado em todos os gêneros (choro, música brasileira, MPB, bossa nova, rock, blues), na gaita diatônica e na cromática.
 
 ## 1. Resumo
 
-Página única (landing page), em português do Brasil, para Eduardo Leopoldino, gaitista com foco em gaita rock.
+Página única (landing page), em português do Brasil, para Eduardo Gonçalves, gaitista eclético; a pegada do rock fica só no curso de gaita rock (pedido do cliente em 27/10/2026).
 A página tem um trabalho só: fazer quem chega mandar mensagem no WhatsApp pedindo um dos quatro serviços.
 Sem formulário, sem CMS, sem blog, sem área de login.
 
@@ -80,7 +81,7 @@ Uma página, rolagem vertical, nesta ordem:
 | # | Seção | O que tem | Entrega |
 |---|---|---|---|
 | 0 | Barra superior | Nome em texto, à esquerda; botão compacto "WhatsApp", à direita. Fica fixa no topo e some ao rolar pra baixo, volta ao rolar pra cima. | 1 |
-| 1 | Hero | Foto edu-9 (sentado, olhando a gaita na mão) atrás de um véu leve: no desktop ocupa os 44 % da direita, com o rosto fora da coluna do nome; no celular ocupa o alto da tela e o texto fica embaixo. Luzes de palco e faíscas; com luzes de palco e faíscas; por cima, sobretítulo "Gaitista de rock · Brasília, DF" com um equalizador pulsando, nome em cromo (assinatura visual) entrando como carimbo, frase de posicionamento palavra por palavra, botão primário de WhatsApp e botão secundário "Ver serviços". | 1 |
+| 1 | Hero | Foto edu-13 (de frente pra câmera, com a gaita cromática na mão, abaixo do queixo) atrás de um véu leve: no desktop ocupa os 44 % da direita, com o rosto fora da coluna do nome; no celular ocupa o alto da tela e o texto fica embaixo. Luzes de palco e faíscas; com luzes de palco e faíscas; por cima, sobretítulo "Gaitista de rock · Brasília, DF" com um equalizador pulsando, nome em cromo (assinatura visual) entrando como carimbo, frase de posicionamento palavra por palavra, botão primário de WhatsApp e botão secundário "Ver serviços". | 1 |
 | 1b | Faixa rolante | Setlist decorativo passando em loop: "Aulas online ★ Gravações a distância ★ Shows ★ Eventos particulares ★ Brasília, DF ★ Rock e blues ★ Choro e bossa nova ★ MPB ★ Diatônica e cromática". Escondida de leitores de tela. | 1 |
 | 2 | Serviços | Sobretítulo "Serviços", título "Onde a gaita entra na sua vida", linha de apoio "Aprender, gravar ou levar pro palco: escolhe o seu caminho e chama no WhatsApp. A conversa já começa no assunto certo." Os quatro serviços da seção 4 em cartões (dois por linha a partir de 620 px), cada um com uma foto do ensaio no topo e seu botão de WhatsApp. Fundo: foto edu-33 (sentado com violão e gaita no suporte). | 1 |
 | 3 | Sobre | Sobretítulo "Sobre", título "Quando a gaita fala mais alto", foto edu-32 numa moldura inclinada com cantoneiras de cromo, texto curto de apresentação, fichas ("Brasília, DF", "Rock e blues", "Choro, MPB e bossa nova", "Diatônica e cromática", "Aulas e gravações online") e botão "Ver serviços". Fundo: foto edu-27 (a mão com a gaita cromática). Genérico na entrega 1, com fatos do currículo na entrega 2. | 1 (texto genérico), 2 (texto final) |
@@ -88,14 +89,14 @@ Uma página, rolagem vertical, nesta ordem:
 | 5 | Vídeo | Um vídeo do YouTube incorporado com fachada leve (carrega o player só ao clicar). Só entra se o cliente tiver vídeo. | 2 |
 | 6 | Depoimentos | Dois ou três depoimentos curtos, só se forem reais e autorizados. | 2 |
 | 7 | Chamada final | Sobretítulo "O bis" entre duas estrelas; fundo com a foto edu-38 (gaitas sobre o violão, horizontal) escurecida; frase "E se a próxima nota for a sua?" palavra por palavra, botão grande de WhatsApp e a linha "Aulas e gravações online · Shows e eventos ao vivo · Brasília, DF". | 1 |
-| 8 | Rodapé | "Eduardo Leopoldino · Gaitista · Brasília, DF", número de WhatsApp em texto clicável, foto edu-39 bem apagada ao fundo, redes sociais **[A CONFIRMAR]**, crédito de fotos **[A CONFIRMAR]**, "© 2026 Eduardo Leopoldino". | 1 |
+| 8 | Rodapé | "Eduardo Gonçalves · Gaitista · Brasília, DF", número de WhatsApp em texto clicável, foto edu-39 bem apagada ao fundo, redes sociais **[A CONFIRMAR]**, crédito de fotos **[A CONFIRMAR]**, "© 2026 Eduardo Gonçalves". | 1 |
 | F | Botão flutuante | Botão de WhatsApp fixo no canto inferior direito, visível sempre que nenhum outro botão de WhatsApp do conteúdo está na tela (seção 6). | 1 |
 
-Sobretítulo do hero: "Gaitista de rock · Brasília, DF" (cidade confirmada em 26/10/2026).
+Sobretítulo do hero: "Gaitista · Brasília, DF" (cidade confirmada em 26/10/2026; "de rock" saiu em 10/11/2026, a pedido do cliente). Botão secundário do hero: "Conhecer o curso", que leva à seção do curso.
 
 Frase de posicionamento do hero: "Aquele som de gaita que arrepia, agora na sua mão, na sua música e na sua festa." A mão é o curso e as aulas, a música é a gravação, a festa é o show ou o evento.
 
-Texto genérico do "Sobre" (entrega 1): "Eduardo Leopoldino é gaitista de Brasília, DF, com o coração no rock e especializado em todos os gêneros: do blues ao choro, da MPB à bossa nova, na gaita diatônica e na cromática." Segundo parágrafo: "A gaita dele chega até você de três jeitos: ele ensina quem quer aprender, grava para outros artistas e leva a gaita para palcos e festas. Aulas e gravações são online, para qualquer cidade." Na entrega 2 esse parágrafo é trocado por três ou quatro fatos verificáveis do currículo: anos tocando, com quem tocou ou gravou, formação.
+Texto genérico do "Sobre" (entrega 1): "Eduardo Gonçalves é gaitista de Brasília, DF, com o coração no rock e especializado em todos os gêneros: do blues ao choro, da MPB à bossa nova, na gaita diatônica e na cromática." Segundo parágrafo: "A gaita dele chega até você de três jeitos: ele ensina quem quer aprender, grava para outros artistas e leva a gaita para palcos e festas. Aulas e gravações são online, para qualquer cidade." Na entrega 2 esse parágrafo é trocado por três ou quatro fatos verificáveis do currículo: anos tocando, com quem tocou ou gravou, formação.
 
 Voz dos textos: informal, direta, sem gíria forçada e sem superlativos ("o melhor", "único"). Desde 06/11/2026 os textos apelam à emoção: a frase de efeito fala do que quem lê sente ou quer (o arrepio do solo, a vontade de tocar), e os fatos sobre o cliente continuam só os confirmados. Verbo no imperativo nos botões, dizendo o que acontece ("Chamar no WhatsApp", nunca "Enviar"). Sempre o mesmo nome pra mesma ação em toda a página.
 
@@ -163,7 +164,7 @@ Escala (tamanhos fluidos com `clamp`):
 
 ### 7.3 Assinatura: o nome estampado no cromo
 
-O nome "EDUARDO LEOPOLDINO" no hero é a única coisa que brilha na página. Tratamento: gradiente vertical de cromo
+O nome "EDUARDO GONÇALVES" no hero é a única coisa que brilha na página. Tratamento: gradiente vertical de cromo
 (claro em cima, cinza no meio) que termina numa faixa âmbar na base das letras, como o cromo das gaitas refletindo a
 madeira do violão nas fotos edu-40 e edu-41. Um relevo mínimo (1 px de luz em cima, sombra curta embaixo) dá o efeito de
 letra estampada na placa da gaita. Cada linha do nome recebe o gradiente inteiro.
@@ -186,24 +187,24 @@ some em degradê, em vez de uma fatia irreconhecível esticada na seção inteir
 (multiply) e revela a cor; no desktop ela também deriva um pouco mais devagar que a página. Tudo por linha do tempo de
 rolagem, sem JS; sem suporte, fica um tom de aço leve e fixo.
 
-Hero: foto edu-9 sem zoom, à direita no desktop e no alto no celular e no tablet, véu mais fechado embaixo (e à esquerda, no desktop), luzes de
+Hero: foto edu-13 sem zoom, à direita no desktop e no alto no celular e no tablet, véu mais fechado embaixo (e à esquerda, no desktop), luzes de
 palco (dois feixes cônicos balançando) e faíscas em canvas. Conteúdo centralizado no celular e alinhado à esquerda a
 partir de 900 px:
 
 ```
 +---------------------------------------------------------------+
-| EDUARDO LEOPOLDINO                               [ WhatsApp ] |  barra
+| EDUARDO GONÇALVES                               [ WhatsApp ] |  barra
 +---------------------------------------------------------------+
 |  .. foto edu-24 atrás do véu, faíscas subindo, luzes de palco  |
 | |||. GAITISTA DE ROCK · BRASÍLIA, DF                          |
 |                                                               |
 | EDUARDO                                                       |
-| LEOPOLDINO      (cromo, entra como carimbo)                   |
+| GONÇALVES      (cromo, entra como carimbo)                   |
 |                                                               |
 | Aquele som de gaita que arrepia, agora na sua mão,            |
 | na sua música e na sua festa.                                 |
 |                                                               |
-| [Chamar no WhatsApp] [Ver serviços]                           |
+| [Chamar no WhatsApp] [Conhecer o curso]                       |
 +---------------------------------------------------------------+
 | AULAS ONLINE ★ GRAVAÇÕES A DISTÂNCIA ★ SHOWS ★ EVENTOS ...  → |  faixa rolante
 +---------------------------------------------------------------+
@@ -278,9 +279,9 @@ Os originais nunca entram no repositório nem no site.
 
 | Onde | Foto | Corte | Entrega |
 |---|---|---|---|
-| Hero (fundo) | edu-9 | sentado, olhando a gaita na mão; à direita do nome no desktop, no alto da tela no celular; presa pelo topo | 1 |
+| Hero (fundo) | edu-13 | de frente pra câmera, rosto e gaita à vista; à direita do nome no desktop, no alto da tela no celular; presa pelo topo | 1 |
 | Cartão do curso | edu-1 | de óculos escuros, tocando; à esquerda do texto a partir de 720 px | 1 |
-| Cartões de serviço | edu-14 (aulas), edu-17 (gravações), edu-36 (shows e eventos, de óculos escuros) | no alto do cartão, presas pelo topo, somem em degradê até a metade dele; o texto fica abaixo, sobre o fundo liso | 1 |
+| Cartões de serviço | edu-26 (aulas), edu-17 (gravações), edu-36 (shows e eventos, de óculos escuros) | no alto do cartão, presas pelo topo, somem em degradê até a metade dele; o texto fica abaixo, sobre o fundo liso | 1 |
 | Serviços (fundo) | edu-33 | sentado no muro com violão e gaita no suporte | 1 |
 | Sobre (moldura) | edu-32 | retrato 3:4 na moldura, gaita no bolso da camisa | 1 |
 | Sobre (fundo) | edu-27 | a mão com a gaita cromática, atrás do bloco do "Sobre" | 1 |
@@ -316,7 +317,7 @@ Hero com `fetchpriority="high"` e `preload`; todas as outras com `loading="lazy"
   afastamento); marcos semânticos (`header`, `main`, `section` com título, `footer`); ordem de títulos sem pulo;
   `alt` descritivo em toda foto; alvos de toque de no mínimo 44 × 44 px; `prefers-reduced-motion` respeitado;
   `lang="pt-BR"`.
-- **SEO**: `title` "Eduardo Leopoldino · Gaitista · Aulas online, gravações e shows"; `meta description` de até
+- **SEO**: `title` "Eduardo Gonçalves · Gaitista · Aulas online, gravações e shows"; `meta description` de até
   155 caracteres; `canonical`; Open Graph e Twitter Card com a imagem da seção 8; favicon (SVG, PNG 192 e 512,
   `apple-touch-icon`); `robots.txt` e `sitemap.xml`; dados estruturados JSON-LD de `Person` (com `jobTitle`
   "Gaitista", `telephone`, `sameAs` das redes) na entrega 2, quando houver cidade e redes confirmadas.
@@ -359,13 +360,14 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | # | Item | Premissa adotada até resposta | Quem resolve |
 |---|---|---|---|
 | P2 | Redes sociais (Instagram, YouTube, Spotify) | nenhuma listada; rodapé sem redes | cliente |
-| P3 | Fatos da bio: anos tocando, bandas e artistas, formação | parágrafo genérico da seção 5 | cliente, via currículo |
+| P3 | Fatos da bio: anos tocando, bandas e artistas, formação | já na página: mais de 10 anos dando aula e o SPAH Youth Scholarship (10/11/2026); o resto espera o currículo | cliente, via currículo |
 | P4 | Formatos de shows e eventos (solo/banda, duração dos sets, deslocamento) | textos sem promessa de formato; aulas e gravações já confirmadas como online | cliente |
 | P5 | Vídeo e áudio dele tocando | sem seção de vídeo na entrega 1 | cliente |
 | P6 | Depoimentos | sem seção de depoimentos | cliente |
 | P7 | Hospedagem definitiva e domínio | validação no GitHub Pages; depois, Pages com domínio próprio ou Vercel, a decidir; domínio `.com.br` pelo registro.br quando o cliente quiser | quem desenvolve e cliente |
 | P8 | Analytics | nenhum no lançamento | cliente, depois do lançamento |
-| P11 | Curso de gaita rock: data, formato, conteúdo, preço e lista de pré-venda | cartão diz só "em breve" e leva pro WhatsApp; nada prometido além disso | cliente |
+| P11 | Curso de gaita rock: data, formato, conteúdo, preço e lista de pré-venda | cartão diz só "em breve" e leva pro WhatsApp; nada prometido além disso. O cliente pediu também e-mail pra receber novidades e uma data de lançamento: a data espera ele; o e-mail exige um serviço de formulário de terceiros, fora da regra "sem formulário, sem script de terceiros", e fica pra decidir | cliente |
+| P12 | Vídeo "Comfortably Numb" que viralizou no Instagram | seção própria proposta, com capa do vídeo e botão pro post; sem imitar a interface do Instagram e sem números que ele não mandar | cliente: link do post, capa e números reais |
 | P9 | Crédito das fotos no rodapé | a definir; os direitos estão liberados | quem desenvolve |
 | P10 | Preço na página | não mostra (decidido em 26/10/2026) | fechado |
 
@@ -399,6 +401,7 @@ versão em outro idioma; app; integração com Instagram ou Spotify além de lin
 | 27/10/2026 | A pedido: foto do hero e do cartão de aulas trocadas (hero edu-9, aulas edu-14); cartão de eventos com edu-36, de óculos escuros (a edu-34 foi pra galeria); fotos presas pelo topo pra não cortar a cabeça; nos cartões a foto cobre o alto do cartão e some de vez até a metade dele, com o texto abaixo, sobre o fundo liso (ajustado no mesmo dia porque o texto sobre a foto ficava ruim de ler). No celular a foto é um bloco de altura fixa no topo e o texto fica junto embaixo, com linhas mais apertadas; etiqueta de formato com fundo escuro; cada marca e cada botão numa linha só. |
 | 03/11/2026 | Cartão "Curso de gaita rock!" como primeiro produto, em breve, com mensagem própria de pré-venda no WhatsApp e animações de fogo: chamas em canvas (`js/fogo.js`), brasa nas bordas, título tremulando, fita acelerada. |
 | 03/11/2026 | Fogo tirado do cartão do curso: sem as chamas em canvas (`js/fogo.js` saiu), ficam a borda, o brilho de dentro e o brilho do título pulsando no mesmo compasso. Shows e eventos particulares num cartão só, largo e com a foto edu-36 à direita; a edu-35 saiu do repositório. |
+| 10/11/2026 | Pedidos do cliente (áudios de 27/10/2026): nome trocado para Eduardo Gonçalves; o rock fica restrito ao curso, que ganhou seção própria logo depois da faixa rolante, e gravações, shows e sobre ficam ecléticos; hero com a edu-13, rosto e gaita à vista (a edu-9 saiu), e aulas com a edu-26 (a edu-14 saiu, por ser quase igual à do hero). Fatos novos na página: mais de 10 anos dando aula e o SPAH Youth Scholarship de 2021 e 2022. |
 | 06/11/2026 | Todos os textos reescritos com apelo emocional, a pedido: curso falando de gaita rock, gravações com a especialização em todos os gêneros, novos títulos em serviços, sobre e chamada final. Nomes dos botões e mensagens do WhatsApp sem mudança. |
 | 03/11/2026 | Sem zoom nas fotos: nos cartões a foto fica na largura exata, num bloco quadrado no topo, e o texto começa a 82 % da largura do cartão, abaixo do rosto, em todas as larguras. Hero no computador ocupa os 44 % da direita, com a foto quase inteira. Molduras com a foto inteira (2:3) e sem aumentar no hover. |
 | 03/11/2026 | Faíscas do hero começam só depois do carregamento e a faixa rolante não mede mais o layout na partida, pra segurar o tempo de bloqueio com o canvas novo. Grade de cartões em duas colunas a partir de 720 px. |

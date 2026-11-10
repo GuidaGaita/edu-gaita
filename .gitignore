@@ -22,3 +22,6 @@ desktop.ini
 # Ferramentas de verificação (Node)
 scripts/qa/node_modules/
 scripts/qa/saida/
+
+# Material privado do cliente (áudios): nunca vai pro repositório
+/apenas pro claude nao e pra ir pro git/

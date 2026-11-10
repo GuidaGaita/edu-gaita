@@ -1,5 +1,5 @@
 /* ============================================================
-   Landing page de Eduardo Leopoldino, gaitista.
+   Landing page de Eduardo Gonçalves, gaitista.
    Direção visual "Cromo e mel sobre veludo" (docs/spec.md, seção 7), com a
    estrutura e o movimento do site GuidaGaita (decisão de 27/10/2026): foto
    de fundo em cada seção, cartões de serviço, revelação ao rolar, faixa
@@ -176,6 +176,8 @@ body::before {
 .com-fundo > .faixa { position: relative; z-index: 2; }
 
 /* Intensidade e enquadramento, seção a seção */
+/* O curso vem logo depois da faixa rolante e encosta nos serviços: menos espaço entre os dois. */
+.secao-curso { padding-bottom: 0; }
 .secao-servicos { --fundo-op: 0.6; --veu: 0.62; }
 .secao-servicos .fundo { --pos: 50% 30%; }
 .secao-sobre { --fundo-op: 0.55; --veu: 0.64; }
@@ -462,7 +464,7 @@ body::before {
 .js .revela.entrou .ink-mel { background-size: 100% 2px; }
 /* Aulas e gravações entram em sequência, onde ficam lado a lado */
 @media (min-width: 720px) {
-  .cartoes .cartao:nth-child(3) { --d: 120ms; }
+  .cartoes .cartao:nth-child(2) { --d: 120ms; }
 }
 
 /* ---------- Transições de hover (no bloco de movimento reduzido viram instantâneas) ---------- */

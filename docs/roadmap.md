@@ -1,4 +1,4 @@
-# Roadmap de construção: landing page de Eduardo Leopoldino
+# Roadmap de construção: landing page de Eduardo Gonçalves
 
 Escrito em 26/10/2026 e atualizado em 27/10/2026, quando a entrega 1 ganhou a versão rock (fotos de fundo, cartões de
 serviço e animações, no modelo do site GuidaGaita). Sem prazo fechado. Duas entregas: a primeira é o MVP publicado no
@@ -64,7 +64,7 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 
 ### 1.7 Chamada final, rodapé e botão flutuante
 - [x] Chamada final com edu-38 escurecida, sobretítulo "O bis", frase "Vamos colocar gaita nisso?" palavra por palavra e botão grande de WhatsApp.
-- [x] Rodapé com "Eduardo Leopoldino · Gaitista · Brasília, DF", número em texto clicável, "© 2026 Eduardo Leopoldino" e a foto edu-39 bem apagada ao fundo; comentário no HTML marcando onde entram redes e crédito de fotos.
+- [x] Rodapé com "Eduardo Gonçalves · Gaitista · Brasília, DF", número em texto clicável, "© 2026 Eduardo Gonçalves" e a foto edu-39 bem apagada ao fundo; comentário no HTML marcando onde entram redes e crédito de fotos.
 - [x] Botão flutuante fixo, com área segura do iPhone, que só aparece quando nenhum outro botão de WhatsApp do conteúdo está na tela.
 - Pronto quando: o botão flutuante nunca cobre outro botão de WhatsApp (verificado em cinco larguras) e todos os links do rodapé funcionam.
 
@@ -94,6 +94,15 @@ Legenda: `[x]` feito e verificado, `[ ]` a fazer, `[~]` feito mas com verificaç
 - [x] Fotos sem zoom e rosto livre nos cartões, no celular e no computador; hero sem zoom.
 - [ ] O cliente confirmar o texto da pré-venda e que vai atender essas mensagens (spec, pendência P11).
 - Verificado em 03/11/2026: QA nas cinco larguras sem erro; Lighthouse local em três rodadas, 94 a 97 em desempenho e 100 nas outras três; LCP 2,4 a 2,5 s; CLS 0.
+
+### 1.15 Pedidos dos áudios do cliente e primeiros fatos do currículo (10/11/2026)
+- [x] Nome trocado para Eduardo Gonçalves em toda a página, na imagem de compartilhamento e no manifesto.
+- [x] Rock restrito ao curso, que ganhou seção própria; gravações, shows e sobre ecléticos.
+- [x] Hero com foto de rosto e gaita à vista (edu-13); aulas com a edu-26.
+- [x] Mais de 10 anos dando aula e SPAH Youth Scholarship 2021 e 2022 no cartão de aulas e no sobre.
+- [ ] Data de lançamento do curso e decisão sobre lista de e-mail (spec, pendência P11).
+- [ ] Seção do vídeo "Comfortably Numb" (spec, pendência P12).
+- Verificado em 10/11/2026: QA nas cinco larguras sem erro, nove botões com a mensagem certa, marcas e botões numa linha só; Lighthouse local em três rodadas, 98 a 99 em desempenho e 100 nas outras três; LCP 2,3 s; CLS 0.
 
 ### 1.14 Textos com apelo emocional (pedido de 06/11/2026)
 - [x] Reescrever os textos da página: curso falando de gaita rock; gravações com todos os gêneros (choro, música brasileira, MPB, bossa nova, rock, blues) na diatônica e na cromática.
